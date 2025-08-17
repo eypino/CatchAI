@@ -1,0 +1,79 @@
+[0.00s -> 4.24s]  Hola muy buenas, ¿cómo estamos?
+[0.00s -> 4.30s]  Aquí estamos haciendo una prueba, prueba número 1
+[0.00s -> 5.72s]  prueba número uno aló aló
+[0.00s -> 3.96s]  Prueba número uno, a ver qué tal funciona esto.
+[0.00s -> 3.98s]  Se demora entre 4 a 5 segundos
+[0.00s -> 5.16s]  Igual va a ser bastante complicado.
+[0.00s -> 3.98s]  complicado que sea real time
+[0.00s -> 3.70s]  Igual mi vocabulario no ha sido tanto
+[0.00s -> 1.04s]  Específico
+[1.04s -> 4.98s]  Se demora bastante
+[0.00s -> 6.40s]  tiene un delay bastante aceptable pero
+[0.00s -> 2.76s]  manejar
+[0.00s -> 5.00s]  Lo bueno sí es que la interferencia del ruido ya no...
+[0.00s -> 4.84s]  es que el ruido
+[0.00s -> 6.92s]  ya no sale con traducción de suscríbete
+[0.00s -> 2.96s]  Palabra
+[2.96s -> 3.94s]  Sin
+[0.00s -> 5.84s]  infiere lo que se espera
+[0.00s -> 1.44s]  si hablo muy rápido
+[0.00s -> 1.96s]  de lanzar, no sé, un rap
+[1.96s -> 3.60s]  como de
+[3.60s -> 4.98s]  Michael Jackson y
+[0.00s -> 2.28s]  Cosa que Michael Jackson no hace rap
+[0.00s -> 1.76s]  Tendría que
+[1.76s -> 4.94s]  ¿Qué pasa si hago eso?
+[0.00s -> 3.54s]  Claro, no lo capto tan rápido
+[0.00s -> 4.96s]  Mira, por lo menos lo detecta
+[0.00s -> 2.26s]  Bien, lo que se está tomando se está detectando hoy.
+[2.56s -> 2.86s]  Bien.
+[0.00s -> 3.14s]  las cosas
+[3.14s -> 4.68s]  hay ciertas cosas que se
+[0.00s -> 6.32s]  que no se captan pero lo bueno es que queda claro la idea
+[0.00s -> 1.82s]  No sé cuánto se está ejecutando
+[1.82s -> 3.30s]  Pero creo que es un buen
+[0.00s -> 1.22s]  Inicio
+[1.22s -> 5.00s]  Ahora, si tuviera otros componentes
+[0.00s -> 1.82s]  Sería mejor
+[1.82s -> 5.02s]  Ya que se podría procesar
+[0.00s -> 1.82s]  Más rápido
+[1.82s -> 4.66s]  Y...
+[4.66s -> 4.98s]  Obviamente
+[0.00s -> 2.92s]  teniendo un mejor contexto
+[2.92s -> 5.00s]  se puede utilizar otros tipos
+[0.00s -> 2.18s]  de modelo, entonces por ahora
+[2.18s -> 3.40s]  un 30%
+[3.40s -> 5.00s]  aceptable
+[0.00s -> 2.12s]  Como primero por
+[2.12s -> 3.74s]  Eso está bien
+[0.00s -> 5.00s]  Dejé de hablar unos 20 minutos, no, 20 minutos.
+[0.00s -> 5.04s]  Dejé de hablar como uno...
+[0.00s -> 2.66s]  ¿cuántos serían? un minuto, dos minutos
+[2.66s -> 4.54s]  de lo que ya estaba diciendo
+[4.54s -> 4.98s]  previamente
+[0.00s -> 2.16s]  texto saliendo, así que
+[2.16s -> 3.00s]  sale
+[3.00s -> 4.70s]  lo reconoce
+[0.00s -> 4.88s]  y se está escribiendo de hecho estaría bueno poder integrar un timer para
+[0.00s -> 6.14s]  saber en qué minuto salió lo que se está diciendo cosas de que la predicción
+[0.00s -> 2.28s]  Tenga un
+[2.28s -> 3.56s]  Retorno
+[3.56s -> 5.02s]  Para hacer
+[0.00s -> 3.92s]  saber cuánto es lo que se demora de una oración a otra o de lo que se dijo.
+[0.00s -> 5.00s]  Para hacer la primera prueba no está tan mal, pero...
+[0.00s -> 3.88s]  Hay que mejorar el sistema
+[0.00s -> 6.72s]  dejarlo lo más pulido posible, aunque esto se va a ir viendo más adelante
+[0.00s -> 2.66s]  con el otro modelo
+[2.66s -> 4.34s]  que debería
+[4.34s -> 5.02s]  destilar
+[0.00s -> 1.92s]  este, aunque
+[1.92s -> 4.92s]  como lo vemos
+[0.00s -> 2.14s]  Podemos tratar de utilizar esto
+[2.14s -> 4.02s]  Y agregarle
+[4.02s -> 4.88s]  Lo
+[0.00s -> 3.32s]  lo que falta que es el mapeo
+[3.32s -> 4.98s]  de las palabras
+[0.00s -> 0.98s]  correspondientes
+[0.98s -> 5.00s]  así que
+[0.00s -> 4.42s]  las expresiones puede que no las tome muy bien
+[0.00s -> 2.44s]  que queda ahí
