@@ -1,0 +1,4 @@
+model,device,beam,elapsed_s,audio_s,RTF,WER,hypothesis
+small,cpu,1,0.04,3.39,0.01,0.0,"Hola, ¿cómo estás tú?"
+medium,cpu,1,0.02,3.39,0.01,0.0,"Hola, ¿cómo estás tú?"
+large-v3,cpu,5,0.03,3.39,0.01,0.0,"Hola, ¿cómo estás tú?"

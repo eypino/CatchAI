@@ -77,3 +77,130 @@
 [0.98s -> 5.00s]  así que
 [0.00s -> 4.42s]  las expresiones puede que no las tome muy bien
 [0.00s -> 2.44s]  que queda ahí
+[0.00s -> 5.00s]  Hola buenas, buenas tardes
+[0.00s -> 4.22s]  esta es una prueba, prueba número uno
+[0.00s -> 2.00s]  Buenas, este es una prueba para...
+[0.00s -> 3.00s]  utiliza el modelo
+[0.00s -> 1.60s]  de medium
+[0.00s -> 2.00s]  es para ver si se reproduce
+[0.00s -> 2.00s]  igual está tomando
+[0.00s -> 2.00s]  llevando bastante tiempo
+[0.00s -> 2.00s]  transcripción no sé si
+[0.00s -> 0.50s]  particular.
+[0.00s -> 3.76s]  prueba con
+[0.00s -> 2.00s]  el modelo es mo...
+[0.00s -> 2.00s]  y
+[0.00s -> 2.00s]  vamos a ver si...
+[0.00s -> 1.12s]  con los estándares.
+[0.00s -> 2.00s]  la verdad es que va
+[0.00s -> 2.00s]  más rápido obviamente porque su modelo
+[0.00s -> 1.88s]  chico pero tiene
+[0.00s -> 2.00s]  mayor problema
+[0.00s -> 3.80s]  al momento de
+[0.00s -> 2.00s]  y recopilar la información.
+[0.00s -> 2.00s]  Así que...
+[0.00s -> 2.00s]  no dure tanto
+[0.00s -> 2.00s]  a probar con más su...
+[0.00s -> 2.00s]  a ver si capta la oración es completa
+[0.00s -> 2.00s]  para que sea real time la verdad
+[0.00s -> 2.00s]  Está bueno.
+[0.00s -> 3.76s]  cercano que puedo lograr con
+[0.00s -> 0.50s]  S.B.U.
+[0.00s -> 2.00s]  sepe
+[0.00s -> 2.00s]  P.U.
+[0.00s -> 2.00s]  sepio
+[0.00s -> 2.00s]  se pio
+[0.00s -> 6.00s]  Hola buenas, esta otra prueba con el...
+[0.00s -> 2.00s]  model es small
+[0.00s -> 3.44s]  es para ver si
+[0.00s -> 2.00s]  y la elaboración es completa.
+[0.00s -> 2.16s]  se puede obtener un poco más de contenido.
+[0.00s -> 4.96s]  5 segundos la verdad es que no está tan mal pero se demoró
+[0.00s -> 3.00s]  obviamente más, se demora unos segundos más.
+[0.00s -> 3.90s]  pero igual es notable
+[0.00s -> 2.00s]  el equilibrio que hay
+[0.00s -> 2.00s]  muy buenas tardes
+[0.00s -> 2.00s]  Estoy haciendo la prueba...
+[0.00s -> 2.00s]  de como quedó
+[0.00s -> 2.00s]  el modelo
+[0.00s -> 2.00s]  a través de las...
+[0.00s -> 2.00s]  varias opciones que se pueden
+[0.00s -> 1.76s]  hacer como la duración.
+[0.00s -> 2.00s]  de los chunks
+[0.00s -> 2.00s]  la duración en segundos de...
+[0.00s -> 2.00s]  en el bloque
+[0.00s -> 1.16s]  también el modelo.
+[0.00s -> 2.00s]  Está bastante estable hasta...
+[0.00s -> 3.80s]  ahora la verdad es que
+[0.00s -> 2.00s]  me sorpre
+[0.00s -> 1.70s]  de que haya mejorado harto.
+[0.00s -> 2.00s]  Ya cambiando la duración.
+[0.00s -> 2.00s]  el tema del manejo de los...
+[0.00s -> 2.00s]  bastante preciso
+[0.00s -> 2.00s]  a contar algo ahora
+[0.00s -> 2.00s]  la verdad es que podría...
+[0.00s -> 2.00s]  verlo al tiro.
+[0.00s -> 2.00s]  se demora entre 1 a 12 segundos
+[0.00s -> 2.00s]  ¡No hay nada!
+[0.00s -> 2.00s]  ayúdame
+[0.00s -> 2.00s]  que está grabando.
+[0.00s -> 2.00s]  es una prueba así que
+[0.00s -> 2.00s]  Ahí se puede ver cómo está...
+[0.00s -> 2.00s]  saliendo a un segundo.
+[0.00s -> 2.00s]  más o menos
+[0.00s -> 2.00s]  obviamente lo que se está...
+[0.00s -> 2.00s]  retornando
+[0.00s -> 2.00s]  que se está haciendo de dos segundos
+[0.00s -> 2.00s]  y el procesamiento de 0,5.
+[0.00s -> 2.00s]  así que
+[0.00s -> 2.00s]  eso lo
+[0.00s -> 3.80s]  que tengo por lo menos para mostrar
+[0.00s -> 2.00s]  de lo avance que estaba haciendo
+[0.00s -> 2.00s]  por lo menos en
+[0.00s -> 2.00s]  en esta área ya tenemos como una...
+[0.00s -> 2.00s]  una visión de
+[0.00s -> 2.00s]  de lo que se espera.
+[0.00s -> 2.00s]  como de base se podrá decir
+[0.00s -> 1.34s]  que como dije no tengo
+[0.00s -> 2.00s]  una GPU
+[0.00s -> 2.00s]  que permita acudar.
+[0.00s -> 2.00s]  así que
+[0.00s -> 2.00s]  es lo que tengo hasta hoy
+[0.00s -> 2.00s]  si se tuviera una jefe.
+[0.00s -> 2.00s]  más adecuado.
+[0.00s -> 2.00s]  por la mano sirve.
+[0.00s -> 2.00s]  y obviamente hay algunas errores que...
+[0.00s -> 2.00s]  es por el tema de la traducción o como se...
+[0.00s -> 2.00s]  dice
+[0.00s -> 2.00s]  Pero esto se puede arreglar y...
+[0.00s -> 1.44s]  cuando se pasa el tema de
+[0.00s -> 2.00s]  de la normalización.
+[0.00s -> 2.00s]  Ahí se puede corregir esto pero
+[0.00s -> 2.00s]  por lo menos ya lo estás sacando de vos ate
+[0.00s -> 2.00s]  texto y falta obviamente la...
+[0.00s -> 2.00s]  la evaluación de ese texto que eso
+[0.00s -> 2.00s]  va a ser otro punto más.
+[0.00s -> 3.90s]  adelante pero lo que es vos
+[0.00s -> 2.00s]  texto ya está
+[0.00s -> 2.00s]  de hacer unas correcciones nomas una
+[0.00s -> 3.12s]  mejoras de
+[0.00s -> 1.84s]  de velocidad quizá y de calidad
+[0.00s -> 2.00s]  pero eso se tiene que hacer
+[0.00s -> 2.00s]  lo que se espera de
+[0.00s -> 2.00s]  que se tuviera para ser...
+[0.00s -> 2.00s]  verdad.
+[0.00s -> 2.00s]  para obtener los macros de segundo...
+[0.00s -> 2.00s]  lo que se va a demorar.
+[0.00s -> 3.28s]  procesar esto
+[0.00s -> 2.00s]  así que
+[0.00s -> 2.00s]  esto es lo que tengo
+[0.00s -> 2.00s]  si eso se sabe bien
+[0.00s -> 2.00s]  se parece que es casi de rio
+[0.00s -> 2.00s]  el time ya que se demora segundo se ve en procesar
+[0.00s -> 3.88s]  esto pero todavía falta
+[0.00s -> 2.00s]  los otros pasos
+[0.00s -> 2.00s]  que obviamente va a...
+[0.00s -> 3.44s]  de limitar un poco
+[0.00s -> 2.00s]  los segundos diferentes
+[0.00s -> 2.00s]  así que
+[0.00s -> 2.00s]  Eso, eso quiere mostrarle hasta ahora.
