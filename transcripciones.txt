@@ -30,3 +30,7 @@
 [0.00s -> 2.00s]  Hola, ¿cómo estamos? -> ['HOLA', '¿', 'C', 'Ó', 'M', 'O', 'E', 'S', 'T', 'A', 'M', 'O', 'S']
 [0.00s -> 2.00s]  Hola, hola, hola -> ['HOLA', 'HOLA', 'HOLA']
 [0.00s -> 2.00s]  número uno viendo la copilación -> ['N', 'Ú', 'M', 'E', 'R', 'O', 'U', 'N', 'O', 'V', 'I', 'E', 'N', 'D', 'O', 'L', 'A', 'C', 'O', 'P', 'I', 'L', 'A', 'C', 'I', 'Ó', 'N']
+[0.00s -> 2.00s]  Hola buenas tardes -> ['H', 'O', 'L', 'A', 'B', 'U', 'E', 'N', 'A', 'S', 'T', 'A', 'R', 'D', 'E', 'S']
+[0.00s -> 2.00s]  es -> ['E', 'S']
+[0.00s -> 2.00s]  Esto es el TASCLOC -> ['E', 'S', 'T', 'O', 'E', 'S', 'E', 'L', 'T', 'A', 'S', 'C', 'L', 'O', 'C']
+[0.00s -> 2.00s]  Desclose -> ['D', 'E', 'S', 'C', 'L', 'O', 'S', 'E']
