@@ -3,3 +3,7 @@ numpy
 pandas
 webrtcvad
 faster-whisper
+fastapi 
+uvicorn 
+jinja2
+#https://visualstudio.microsoft.com/es/visual-cpp-build-tools/
