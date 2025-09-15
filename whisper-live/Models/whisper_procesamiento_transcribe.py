@@ -33,7 +33,7 @@ vad = webrtcvad.Vad(2) # 0=menos sensible, 3=muy sensible
 transcription_file = "transcripciones.txt"
 try:
     # Carga el glosario y elimina espacios en blanco para asegurar la limpieza
-    glosario = set(pd.read_csv(r"C:\Users\TPROY_NBXX\Desktop\CatchAI\whisper-live\diccionario_lsch_glosas_corregido.csv")["Palabra"].str.upper().str.strip().tolist())
+    glosario = set(pd.read_csv(r"C:\Users\luism\Desktop\proyecto\CatchAI\whisper-live\diccionario_lsch_glosas.csv")["Palabra"].str.upper().str.strip().tolist())
     print("✅ Glosario cargado correctamente.")
 except FileNotFoundError:
     print("⚠️ Error: No se encontró el archivo del glosario. La traducción a glosas no funcionará.")
