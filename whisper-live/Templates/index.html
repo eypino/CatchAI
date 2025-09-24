@@ -11,7 +11,8 @@
 
         <div class="d-flex justify-content-center mb-3">
             <button id="startBtn" class="btn btn-success me-2">Iniciar</button>
-            <button id="stopBtn" class="btn btn-danger">Detener</button>
+            <button id="stopBtn" class="btn btn-danger me-2">Detener</button>
+            <button id="exitBtn" class="btn btn-secondary">Salir</button>
         </div>
 
         <div class="card shadow">
@@ -26,6 +27,7 @@
         let ws;
         const startBtn = document.getElementById("startBtn");
         const stopBtn = document.getElementById("stopBtn");
+        const exitBtn = document.getElementById("exitBtn");
         const resultadosDiv = document.getElementById("resultados");
 
         startBtn.addEventListener("click", () => {
@@ -34,18 +36,26 @@
                 ws.onmessage = (event) => {
                     const data = JSON.parse(event.data);
                     const item = document.createElement("p");
-                    item.innerHTML = `<strong>${data.texto}</strong> <br> <span class="text-secondary">${data.glosas.join(" ")}</span>`;
+                    item.innerHTML = `<strong>${data.texto}</strong> <br> 
+                                    <span class="text-secondary">${data.glosas.join(" ")}</span>`;
                     resultadosDiv.appendChild(item);
                     resultadosDiv.scrollTop = resultadosDiv.scrollHeight;
                 };
             }
         });
 
-        stopBtn.addEventListener("click", () => {
+        stopBtn.addEventListener("click", async () => {
             if (ws) {
                 ws.close();
                 ws = null;
             }
+            await fetch("/stop", { method: "POST" }); // 👈 manda señal al backend
+        });
+
+
+        exitBtn.addEventListener("click", async () => {
+            await fetch("/exit", { method: "POST" });
+            window.close(); // intenta cerrar la ventana del navegador
         });
     </script>
 </body>
