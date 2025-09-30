@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ctbup6ijs7etm"
+
+[deps]
+
+files=["res://GitHub/CatchAI/whisper-live/benchmark_results.device.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.beam.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.elapsed.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.audio.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.RTF.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.WER.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.hypothesis.translation"]
+
+source_file="res://GitHub/CatchAI/whisper-live/benchmark_results.csv"
+dest_files=["res://GitHub/CatchAI/whisper-live/benchmark_results.device.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.beam.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.elapsed.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.audio.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.RTF.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.WER.translation", "res://GitHub/CatchAI/whisper-live/benchmark_results.hypothesis.translation"]
+
+[params]
+
+compress=true
+delimiter=0
