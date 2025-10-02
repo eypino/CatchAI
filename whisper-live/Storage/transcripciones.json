@@ -891,5 +891,140 @@
             "N",
             "A"
         ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.56,
+        "texto": " probando",
+        "glosas": [
+            "P",
+            "R",
+            "O",
+            "B",
+            "A",
+            "N",
+            "D",
+            "O"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " hola probando",
+        "glosas": [
+            "HOLA",
+            "P",
+            "R",
+            "O",
+            "B",
+            "A",
+            "N",
+            "D",
+            "O"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " hola probando",
+        "glosas": [
+            "HOLA",
+            "P",
+            "R",
+            "O",
+            "B",
+            "A",
+            "N",
+            "D",
+            "O"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " Hola probando",
+        "glosas": [
+            "HOLA",
+            "P",
+            "R",
+            "O",
+            "B",
+            "A",
+            "N",
+            "D",
+            "O"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " o la probando.",
+        "glosas": [
+            "O",
+            "L",
+            "A",
+            "P",
+            "R",
+            "O",
+            "B",
+            "A",
+            "N",
+            "D",
+            "O"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " ¡Dist, dist!",
+        "glosas": [
+            "¡",
+            "D",
+            "I",
+            "S",
+            "T",
+            "D",
+            "I",
+            "S",
+            "T"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " Hola Profesor",
+        "glosas": [
+            "HOLA",
+            "P",
+            "R",
+            "O",
+            "F",
+            "E",
+            "S",
+            "O",
+            "R"
+        ]
+    },
+    {
+        "inicio": 0.0,
+        "fin": 2.0,
+        "texto": " ¡Perdio!",
+        "glosas": [
+            "¡",
+            "P",
+            "E",
+            "R",
+            "D",
+            "I",
+            "O"
+        ]
     }
 ]

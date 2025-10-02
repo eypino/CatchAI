@@ -254,3 +254,12 @@
 {'inicio': 0.0, 'fin': 2.0, 'texto': ' Ahí debe haber tenido la trampa.', 'glosas': ['A', 'H', 'Í', 'D', 'E', 'B', 'E', 'H', 'A', 'B', 'E', 'R', 'T', 'E', 'N', 'I', 'D', 'O', 'L', 'A', 'TRAMPA']}
 {'inicio': 0.0, 'fin': 0.56, 'texto': ' en la próxima misión.', 'glosas': ['E', 'N', 'L', 'A', 'P', 'R', 'Ó', 'X', 'I', 'M', 'A', 'M', 'I', 'S', 'I', 'Ó', 'N']}
 {'inicio': 0.0, 'fin': 2.0, 'texto': ' Parece que sí, funciona.', 'glosas': ['P', 'A', 'R', 'E', 'C', 'E', 'Q', 'U', 'E', 'SÍ', 'F', 'U', 'N', 'C', 'I', 'O', 'N', 'A']}
+{'inicio': 0.0, 'fin': 2.56, 'texto': ' probando', 'glosas': ['P', 'R', 'O', 'B', 'A', 'N', 'D', 'O']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' hola probando', 'glosas': ['HOLA', 'P', 'R', 'O', 'B', 'A', 'N', 'D', 'O']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' hola probando', 'glosas': ['HOLA', 'P', 'R', 'O', 'B', 'A', 'N', 'D', 'O']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' Hola probando', 'glosas': ['HOLA', 'P', 'R', 'O', 'B', 'A', 'N', 'D', 'O']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' hola', 'glosas': ['HOLA']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' o la probando.', 'glosas': ['O', 'L', 'A', 'P', 'R', 'O', 'B', 'A', 'N', 'D', 'O']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' ¡Dist, dist!', 'glosas': ['¡', 'D', 'I', 'S', 'T', 'D', 'I', 'S', 'T']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' Hola Profesor', 'glosas': ['HOLA', 'P', 'R', 'O', 'F', 'E', 'S', 'O', 'R']}
+{'inicio': 0.0, 'fin': 2.0, 'texto': ' ¡Perdio!', 'glosas': ['¡', 'P', 'E', 'R', 'D', 'I', 'O']}

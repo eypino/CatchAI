@@ -24,39 +24,44 @@
     </div>
 
     <script>
-        let ws;
-        const startBtn = document.getElementById("startBtn");
-        const stopBtn = document.getElementById("stopBtn");
-        const exitBtn = document.getElementById("exitBtn");
-        const resultadosDiv = document.getElementById("resultados");
+    let ws;
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const exitBtn = document.getElementById("exitBtn");
+    const resultadosDiv = document.getElementById("resultados");
 
-        startBtn.addEventListener("click", () => {
-            if (!ws || ws.readyState !== WebSocket.OPEN) {
-                ws = new WebSocket("ws://" + window.location.host + "/ws");
-                ws.onmessage = (event) => {
+    startBtn.addEventListener("click", () => {
+        if (!ws || ws.readyState !== WebSocket.OPEN) {
+            // Si servidor en otra IP/puerto: "ws://192.168.1.50:8000/ws"
+            ws = new WebSocket("ws://" + window.location.host + "/ws");
+            ws.onmessage = (event) => {
+                try {
                     const data = JSON.parse(event.data);
+                    const glosas = Array.isArray(data.glosas) ? data.glosas.join(" ") : "";
+                    const texto = data.texto ?? JSON.stringify(data);
+
                     const item = document.createElement("p");
-                    item.innerHTML = `<strong>${data.texto}</strong> <br> 
-                                    <span class="text-secondary">${data.glosas.join(" ")}</span>`;
+                    item.innerHTML = `<strong>${texto}</strong><br>
+                                      <span class="text-secondary">${glosas}</span>`;
                     resultadosDiv.appendChild(item);
                     resultadosDiv.scrollTop = resultadosDiv.scrollHeight;
-                };
-            }
-        });
+                } catch (e) {
+                    console.error("WS parse error:", e);
+                }
+            };
+        }
+    });
 
-        stopBtn.addEventListener("click", async () => {
-            if (ws) {
-                ws.close();
-                ws = null;
-            }
-            await fetch("/stop", { method: "POST" }); // 👈 manda señal al backend
-        });
+    stopBtn.addEventListener("click", async () => {
+        if (ws) { ws.close(); ws = null; }
+        await fetch("/stop", { method: "POST" });
+    });
 
+    exitBtn.addEventListener("click", async () => {
+        await fetch("/exit", { method: "POST" });
+        // window.close() puede que el navegador lo bloquee si no es ventana abierta por script
+    });
+</script>
 
-        exitBtn.addEventListener("click", async () => {
-            await fetch("/exit", { method: "POST" });
-            window.close(); // intenta cerrar la ventana del navegador
-        });
-    </script>
 </body>
 </html>
