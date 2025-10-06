@@ -8,6 +8,9 @@ from faster_whisper import WhisperModel
 import string
 import os
 import json
+import faiss
+from openai import OpenAI
+import numpy as np
 
 # ==== Configuración de audio ====
 samplerate = 16000
@@ -30,32 +33,103 @@ model = WhisperModel(model_size, device="cpu", compute_type="int8")
 # ==== Detector de voz ====
 vad = webrtcvad.Vad(2)
 
-# ==== Rutas de archivos ====
+# ==== Rutas ====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPT_DIR)
 STORAGE_DIR = os.path.join(BASE_DIR, "Storage")
-# Archivos dentro de Storage
+
 GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_glosas.csv")
 TRANSCRIPCION_TXT = os.path.join(STORAGE_DIR, "transcripciones.txt")
 TRANSCRIPCION_JSON = os.path.join(STORAGE_DIR, "transcripciones.json")
+FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario.index")
+EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy")
 
-# Inicializar archivo JSON vacío si no existe
+# ==== Cliente OpenAI (Azure/GitHub) ====
+OPENAI_BASE_URL = "https://models.inference.ai.azure.com"
+client = OpenAI(
+    base_url=OPENAI_BASE_URL,
+    api_key=os.environ.get("GITHUB_TOKEN")
+)
+
+# ==== Inicializar archivos ====
 if not os.path.exists(TRANSCRIPCION_JSON):
     with open(TRANSCRIPCION_JSON, "w", encoding="utf-8") as f:
         json.dump([], f, ensure_ascii=False, indent=4)
 
-# ==== Cargar Glosario ====
-try:
-    glosario = set(pd.read_csv(GLOSARIO_PATH)["Palabra"].str.upper().str.strip().tolist())
-    print(f"✅ Glosario cargado desde {GLOSARIO_PATH}")
-except FileNotFoundError:
-    print(f"⚠️ No se encontró el archivo en {GLOSARIO_PATH}")
-    glosario = set()
+# ==== Cargar Glosario y FAISS ====
+print("🧠 Cargando glosario y FAISS...")
+glosario_df = pd.read_csv(GLOSARIO_PATH)
+glosario = glosario_df["Palabra"].str.upper().str.strip().tolist()
 
-# ==== Estado del sistema ====
-sistema_activo = True   # 👈 Flag de control
+# Si no existe el índice FAISS, lo creamos una sola vez
+if not os.path.exists(FAISS_INDEX_PATH):
+    print("⚙️ Creando índice FAISS (primera vez)...")
+    embeddings = [
+        client.embeddings.create(model="text-embedding-3-small", input=g).data[0].embedding
+        for g in glosario
+    ]
+    np.save(EMB_PATH, np.array(embeddings).astype("float32"))
+    dim = len(embeddings[0])
+    index = faiss.IndexFlatL2(dim)
+    index.add(np.array(embeddings).astype("float32"))
+    faiss.write_index(index, FAISS_INDEX_PATH)
+else:
+    embeddings = np.load(EMB_PATH)
+    dim = embeddings.shape[1]
+    index = faiss.read_index(FAISS_INDEX_PATH)
 
-# ==== Funciones ====
+print(f"✅ Glosario y FAISS cargados ({len(glosario)} palabras).")
+
+# ==== Buscar glosas con FAISS ====
+def buscar_glosas(texto, top_k=20):
+    emb = client.embeddings.create(model="text-embedding-3-small", input=texto).data[0].embedding
+    emb = np.array([emb]).astype("float32")
+    D, I = index.search(emb, top_k)
+    return [glosario[i] for i in I[0]]
+
+# ==== Traducción con GPT y FAISS ====
+def traducir_a_glosas(texto):
+    candidatas = buscar_glosas(texto, top_k=25)
+
+    prompt = f"""
+Convierte la siguiente oración a glosas LSCh.
+Usa SOLO glosas de la lista candidata.
+
+Oración:
+{texto}
+
+Glosas candidatas:
+{", ".join(candidatas)}
+
+Reglas:
+- Usa la menor cantidad de glosas posible para captar la idea principal.
+- Nunca devuelvas deletreo.
+- Devuelve SOLO una lista JSON de glosas.
+"""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "Eres un traductor de texto a glosas LSCh."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0,
+            response_format={"type": "json_object"}
+        )
+
+        salida = json.loads(response.choices[0].message.content)
+        if isinstance(salida, dict) and "glosas" in salida:
+            return salida["glosas"]
+        elif isinstance(salida, list):
+            return salida
+        else:
+            return []
+    except Exception as e:
+        print(f"⚠️ Error en GPT: {e}")
+        return []
+
+# ==== Flujo de audio ====
 def audio_callback(indata, frames, time, status):
     if status:
         print(status)
@@ -108,21 +182,8 @@ def transcribe_audio():
                 if segment.no_speech_prob < 0.6 and segment.text.strip():
                     text_queue.put((segment.start, segment.end, segment.text))
 
-def deletrear_palabra(palabra):
-    return list(palabra.upper())
-
-def traducir_a_glosas(texto):
-    texto_limpio = texto.translate(str.maketrans('', '', string.punctuation))
-    palabras = texto_limpio.upper().split()
-    glosas = []
-    for palabra in palabras:
-        if palabra in glosario:
-            glosas.append(palabra)
-        else:
-            glosas.extend(deletrear_palabra(palabra))
-    return glosas
-
 resultados_globales = []
+
 def process_text():
     global resultados_globales, sistema_activo
     while sistema_activo:
@@ -136,36 +197,30 @@ def process_text():
             "glosas": glosas
         }
 
-        resultados_globales.append(resultado)   # 👈 ahora FastAPI podrá leerlo
-        
-        # Guardar en TXT
+        resultados_globales.append(resultado)
         with open(TRANSCRIPCION_TXT, "a", encoding="utf-8") as f:
             f.write(str(resultado) + "\n")
 
-        # Guardar en JSON
         with open(TRANSCRIPCION_JSON, "r+", encoding="utf-8") as f:
             data = json.load(f)
             data.append(resultado)
             f.seek(0)
             json.dump(data, f, ensure_ascii=False, indent=4)
 
-# ==== Control del sistema ====
+# ==== Control ====
 def iniciar_sistema():
-    """Inicia los hilos de grabación, transcripción y procesamiento"""
     global sistema_activo
     sistema_activo = True
     threading.Thread(target=record_audio, daemon=True).start()
     threading.Thread(target=process_text, daemon=True).start()
     threading.Thread(target=transcribe_audio, daemon=True).start()
-    print("🚀 Sistema de transcripción en vivo iniciado")
+    print("🚀 Sistema de transcripción + glosas LSCh iniciado")
 
 def detener_sistema():
-    """Detiene la ejecución de los hilos"""
     global sistema_activo
     sistema_activo = False
     print("🛑 Sistema detenido")
 
-# ==== Ejecución directa ====
 if __name__ == "__main__":
     iniciar_sistema()
     while sistema_activo:
