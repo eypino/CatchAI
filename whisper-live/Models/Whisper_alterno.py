@@ -11,8 +11,7 @@ import json
 import faiss
 import re
 from sentence_transformers import SentenceTransformer 
-import ollama 
-from ollama import Client as OllamaClient
+# ❌ Quitamos el cliente de Ollama para el LLM, ya no es necesario.
 
 # ==== Configuración y setup (SIN CAMBIOS) ====
 samplerate = 16000
@@ -36,19 +35,11 @@ GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_definitivo.csv")
 TRANSCRIPCION_TXT = os.path.join(STORAGE_DIR, "transcripciones.txt")
 TRANSCRIPCION_JSON = os.path.join(STORAGE_DIR, "transcripciones.json")
 PRONOMBRES_PATH = os.path.join(STORAGE_DIR, "Pronombres_map.json")
-FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario.index")
-EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy")
+FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario_O.index")
+EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings_O.npy")
 
-# ==== Cliente Ollama para LLM y Embeddings ====
-OLLAMA_BASE_URL = "http://localhost:11434"
-LLM_MODEL_NAME = "phi3:instruct" 
+# ==== LLM Cliente Eliminado / Reemplazado por Ranking Semántico ====
 OLLAMA_EMBEDDING_MODEL = 'BAAI/bge-m3'
-
-try:
-    ollama_llm_client = OllamaClient(host=OLLAMA_BASE_URL)
-    print(f"✅ Cliente Ollama para LLM conectado en {OLLAMA_BASE_URL}")
-except Exception as e:
-    print(f"❌ Error al conectar con Ollama LLM: {e}")
 
 try:
     print(f"🧠 Cargando modelo de Embedding local: {OLLAMA_EMBEDDING_MODEL}...")
@@ -86,11 +77,8 @@ def marcar_pronombres(texto):
 def quitar_marcadores(texto):
     return re.sub(r"[^\w\s]", "", texto).strip()
 
-# ⭐ FUNCIÓN DE LECTURA DE HISTORIAL
+# ⭐ Función de lectura de historial (Ya no es necesaria sin LLM, pero se mantiene si se quiere usar el contexto en el ranking)
 def get_historial_contexto(max_segments=5):
-    """
-    Lee los últimos N segmentos de la transcripción para dar contexto al LLM.
-    """
     try:
         with open(TRANSCRIPCION_JSON, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -98,10 +86,7 @@ def get_historial_contexto(max_segments=5):
         return ""
     
     contexto = []
-    # Tomar solo los últimos 5 segmentos
     for item in data[-max_segments:]:
-        # Formato el historial para que sea legible por el LLM
-        # Excluimos las glosas del historial para no sobrecargar el prompt
         contexto.append(
             f"Texto: {item['texto']}"
         )
@@ -110,7 +95,7 @@ def get_historial_contexto(max_segments=5):
 
 
 # =================================================================
-# BLOQUE 1: CREACIÓN DE FAISS (BGE-M3)
+# BLOQUE 1: CREACIÓN DE FAISS (BGE-M3) - SIN CAMBIOS
 # =================================================================
 print("🧠 Cargando glosario y FAISS...")
 glosario_df = pd.read_csv(GLOSARIO_PATH)
@@ -144,7 +129,7 @@ else:
 print(f"✅ Glosario y FAISS cargados ({len(glosario)} palabras).")
 
 # =================================================================
-# BLOQUE 2: FUNCIÓN DE BÚSQUEDA (BGE-M3)
+# BLOQUE 2: FUNCIÓN DE BÚSQUEDA (BGE-M3) - SIN CAMBIOS
 # =================================================================
 def buscar_glosas(texto, top_k=50, threshold=0.05):
     texto_para_buscar = texto.strip()
@@ -165,6 +150,7 @@ def buscar_glosas(texto, top_k=50, threshold=0.05):
     resultados_similitud = {}
     for idx, sim in zip(I[0], similitudes[0]):
         if sim >= threshold: 
+            # Guarda la glosa y su score de similitud
             resultados_similitud[glosario[idx]] = sim
 
     print(f"DEBUG (FAISS): Texto '{texto.strip()}' -> Encontradas {len(resultados_similitud)} candidatas (Umbral {threshold})")
@@ -172,120 +158,69 @@ def buscar_glosas(texto, top_k=50, threshold=0.05):
     return resultados_similitud
 
 # =================================================================
-# ⭐ FUNCIÓN DE TRADUCCIÓN CON PHI-3 INSTRUCT (CON HISTORIAL)
+# ⭐ FUNCIÓN DE TRADUCCIÓN BASADA EN RANKING (SIN LLM)
 # =================================================================
 def traducir_a_glosas(texto):
     texto = texto.strip()
     if not texto:
         return []
 
+    # Obtener el mapeo de glosa:similitud (ranking)
     candidatas_map = buscar_glosas(texto, top_k=50, threshold=0.05)
-    candidatas_glosas = list(candidatas_map.keys())
-
-    # --- LÓGICA DE FALLBACK/COINCIDENCIA EXACTA ---
-    if not candidatas_glosas:
+    
+    if not candidatas_map:
+        # Fallback de coincidencia exacta (mantenido)
         palabra_glosa = texto.upper().strip().translate(str.maketrans('', '', string.punctuation))
         if palabra_glosa in glosario:
-             print(f"DEBUG (FALLBACK): Glosa exacta '{palabra_glosa}' aplicada.")
              return [palabra_glosa]
         
-        print(f"⚠️ Sin glosas candidatas válidas para: '{texto}' (FAISS y Fallback fallaron)")
         return []
-    # ---------------------------------------------
-
-    # ⭐ OBTENER HISTORIAL DE CONTEXTO
-    historial = get_historial_contexto(max_segments=5)
-
-
-    # 🔹 Prompt para PHI-3 (AÑADIENDO HISTORIAL Y REGLAS)
-    prompt = f"""
-ERES UN TRADUCTOR AUTOMATIZADO A GLOSAS DE LENGUA DE SEÑAS CHILENA (LSCh). TU ÚNICO TRABAJO ES PRODUCIR UNA LISTA JSON PERFECTA.
-
----
-HISTORIAL DE CONVERSACIÓN PREVIA:
-{historial if historial else "No hay historial previo."}
----
-
-Instrucción: Traduce el siguiente texto, usando el historial para desambiguar palabras.
-
-Texto a traducir:
-{marcar_pronombres(texto)} 
-
-Glosas candidatas (SOLO PUEDES USAR ESTAS):
-{", ".join(candidatas_glosas)}
-
-REGLAS CRÍTICAS DE SALIDA:
-1. La traducción debe seguir el orden gramatical LSCh (Tópico-Comentario o SVO).
-2. Usa SOLO las glosas que estén estrictamente en la lista candidata.
-3. Devuelve *ÚNICAMENTE* la lista JSON de glosas, sin ninguna clave envolvente (NO USES "glosas:", "LSCh:", etc.).
-4. PRIORIZA glosas que son sustantivos, verbos o adjetivos directamente relacionados con el significado de la frase. IGNORA glosas irrelevantes (ej., 'PAN', 'CERA').
-5. Si fallas en devolver el formato ["GLOSA", "GLOSA"], la operación falla.
-
-Ejemplo de SALIDA ÚNICA y CORRECTA:
-["HOLA", "BUENO", "SISTEMA"]
-"""
-
-    try:
-        response = ollama_llm_client.chat(
-            model=LLM_MODEL_NAME,
-            messages=[
-                {"role": "system", "content": "Eres un traductor estricto de texto a glosas LSCh y solo devuelves JSON."},
-                {"role": "user", "content": prompt}
-            ],
-            options={
-                'temperature': 0.1,
-                'num_predict': 50,
-                'num_ctx': 2048
-            },
-            format='json'
-        )
-
-        content = response['message']['content']
-        print(f"DEBUG (LLM): Raw LLM Output: {content}") 
+    
+    # 1. Obtener las palabras del texto (incluyendo pronombres marcados)
+    palabras_texto_glosa = marcar_pronombres(texto).upper().split()
+    
+    # 2. Ordenar las candidatas por score descendente
+    # Selecciona solo las 10 mejores por score (para evitar basura)
+    mejores_candidatas = sorted(
+        candidatas_map.items(), key=lambda item: item[1], reverse=True
+    )[:10] 
+    
+    # 3. Lógica de selección e intento de orden
+    glosas_finales = []
+    
+    # Intentamos mantener el orden del texto original (palabras_texto_glosa) 
+    # y sustituirlas por la glosa de mayor ranking que coincida.
+    
+    candidatas_usadas = set() # Para evitar duplicados en el output
+    
+    # Intenta mapear palabra del texto original -> Glosa de alto ranking
+    for palabra in palabras_texto_glosa:
+        glosa_encontrada = None
         
-        # 🔒 Lógica de Extracción Robusta (Solución al error del LLM)
-        glosas = []
-        try:
-            salida = json.loads(content)
-        except Exception:
-            print(f"⚠️ Error al parsear JSON de Ollama. El LLM no devolvió JSON válido.")
-            return []
-
-        if isinstance(salida, list):
-            glosas = salida
-        elif isinstance(salida, dict):
-            # Prioridad 1: Buscar las claves de lista esperadas
-            if "glosas" in salida:
-                glosas = salida["glosas"]
-            elif "LSCh" in salida:
-                glosas = salida["LSCh"]
-            elif "translation" in salida:
-                glosas = salida["translation"]
-            elif "glosa" in salida:
-                 glosas = salida["glosa"]
-            
-            # FALLBACK CRÍTICO: Si no se encontró ninguna lista, extraer las CLAVES
-            if not glosas:
-                print("DEBUG (LLM EXTRACT): Extrayendo glosas de las claves del diccionario (FALLBACK).")
-                glosas = list(salida.keys())
-            
-        # Filtrado Final
-        glosas_filtradas = [
-            g.upper() for g in glosas if g and g.upper() in glosario
-        ]
-
-        if not glosas_filtradas:
-            print(f"⚠️ LLM no devolvió glosas válidas del set candidato.")
-            return []
+        # A) Coincidencia directa (Pronombres o Glosa exacta)
+        if palabra in PRONOMBRES_MAP.values() or palabra in glosario:
+            glosa_encontrada = palabra
         
-        seen = set()
-        glosas_finales = [g for g in glosas_filtradas if not (g in seen or seen.add(g))]
+        # B) Coincidencia semántica: Mapear a la glosa de mayor ranking que tenga la palabra
+        if not glosa_encontrada:
+            # Busca la glosa con el mejor score que contenga o se relacione con la palabra
+            for glosa_candidata, score in mejores_candidatas:
+                if palabra in glosa_candidata.split() or glosa_candidata == palabra:
+                    glosa_encontrada = glosa_candidata
+                    break # Tomar la primera (mejor score) que coincida
+        
+        if glosa_encontrada and glosa_encontrada not in candidatas_usadas:
+            glosas_finales.append(glosa_encontrada)
+            candidatas_usadas.add(glosa_encontrada)
+            
+    # 4. Fallback final: Si el mapeo palabra por palabra falló, solo toma las 3 mejores glosas del ranking.
+    if not glosas_finales and mejores_candidatas:
+        glosas_finales = [g for g, s in mejores_candidatas[:3]]
 
-        return glosas_finales
+    # Limpieza final de duplicados (aunque el proceso anterior debería ser limpio)
+    seen = set()
+    return [g for g in glosas_finales if not (g in seen or seen.add(g))]
 
-    except Exception as e:
-        print(f"⚠️ Error en LLM local (Ollama): {e}")
-        return []
 
 # ==== Flujo de audio, process_text, etc. (SIN CAMBIOS) ====
 def audio_callback(indata, frames, time, status):
@@ -363,11 +298,10 @@ def process_text():
             try:
                 data = json.load(f)
             except Exception:
-                # Si el archivo está vacío o corrupto, lo inicializamos como lista vacía
                 data = [] 
             data.append(resultado)
             f.seek(0)
-            f.truncate() # Asegura que no queden restos del archivo anterior
+            f.truncate()
             json.dump(data, f, ensure_ascii=False, indent=4)
 
 def iniciar_sistema():

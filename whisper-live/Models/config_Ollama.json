@@ -1,0 +1,34 @@
+{
+  "audio": {
+    "samplerate": 16000,
+    "block_duration_ms": 500,
+    "chunk_duration_ms": 2000,
+    "channels": 1,
+    "sentence_pause_ms": 1200
+  },
+  "vad": {
+    "sensitivity": 2,
+    "speech_threshold": 0.3
+  },
+  "whisper": {
+    "model_size": "small",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 1,
+    "no_speech_prob": 0.6
+  },
+  "ollama": {
+    "base_url": "http://localhost:11434",
+    "llm_model": "phi3:instruct",
+    "embedding_model": "BAAI/bge-m3"
+  },
+  "faiss": {
+    "top_k": 50,
+    "similarity_threshold": 0.05
+  },
+  "llm_options": {
+    "temperature": 0.1,
+    "num_predict": 50,
+    "num_ctx": 2048
+  }
+}
