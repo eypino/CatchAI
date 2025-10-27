@@ -5,7 +5,7 @@ import pandas as pd
 import json
 import os
 
-# ==== Configuración del cliente con GitHub ====
+# ==== Configuración del cliente con GitHub (Mismo) ====
 OPENAI_BASE_URL = "https://models.inference.ai.azure.com"
 
 client = OpenAI(
@@ -13,52 +13,73 @@ client = OpenAI(
     api_key=os.environ.get("GITHUB_TOKEN")  # 🔑 Usa tu token GitHub
 )
 
-# ==== Rutas ====
+# ==== Rutas (Mismo) ====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPT_DIR)
 STORAGE_DIR = os.path.join(BASE_DIR, "Storage")
 
-# ==== Cargar glosario ====
-GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_glosas.csv")
+# ==== Cargar glosario y PREPROCESAR para contexto ====
+GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_definitivo.csv")
 glosario_df = pd.read_csv(GLOSARIO_PATH)
-glosario = glosario_df["Palabra"].str.upper().str.strip().tolist()
 
-# ==== Archivos persistentes ====
+# Asegurarse de que no hay NaNs en las columnas que se van a usar
+glosario_df = glosario_df.fillna('')
+
+# 🌟 PASO CLAVE 1: CONCATENAR las columnas para generar un contexto semántico
+# La nueva columna 'Texto_Contexto' será lo que se vectorizará.
+glosario_df['Texto_Contexto'] = (
+    glosario_df['Palabra'].str.upper().str.strip() + ". " +
+    glosario_df['Descripción'] + ". " +
+    "Categoría: " + glosario_df['Categoría'] + ". " +
+    "Sinónimos: " + glosario_df['Sinónimos'] + ". " +
+    "Antónimos: " + glosario_df['Antónimos']
+)
+
+# La lista de labels sigue siendo la 'Palabra' original
+glosario_labels = glosario_df["Palabra"].str.upper().str.strip().tolist()
+# La lista para vectorizar ahora es el 'Texto_Contexto'
+glosario_textos = glosario_df["Texto_Contexto"].tolist()
+
+# ==== Archivos persistentes (Mismo) ====
 FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario.index")
 NPY_LABELS_PATH = os.path.join(STORAGE_DIR, "glosario_labels.npy")
-NPY_EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy")  # 👈 nuevo archivo
+NPY_EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy") 
 
-# ==== Crear o cargar índice FAISS ====
+# ==== Crear o cargar índice FAISS (Ajustado para usar Texto_Contexto) ====
 if all(os.path.exists(p) for p in [FAISS_INDEX_PATH, NPY_LABELS_PATH, NPY_EMB_PATH]):
     print("📂 Cargando FAISS, labels y embeddings desde archivo...")
     index = faiss.read_index(FAISS_INDEX_PATH)
-    glosario = np.load(NPY_LABELS_PATH, allow_pickle=True).tolist()
-    embeddings = np.load(NPY_EMB_PATH)
+    glosario_labels = np.load(NPY_LABELS_PATH, allow_pickle=True).tolist()
+    embeddings = np.load(NPY_EMB_PATH) # Se carga, pero no se usa en esta rama
 else:
-    print("⚡ Generando embeddings del glosario (una sola vez)...")
+    print("⚡ Generando embeddings del glosario con contexto (una sola vez)...")
     embeddings = []
     batch_size = 100
-    for i in range(0, len(glosario), batch_size):
-        batch = glosario[i:i+batch_size]
+    # 🌟 PASO CLAVE 2: Vectorizar la nueva columna 'Texto_Contexto'
+    for i in range(0, len(glosario_textos), batch_size):
+        batch = glosario_textos[i:i+batch_size]
         resp = client.embeddings.create(model="text-embedding-3-small", input=batch)
         embeddings.extend([d.embedding for d in resp.data])
 
     glosario_embeddings = np.array(embeddings).astype("float32")
 
-    # Crear índice FAISS
+    # Crear índice FAISS (El resto es idéntico)
     dim = glosario_embeddings.shape[1]
     index = faiss.IndexFlatL2(dim)
     index.add(glosario_embeddings)
 
     # Guardar índice, embeddings y labels
     faiss.write_index(index, FAISS_INDEX_PATH)
-    np.save(NPY_LABELS_PATH, np.array(glosario))
+    np.save(NPY_LABELS_PATH, np.array(glosario_labels))
     np.save(NPY_EMB_PATH, glosario_embeddings)
     print(f"✅ Índice FAISS guardado en {FAISS_INDEX_PATH}")
     print(f"✅ Labels guardados en {NPY_LABELS_PATH}")
     print(f"✅ Embeddings guardados en {NPY_EMB_PATH}")
 
-# ==== Función para buscar glosas ====
+# Ajuste la función para usar glosario_labels
+glosario = glosario_labels
+
+# ==== Función para buscar glosas (Mismo) ====
 def buscar_glosas(oracion, top_k=20):
     """Busca las glosas más cercanas semánticamente a una oración usando FAISS"""
     emb = client.embeddings.create(model="text-embedding-3-small", input=oracion).data[0].embedding
@@ -66,14 +87,14 @@ def buscar_glosas(oracion, top_k=20):
     D, I = index.search(emb, top_k)
     return [glosario[i] for i in I[0]]
 
-# ==== Cargar transcripciones ====
+# ==== Cargar transcripciones (Mismo) ====
 TRANSCRIPCION_JSON = os.path.join(STORAGE_DIR, "transcripciones.json")
 with open(TRANSCRIPCION_JSON, "r", encoding="utf-8") as f:
     transcripciones = json.load(f)
 
 resultados = []
 
-# ==== Procesar ====
+# ==== Procesar (Mismo) ====
 for entrada in transcripciones:
     texto = entrada.get("texto", "")
 
@@ -109,7 +130,7 @@ Reglas:
     salida = json.loads(response.choices[0].message.content)
     resultados.append(salida)
 
-# ==== Guardar resultado final ====
+# ==== Guardar resultado final (Mismo) ====
 OUTPUT_JSON = os.path.join(STORAGE_DIR, "transcripciones_glosas.json")
 with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
     json.dump(resultados, f, ensure_ascii=False, indent=4)

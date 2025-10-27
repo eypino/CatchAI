@@ -10,9 +10,9 @@ import os
 import json
 import faiss
 from openai import OpenAI
-import numpy as np
+import re
 
-# ==== Configuración de audio ====
+# ==== Configuración de audio (SIN CAMBIOS) ====
 samplerate = 16000
 block_duration = 0.5
 chunk_duration = 2
@@ -21,115 +21,254 @@ channels = 1
 frame_per_chunk = int(samplerate * chunk_duration)
 frame_per_block = int(samplerate * block_duration)
 
-# ==== Colas ====
+# ==== Colas (SIN CAMBIOS) ====
 audio_queue = queue.Queue()
 text_queue = queue.Queue()
 audio_buffer = np.zeros((0, channels), dtype=np.float32)
 
-# ==== Modelo Whisper ====
+# ==== Modelo Whisper (SIN CAMBIOS) ====
 model_size = "small"
 model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
-# ==== Detector de voz ====
+# ==== Detector de voz (SIN CAMBIOS) ====
 vad = webrtcvad.Vad(2)
 
-# ==== Rutas ====
+# ==== Rutas (SIN CAMBIOS) ====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPT_DIR)
 STORAGE_DIR = os.path.join(BASE_DIR, "Storage")
 
-GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_glosas.csv")
+GLOSARIO_PATH = os.path.join(STORAGE_DIR, "diccionario_lsch_definitivo.csv")
 TRANSCRIPCION_TXT = os.path.join(STORAGE_DIR, "transcripciones.txt")
 TRANSCRIPCION_JSON = os.path.join(STORAGE_DIR, "transcripciones.json")
+PRONOMBRES_PATH = os.path.join(STORAGE_DIR, "Pronombres_map.json")
 FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario.index")
 EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy")
 
-# ==== Cliente OpenAI (Azure/GitHub) ====
+# ==== Cliente OpenAI (Azure/GitHub) (SIN CAMBIOS) ====
 OPENAI_BASE_URL = "https://models.inference.ai.azure.com"
 client = OpenAI(
     base_url=OPENAI_BASE_URL,
     api_key=os.environ.get("GITHUB_TOKEN")
 )
 
-# ==== Inicializar archivos ====
+# ==== Inicializar archivos (SIN CAMBIOS) ====
 if not os.path.exists(TRANSCRIPCION_JSON):
     with open(TRANSCRIPCION_JSON, "w", encoding="utf-8") as f:
         json.dump([], f, ensure_ascii=False, indent=4)
 
-# ==== Cargar Glosario y FAISS ====
+# ==== Cargar Pronombres (SIN CAMBIOS) ====
+try:
+    with open(PRONOMBRES_PATH, "r", encoding="utf-8") as f:
+        PRONOMBRES_MAP = json.load(f)
+except Exception:
+    # Fallback pequeño si el JSON no está presente
+    PRONOMBRES_MAP = {
+        "yo": "YO", "tú": "TÚ", "usted": "USTED", "él": "ÉL", "ella": "ELLA",
+        "nosotros": "NOSOTROS", "ustedes": "USTEDES", "ellos": "ELLOS", "ellas": "ELLAS"
+    }
+    print("⚠️ Pronombres JSON no encontrado — usando mapa por defecto.")
+
+# ==== Funciones de marcadores (SIN CAMBIOS) ====
+def marcar_pronombres(texto):
+    """Inserta marcadores [PRON:...] en el texto para la instrucción al traductor."""
+    palabras = texto.lower().split()
+    marcadas = []
+    for p in palabras:
+        p_clean = p.translate(str.maketrans('', '', string.punctuation))
+        if p_clean in PRONOMBRES_MAP:
+            marcadas.append(f"[PRON:{PRONOMBRES_MAP[p_clean]}]")
+        else:
+            marcadas.append(p)
+    return " ".join(marcadas)
+
+def quitar_marcadores(texto):
+    """Quita cualquier marcador tipo [PRON:...] para usar en la búsqueda FAISS."""
+    return re.sub(r"\[PRON:[^\]]+\]\s*", "", texto).strip()
+
+# =================================================================
+# ⭐ BLOQUE 1: CARGA Y CREACIÓN DE FAISS (CON TEXTO CONTEXTUAL Y OPENAI)
+# =================================================================
 print("🧠 Cargando glosario y FAISS...")
 glosario_df = pd.read_csv(GLOSARIO_PATH)
+
+glosario_df = glosario_df.fillna('')
+
+# 1. Crear la nueva columna de contexto a vectorizar (MISMO CAMBIO ANTERIOR)
+glosario_df['Texto_Contexto'] = (
+    glosario_df['Palabra'].str.upper().str.strip() + ". " +
+    "Descripción: " + glosario_df['Descripción'] + ". " +
+    "Categoría: " + glosario_df['Categoría'] + ". " +
+    "Sinónimos: " + glosario_df['Sinónimos'] + ". " +
+    "Antónimos: " + glosario_df['Antónimos']
+)
+
+# La lista de glosas para usar como labels (la "Palabra" original)
 glosario = glosario_df["Palabra"].str.upper().str.strip().tolist()
+# La lista de textos a vectorizar (el contexto combinado)
+glosario_textos = glosario_df["Texto_Contexto"].tolist()
 
 # Si no existe el índice FAISS, lo creamos una sola vez
 if not os.path.exists(FAISS_INDEX_PATH):
-    print("⚙️ Creando índice FAISS (primera vez)...")
-    embeddings = [
-        client.embeddings.create(model="text-embedding-3-small", input=g).data[0].embedding
-        for g in glosario
-    ]
-    np.save(EMB_PATH, np.array(embeddings).astype("float32"))
-    dim = len(embeddings[0])
+    print("⚙️ Creando índice FAISS (primera vez) con contexto usando OpenAI...")
+    embeddings = []
+    batch_size = 100 
+    
+    # 2. Iterar sobre la lista de textos con contexto (glosario_textos) y usar OpenAI
+    for i in range(0, len(glosario_textos), batch_size):
+        batch = glosario_textos[i:i+batch_size]
+        # Usar client.embeddings.create
+        resp = client.embeddings.create(model="text-embedding-3-small", input=batch)
+        embeddings.extend([d.embedding for d in resp.data])
+    
+    glosario_embeddings = np.array(embeddings).astype("float32")
+    
+    np.save(EMB_PATH, glosario_embeddings) 
+    
+    dim = glosario_embeddings.shape[1]
     index = faiss.IndexFlatL2(dim)
-    index.add(np.array(embeddings).astype("float32"))
+    index.add(glosario_embeddings)
     faiss.write_index(index, FAISS_INDEX_PATH)
 else:
+    # Si el índice existe, cargamos el índice FAISS y el array de embeddings
     embeddings = np.load(EMB_PATH)
     dim = embeddings.shape[1]
     index = faiss.read_index(FAISS_INDEX_PATH)
 
 print(f"✅ Glosario y FAISS cargados ({len(glosario)} palabras).")
 
-# ==== Buscar glosas con FAISS ====
-def buscar_glosas(texto, top_k=20):
-    emb = client.embeddings.create(model="text-embedding-3-small", input=texto).data[0].embedding
+# =================================================================
+# ⭐ BLOQUE 2: FUNCIÓN DE BÚSQUEDA (REVERTIDA Y RÁPIDA: Vectorización por frase completa)
+# =================================================================
+def buscar_glosas(texto, top_k=20, threshold=0.35):
+    """
+    Busca glosas relevantes vectorizando la frase completa (método más rápido)
+    y usando la API de OpenAI.
+    """
+    texto_para_buscar = quitar_marcadores(texto).strip()
+    if not texto_para_buscar:
+        return []
+
+    # Vectorizar la frase completa con OpenAI (UNA SOLA LLAMADA)
+    try:
+        emb = client.embeddings.create(
+            model="text-embedding-3-small", 
+            input=texto_para_buscar
+        ).data[0].embedding
+    except Exception as e:
+        print(f"⚠️ Error generando embedding para la frase: {e}")
+        # Si falla la API aquí, no hay búsqueda, retorna []
+        return []
+
+    # Convertir a formato FAISS (1, dim) y realizar la búsqueda
     emb = np.array([emb]).astype("float32")
-    D, I = index.search(emb, top_k)
-    return [glosario[i] for i in I[0]]
+    
+    # Aumentar top_k para capturar más glosas contextuales
+    D, I = index.search(emb, top_k) 
 
-# ==== Traducción con GPT y FAISS ====
+    # Normalización y filtrado por umbral
+    max_d, min_d = float(np.max(D)), float(np.min(D))
+    denom = (max_d - min_d + 1e-6)
+    similitudes = 1 - ((D - min_d) / denom) 
+    
+    resultados_totales = set()
+    for idx, sim in zip(I[0], similitudes[0]):
+        # Se mantiene el umbral original de OpenAI (0.35)
+        if sim >= threshold: 
+            resultados_totales.add(glosario[idx])
+
+    return list(resultados_totales)
+
+
+# ==== Traducción con GPT y FAISS (SIN CAMBIOS) ====
 def traducir_a_glosas(texto):
-    candidatas = buscar_glosas(texto, top_k=25)
+    texto = texto.strip()
+    if not texto:
+        return []
 
+    candidatas = buscar_glosas(texto)
+    if not candidatas:
+        print(f"⚠️ Sin glosas candidatas válidas para: '{texto}'")
+        return []
+
+    texto_sin_marcadores = quitar_marcadores(texto)
+    es_palabra_unica = len(texto_sin_marcadores.split()) == 1
+
+    # 🔹 Si es una sola palabra, no usamos GPT — devolvemos la más cercana
+    if es_palabra_unica:
+        return [candidatas[0]]
+
+    # 🔹 Prompt extremadamente restrictivo
     prompt = f"""
-Convierte la siguiente oración a glosas LSCh.
-Usa SOLO glosas de la lista candidata.
+Traduce el siguiente texto al formato de glosas de la Lengua de Señas Chilena (LSCh).
 
-Oración:
+Texto original (puede incluir pronombres marcados como [PRON:YO]):
 {texto}
 
-Glosas candidatas:
+Solo puedes usar glosas de la siguiente lista:
 {", ".join(candidatas)}
 
-Reglas:
-- Usa la menor cantidad de glosas posible para captar la idea principal.
-- Nunca devuelvas deletreo.
-- Devuelve SOLO una lista JSON de glosas.
+Reglas obligatorias:
+- Usa ÚNICAMENTE las glosas de la lista proporcionada.
+- NO inventes, modifiques ni combines glosas.
+- Si ninguna aplica, devuelve [].
+- Si el texto tiene varias palabras, usa el orden LSCh (tema/sujeto → verbo → objeto).
+- Devuelve SOLO una lista JSON válida, sin texto adicional.
+Ejemplo: ["YO", "TRABAJAR", "ESCUELA"]
 """
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            # Se usa un modelo rápido
+            model="gpt-4o-mini", 
             messages=[
-                {"role": "system", "content": "Eres un traductor de texto a glosas LSCh."},
+                {
+                    "role": "system",
+                    "content": "Eres un traductor de texto a glosas de la Lengua de Señas Chilena (LSCh). Solo puedes usar glosas existentes del diccionario."
+                },
                 {"role": "user", "content": prompt}
             ],
             temperature=0,
             response_format={"type": "json_object"}
         )
 
-        salida = json.loads(response.choices[0].message.content)
-        if isinstance(salida, dict) and "glosas" in salida:
-            return salida["glosas"]
-        elif isinstance(salida, list):
-            return salida
-        else:
+        content = getattr(response.choices[0].message, "content", None)
+        if not content:
+            print("⚠️ GPT devolvió contenido vacío.")
             return []
+
+        try:
+            salida = json.loads(content)
+        except Exception:
+            print(f"⚠️ Error al parsear JSON: {content}")
+            return []
+
+        if isinstance(salida, dict) and "glosas" in salida:
+            glosas = salida["glosas"]
+        elif isinstance(salida, list):
+            glosas = salida
+        else:
+            glosas = []
+
+        glosas_filtradas = [
+            g.upper() for g in glosas if g and g.upper() in glosario
+        ]
+
+        if not glosas_filtradas:
+            print(f"⚠️ Ninguna glosa válida para '{texto}' → {glosas}")
+            return []
+
+        seen = set()
+        glosas_finales = [g for g in glosas_filtradas if not (g in seen or seen.add(g))]
+
+        return glosas_finales
+
     except Exception as e:
         print(f"⚠️ Error en GPT: {e}")
         return []
 
-# ==== Flujo de audio ====
+
+# ==== Flujo de audio (SIN CAMBIOS) ====
 def audio_callback(indata, frames, time, status):
     if status:
         print(status)
@@ -138,7 +277,7 @@ def audio_callback(indata, frames, time, status):
 def record_audio():
     global sistema_activo
     with sd.InputStream(samplerate=samplerate, channels=channels,
-                        callback=audio_callback, blocksize=frame_per_block):
+                         callback=audio_callback, blocksize=frame_per_block):
         print("🎙️ Grabando... Ctrl+C para detener.")
         while sistema_activo:
             sd.sleep(1000)
@@ -188,7 +327,8 @@ def process_text():
     global resultados_globales, sistema_activo
     while sistema_activo:
         start_time, end_time, texto = text_queue.get()
-        glosas = traducir_a_glosas(texto)
+        texto_marcado = marcar_pronombres(texto)
+        glosas = traducir_a_glosas(texto_marcado)
 
         resultado = {
             "inicio": round(start_time, 2),
@@ -202,12 +342,15 @@ def process_text():
             f.write(str(resultado) + "\n")
 
         with open(TRANSCRIPCION_JSON, "r+", encoding="utf-8") as f:
-            data = json.load(f)
+            try:
+                data = json.load(f)
+            except Exception:
+                data = []
             data.append(resultado)
             f.seek(0)
             json.dump(data, f, ensure_ascii=False, indent=4)
 
-# ==== Control ====
+# ==== Control (SIN CAMBIOS) ====
 def iniciar_sistema():
     global sistema_activo
     sistema_activo = True

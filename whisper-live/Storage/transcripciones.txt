@@ -273,3 +273,5 @@
 {'inicio': 0.0, 'fin': 2.0, 'texto': ' Fertile texto', 'glosas': ['TEXTO', 'FECUNDAR', 'ABUNDANTE']}
 {'inicio': 0.0, 'fin': 1.12, 'texto': ' que lo demuestre.', 'glosas': ['MOSTRAR', 'PRUEBA']}
 {'inicio': 0.0, 'fin': 2.0, 'texto': ' pero va demasiado bien', 'glosas': ['BUENO/A', 'MUCHAS-VECES', 'MEJOR']}
+{'texto': '3, viéndose...', 'glosas': []}
+{'texto': 'funciona el procesamiento del audio.', 'glosas': []}
