@@ -8,6 +8,13 @@ signal queue_changed(queue_text: String)
 @export var anim_player_path: NodePath = C.ANIM_PLAYER_PATH
 @onready var anim_player: AnimationPlayer = get_node_or_null(anim_player_path)
 
+# --- NUEVO: AnimationTree opcional (para mezclar solo brazos) -------------
+@export var anim_tree_path: NodePath
+@onready var anim_tree: AnimationTree = get_node_or_null(anim_tree_path)
+const P_BLEND     := "parameters/Blend/blend_amount"
+const P_ARMS_ANIM := "parameters/Arms/animation"
+const P_ARMS_TIME := "parameters/Arms/time"
+
 var q := AnimQueue.new()
 
 var next_timer: Timer
@@ -18,6 +25,7 @@ var idle_len: float = 1.0
 
 func _ready() -> void:
 	_setup_animplayer()
+	_setup_animtree()
 	_setup_timers()
 	_prepare_idle()
 	_play_idle_start()
@@ -26,6 +34,16 @@ func _ready() -> void:
 func _setup_animplayer():
 	if anim_player == null:
 		push_error("PlaybackController: AnimationPlayer no encontrado en: " + str(anim_player_path))
+
+# --- NUEVO: Setup básico del AnimationTree --------------------------------
+func _setup_animtree() -> void:
+	if anim_tree:
+		anim_tree.active = true
+		if anim_tree.has_parameter(P_BLEND):
+			anim_tree.set(P_BLEND, 0.0) # arrancar solo con idle visible
+		# Si el nodo Idle del árbol existe, fija el nombre del idle (opcional)
+		if anim_tree.has_parameter("parameters/Idle/animation"):
+			anim_tree.set("parameters/Idle/animation", C.DEFAULT_ANIM)
 
 func _setup_timers():
 	next_timer = Timer.new(); next_timer.one_shot = true; add_child(next_timer)
@@ -71,6 +89,9 @@ func _play_idle_start() -> void:
 		return
 	_stop_all_timers()
 	_prepare_idle()
+	# Cuando estamos en idle, aseguramos que el blend del árbol no aplique brazos
+	if anim_tree and anim_tree.has_parameter(P_BLEND):
+		anim_tree.set(P_BLEND, 0.0)
 	anim_player.play(C.DEFAULT_ANIM, C.BLEND_IDLE, C.IDLE_SPEED)
 	var t: float = max(0.05, idle_len - C.BLEND_IDLE * 0.9)
 	idle_cycle_timer.start(t)
@@ -125,6 +146,9 @@ func _play_next() -> void:
 	if name == C.GAP_IDLE:
 		if anim_player and anim_player.has_animation(C.DEFAULT_ANIM):
 			_prepare_idle()
+			# En breves idles, no queremos capa de brazos
+			if anim_tree and anim_tree.has_parameter(P_BLEND):
+				anim_tree.set(P_BLEND, 0.0)
 			anim_player.play(C.DEFAULT_ANIM, C.REPEAT_BLEND, C.IDLE_SPEED)
 			anim_player.seek(0.0, true)
 			var dur_idle: float = clamp(idle_len * C.REPEAT_IDLE_FACTOR, 0.05, C.REPEAT_IDLE_MAX)
@@ -138,6 +162,7 @@ func _play_next() -> void:
 		base_anim.loop_mode = Animation.LOOP_NONE
 
 	# Duplicado temporal para repetir misma seña
+	var target_name := name
 	if name == q.last_played and base_anim:
 		var lib: AnimationLibrary = anim_player.get_animation_library("")
 		if lib:
@@ -146,22 +171,37 @@ func _play_next() -> void:
 			if dup:
 				dup.loop_mode = Animation.LOOP_NONE
 				lib.add_animation(C.TMP_REPEAT, dup)
-				anim_player.play(C.TMP_REPEAT, C.BLEND_TIME, spd)
-				anim_player.seek(0.0, true)
-			else:
-				anim_player.play(name, 0.0, spd)
-				anim_player.seek(0.0, true)
-	else:
-		anim_player.play(name, C.BLEND_TIME, spd)
+				target_name = C.TMP_REPEAT
 
+	# --- NUEVO: reproducir SOLO en brazos con AnimationTree (si está asignado)
+	if anim_tree:
+		# Asigna la animación al nodo Arms y sube el blend a 1.0 (aplica brazos)
+		if anim_tree.has_parameter(P_ARMS_ANIM):
+			anim_tree.set(P_ARMS_ANIM, target_name)
+		if anim_tree.has_parameter(P_ARMS_TIME):
+			anim_tree.set(P_ARMS_TIME, 0.0)
+		if anim_tree.has_parameter(P_BLEND):
+			anim_tree.set(P_BLEND, 1.0)
+	else:
+		# Modo antiguo: usar AnimationPlayer directo
+		if target_name == C.TMP_REPEAT:
+			anim_player.play(C.TMP_REPEAT, C.BLEND_TIME, spd)
+			anim_player.seek(0.0, true)
+		else:
+			anim_player.play(name, C.BLEND_TIME, spd)
+
+	# Duración para programar el siguiente paso
 	var dur: float = 0.5
 	if base_anim:
 		dur = max(0.05, float(base_anim.length))
-	dur = dur / spd
+	# Si usamos AnimationTree, la velocidad del árbol es 1.0, así que no dividimos por 'spd'
+	if not anim_tree:
+		dur = dur / max(spd, 0.001)
+
 	next_timer.start(dur)
 
-	# Preblend a idle si no llegan más entradas
-	if q.is_empty() and anim_player.has_animation(C.DEFAULT_ANIM):
+	# Preblend hacia idle si no llegan más entradas
+	if q.is_empty():
 		var pre_time: float = max(0.0, dur - C.BLEND_IDLE * 0.9)
 		if pre_time > 0.0:
 			preblend_timer.start(pre_time)
@@ -173,6 +213,9 @@ func _play_next() -> void:
 
 # -------- Timers / señales --------
 func _on_preblend_timeout() -> void:
+	# Al “pre-fundido” regresamos a idle y bajamos el blend de brazos
+	if anim_tree and anim_tree.has_parameter(P_BLEND):
+		anim_tree.set(P_BLEND, 0.0)
 	_play_idle_start()
 
 func _on_next_timer() -> void:
