@@ -1,0 +1,15 @@
+sounddevice
+numpy
+pandas
+webrtcvad
+faster-whisper
+fastapi 
+uvicorn 
+jinja2
+faiss-cpu
+openai 
+spacy
+rapidfuzz
+uvicorn[standard]
+moviepy==1.0.3
+#https://visualstudio.microsoft.com/es/visual-cpp-build-tools/
