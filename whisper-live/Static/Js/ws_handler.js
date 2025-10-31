@@ -1,4 +1,3 @@
-// La regla de oro: Esperar a que todo el HTML esté cargado y listo.
 document.addEventListener("DOMContentLoaded", () => {
     
     let ws;
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onopen = () => {
             console.log("✅ WebSocket conectado y esperando órdenes.");
-            // Al conectar, habilitamos el botón de start y deshabilitamos el de stop
             startBtn.disabled = false;
             stopBtn.disabled = true;
             modelSelect.disabled = false;
@@ -32,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         ws.onmessage = (event) => {
-            // ===== AÑADE ESTA LÍNEA PARA VERIFICAR =====
-            console.log("Mensaje recibido del WebSocket:", event.data);
             try {
                 const data = JSON.parse(event.data);
                 const items = Array.isArray(data) ? data : [data];
@@ -69,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onclose = () => {
             console.warn("🔌 WebSocket desconectado.");
-            // Se resetea el estado de los botones
+
             startBtn.disabled = false;
             stopBtn.disabled = true;
             modelSelect.disabled = false;
@@ -88,8 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ws && ws.readyState === WebSocket.OPEN) {
             console.log("Enviando comando 'start'...");
             ws.send(JSON.stringify({ command: "start" }));
-            
-            // Actualizar estado de los botones
             startBtn.disabled = true;
             stopBtn.disabled = false;
             modelSelect.disabled = true;
@@ -103,8 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ws && ws.readyState === WebSocket.OPEN) {
             console.log("Enviando comando 'stop'...");
             ws.send(JSON.stringify({ command: "stop" }));
-
-            // Actualizar estado de los botones
             startBtn.disabled = false;
             stopBtn.disabled = true;
             modelSelect.disabled = false;
