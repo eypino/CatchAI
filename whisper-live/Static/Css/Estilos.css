@@ -11,8 +11,8 @@ body {
 
 /* Contenedor principal de la tarjeta */
 .main-card {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -47,7 +47,7 @@ body {
 }
 
 .transcripcion-item {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #070707;
     padding: 10px 5px;
 }
 

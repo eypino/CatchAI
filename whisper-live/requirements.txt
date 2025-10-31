@@ -12,4 +12,6 @@ spacy
 rapidfuzz
 uvicorn[standard]
 moviepy==1.0.3
+langchain
+langchain-openai
 #https://visualstudio.microsoft.com/es/visual-cpp-build-tools/

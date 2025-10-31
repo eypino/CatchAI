@@ -465,3 +465,157 @@
 {'texto': 'está tomando', 'glosas': []}
 {'texto': 'Un buffer demasiado largo.', 'glosas': ['LARGO/A', 'ABUNDANTE']}
 {'texto': 'para poder', 'glosas': ['PARA', 'PODER']}
+{'texto': 'y ya', 'glosas': ['YA']}
+{'texto': 'Oh no.', 'glosas': ['NO']}
+{'texto': 'Hola buenas tardes', 'glosas': ['HOLA', 'BUENAS-TARDES']}
+{'texto': 'haciendo la prueba para...', 'glosas': ['PRUEBA', 'HACER', 'PARA']}
+{'texto': 'Hola buenas tardes', 'glosas': ['HOLA', 'BUENAS-TARDES']}
+{'texto': 'del inicio', 'glosas': ['INICIAR', 'DÍA-DE', 'PRIMERO/A']}
+{'texto': '3 por Tomón', 'glosas': []}
+{'texto': 'Puerto Mundo', 'glosas': ['MUNDO']}
+{'texto': '¿Por qué por todo mundo es por todo...', 'glosas': ['POR-QUÉ', 'MUNDO']}
+{'texto': '¿Monta?', 'glosas': []}
+{'texto': 'Hola buenas tardes, este es un...', 'glosas': ['HOLA', 'BUENAS-TARDES', 'ESTUFA', 'EJEMPLO']}
+{'texto': 'proyecto', 'glosas': ['PROYECTO']}
+{'texto': 'diseñas para', 'glosas': ['PROYECTO', 'PARA']}
+{'texto': 'a ver si...', 'glosas': ['VER', 'QUIZÁS']}
+{'texto': 'se logra conseguir Platinum', 'glosas': ['PLATA', 'GANAR']}
+{'texto': 'este lo pudiera traducir', 'glosas': ['TRADUCIR', 'PODER']}
+{'texto': 'va mucho más rápido de lo que ve.', 'glosas': ['VER', 'MÁS']}
+{'texto': 'pensaba con el método de la...', 'glosas': ['PENSAR', 'ETCÉTERA']}
+{'texto': 'no sé si es por el tema del', 'glosas': ['NO', 'SÍ', 'TEMA']}
+{'texto': 'el procesamiento que tiene detrás pero', 'glosas': ['PERO']}
+{'texto': 'va mucho mas', 'glosas': ['MÁS']}
+{'texto': 'rápido de lo que se espera', 'glosas': ['RÁPIDO/A', 'ESPERAR']}
+{'texto': 'así no tal vez', 'glosas': ['QUIZÁS', 'NO']}
+{'texto': 'yo por ejemplo', 'glosas': ['EJEMPLO', 'POR-QUÉ']}
+{'texto': 'Nosotros', 'glosas': []}
+{'texto': '¿Ustedes?', 'glosas': ['OYENTE', 'NOSOTROS/AS']}
+{'texto': 'el contexto.', 'glosas': []}
+{'texto': 'de un cuartamando.', 'glosas': []}
+{'texto': 'Este es un proyecto de innovación.', 'glosas': ['PROYECTO', 'INNOVACIÓN', 'ÚNICO/A']}
+{'texto': 'donde es de', 'glosas': ['DÓNDE', 'DEBAJO', 'DEPENDE']}
+{'texto': 'ayuda para', 'glosas': ['AYUDAR', 'PARA']}
+{'texto': 'el trabajo para estudiar', 'glosas': ['TRABAJAR', 'ESTUDIAR', 'PARA']}
+{'texto': 'para', 'glosas': ['PARA']}
+{'texto': 'jugar, caminar, correr', 'glosas': ['JUGAR', 'CAMINAR', 'CORRER']}
+{'texto': 'nosotros somos chilenos', 'glosas': ['NOSOTROS/AS', 'CHILENO/A']}
+{'texto': 'que no gusta la inteligencia', 'glosas': ['NO-GUSTAR', 'INTELIGENCIA']}
+{'texto': 'artificial.', 'glosas': ['ROBOT']}
+{'texto': 'la lengua de señas', 'glosas': ['LENGUA-DE-SEÑAS', 'IDIOMA']}
+{'texto': 'el traducción', 'glosas': ['TRADUCIR', 'SOLAMENTE']}
+{'texto': 'saber cómo', 'glosas': ['SABER', 'CÓMO']}
+{'texto': 'a universitarios, profesores.', 'glosas': ['UNIVERSIDAD', 'ALUMNO/A', 'PROFESOR/A']}
+{'texto': 'sobre salunos.', 'glosas': []}
+{'texto': 'dinero, todo.', 'glosas': ['DINERO']}
+{'texto': 'y te vas a trabajar', 'glosas': ['YO-YO', 'VASO', 'TRABAJAR']}
+{'texto': 'Hola, buenas tardes.', 'glosas': ['HOLA', 'BUENAS-TARDES']}
+{'texto': 'deshaciendo prueba para...', 'glosas': ['PRUEBA', 'DESHACER', 'PARA']}
+{'texto': 'y', 'glosas': []}
+{'texto': 'ver si funciona', 'glosas': ['VER', 'COMPROBAR', 'QUIZÁS']}
+{'texto': 'este.', 'glosas': []}
+{'texto': 'a ver si funciona de la misma...', 'glosas': ['VER', 'IGUAL', 'SÍ']}
+{'texto': 'forma el tema de', 'glosas': ['TEMA', 'FORMA']}
+{'texto': 'implemento', 'glosas': []}
+{'texto': 'Hola, ¿cómo estamos?', 'glosas': ['HOLA', 'CÓMO', 'NOSOTROS/AS']}
+{'texto': 'somos de puertomón', 'glosas': ['NOSOTROS/AS', 'PUERTO MONTT']}
+{'texto': 'este es nuestro proyecto de inteligencia.', 'glosas': ['NOSOTROS/AS', 'PROYECTO', 'INTELIGENCIA']}
+{'texto': 'en cierta visual.', 'glosas': []}
+{'texto': 'en el cual', 'glosas': []}
+{'texto': 'tenemos', 'glosas': ['NOSOTROS/AS', 'TENER']}
+{'texto': 'planteado el tema de', 'glosas': ['TEMA', 'SOLAMENTE']}
+{'texto': 'e implementar esto', 'glosas': []}
+{'texto': 'de la lenguaje de señas en...', 'glosas': ['LENGUA-DE-SEÑAS', 'IDIOMA', 'ENCONTRAR']}
+{'texto': 'todo chile', 'glosas': ['TODO-EL-DÍA', 'CHILE']}
+{'texto': 'Gracias.', 'glosas': ['GRACIAS']}
+{'texto': 'una prueba', 'glosas': ['PRUEBA']}
+{'texto': 'Si, un proyecto', 'glosas': ['SÍ', 'PROYECTO']}
+{'texto': 'del duro', 'glosas': ['DURO/A']}
+{'texto': 'eh', 'glosas': []}
+{'texto': 'básicamente', 'glosas': ['BASE', 'MÁS-O-MENOS']}
+{'texto': 'estamos haciendo un troctor de...', 'glosas': ['NOSOTROS/AS', 'HACER', 'TRACTOR', 'DADO', 'REDONDO/A']}
+{'texto': 'automático con', 'glosas': ['AUTOMÓVIL', 'ROBOT', 'PERO']}
+{'texto': '¡Suscríbete!', 'glosas': ['SUPLICAR']}
+{'texto': '¿Te elegí en certificiel?', 'glosas': ['ELEGIR', 'CERTIFICADO']}
+{'texto': 'Bayema.', 'glosas': []}
+{'texto': 'no puede que no puede', 'glosas': ['NO', 'NO-PODER']}
+{'texto': 'cambiar de la chamba o se escapar.', 'glosas': ['CAMBIAR', 'ESCAPAR']}
+{'texto': 'probando probando', 'glosas': ['PRUEBA', 'COMPROBAR', 'PRUEBA']}
+{'texto': 'Buenas tardes.', 'glosas': ['BUENAS-TARDES']}
+{'texto': 'con las noches', 'glosas': ['NOCHE', 'BUENAS-NOCHES']}
+{'texto': '1, 2, 3', 'glosas': []}
+{'texto': 'también se ve.', 'glosas': ['TAMBIÉN', 'VER']}
+{'texto': 'Jodigo', 'glosas': []}
+{'texto': 'que el cuasar se debe de comer una poronga.', 'glosas': ['CUÁL', 'COMER', 'POROTO']}
+{'texto': 'Hola buenas tardes', 'glosas': ['HOLA', 'BUENAS-TARDES']}
+{'texto': 'Esta es una prueba para ver', 'glosas': ['PRUEBA', 'VER']}
+{'texto': 'el contexto', 'glosas': ['ESCENARIO']}
+{'texto': 'de lo que es las palabras', 'glosas': ['PALABRA']}
+{'texto': 'para ver si no...', 'glosas': ['VER', 'NO']}
+{'texto': 'Repite las palabras', 'glosas': ['PALABRA', 'REPETIR', 'OTRA-VEZ']}
+{'texto': 'que están saliendo', 'glosas': ['SALIR']}
+{'texto': 'la idea es poder', 'glosas': ['IDEA', 'PODER']}
+{'texto': 'ver el resultado de', 'glosas': ['RESULTADO', 'VER']}
+{'texto': 'y', 'glosas': ['YEMA']}
+{'texto': 'y creo que está fallando el...', 'glosas': ['ERROR', 'CREER', 'FALLECER']}
+{'texto': 'bien', 'glosas': ['BIEN']}
+{'texto': '...emmm...', 'glosas': []}
+{'texto': 'sin embargo, el recuerdo', 'glosas': ['RECUERDO', 'RECORDAR']}
+{'texto': 'Esto está funcionando bien.', 'glosas': ['BIEN']}
+{'texto': 'nuevamente que creo que no le di a', 'glosas': ['NUEVO/A', 'CREER', 'OTRA-VEZ']}
+{'texto': 'a iniciar ahora', 'glosas': ['INICIAR']}
+{'texto': 'si esta devolviendo', 'glosas': ['SÍ', 'RECUPERAR']}
+{'texto': 'ehh', 'glosas': []}
+{'texto': 'que debería ser el', 'glosas': ['QUÉ']}
+{'texto': 'el index', 'glosas': ['INVENTARIO']}
+{'texto': 'no sé por qué está devolviendo', 'glosas': ['NO', 'POR-QUÉ']}
+{'texto': 'antes de que', 'glosas': ['ANTES']}
+{'texto': 'impresione eeeh iniciar', 'glosas': ['SORPRESA', 'INICIAR']}
+{'texto': 'no sé si es alguna', 'glosas': ['NO', 'ALGUNO/A']}
+{'texto': 'de', 'glosas': []}
+{'texto': 'algo de algún...', 'glosas': ['ALGUNO/A']}
+{'texto': 'un comando de lo que pueda...', 'glosas': ['PODER', 'MANDAR']}
+{'texto': 'pero bueno la cosa que', 'glosas': ['PERO', 'BIEN']}
+{'texto': 'funcionando de lo más bien', 'glosas': ['BIEN', 'CUMPLIR']}
+{'texto': 'parece que no hay muchos trabones obviamente', 'glosas': ['PARECER', 'NO-HABER', 'NUMEROSO/A']}
+{'texto': 'las palabras que no sabe', 'glosas': ['PALABRA', 'NO-SABER']}
+{'texto': 'no lo estás', 'glosas': ['NO']}
+{'texto': 'haciendo.', 'glosas': ['HACER']}
+{'texto': 'la cola', 'glosas': ['COLA']}
+{'texto': 'la vacía porque no hay pala...', 'glosas': ['VACÍO/A', 'NO-HABER', 'PALA']}
+{'texto': 'inicial tenemos nombre', 'glosas': []}
+{'texto': 'ustedes', 'glosas': []}
+{'texto': 'tu, yo', 'glosas': ['PROPIO/A']}
+{'texto': 'bien', 'glosas': ['BIEN']}
+{'texto': '¡Casa!', 'glosas': ['CASA']}
+{'texto': 'trabajo', 'glosas': ['TRABAJO']}
+{'texto': '¡Pesor!', 'glosas': ['PESO']}
+{'texto': 'alumno', 'glosas': ['ALUMNO/A']}
+{'texto': '¡Hola, buena!', 'glosas': ['HOLA']}
+{'texto': 'a lo buenas tardes', 'glosas': ['BUENAS-TARDES']}
+{'texto': 'ahora sí', 'glosas': ['SÍ']}
+{'texto': 'probar y ver', 'glosas': ['INTENTAR', 'VER']}
+{'texto': 'todo lo que se está lanzando.', 'glosas': ['TODO/A', 'TIRAR']}
+{'texto': '¡Muchas gracias por ver el video!', 'glosas': ['GRACIAS', 'VER', 'VIDEO']}
+{'texto': 'no parece que estas', 'glosas': ['NO', 'PARECER']}
+{'texto': 'no sé qué está pasando', 'glosas': ['NO', 'QUÉ']}
+{'texto': 'no sé qué habrá pasado', 'glosas': ['NO-SABER', 'QUÉ']}
+{'texto': 'no está haciendo...', 'glosas': ['NO', 'HACER']}
+{'texto': 'nada', 'glosas': ['NADA']}
+{'texto': 'Hay algo que no está detectando.', 'glosas': ['NO', 'NADA']}
+{'texto': 'no sé qué será', 'glosas': ['NO', 'SABER', 'QUÉ']}
+{'texto': 'aglosa nuestra...', 'glosas': ['NOSOTROS/AS']}
+{'texto': 'Pero', 'glosas': ['PERO']}
+{'texto': 'aglosa nuestra...', 'glosas': ['NOSOTROS/AS']}
+{'texto': 'no no no no no', 'glosas': ['NO']}
+{'texto': 'vamos de nuevo con la grabación a ver si está', 'glosas': ['GRABAR-VIDEO', 'OTRA-VEZ', 'VER', 'EXISTIR']}
+{'texto': 'desaparecen las glosas', 'glosas': ['DESAPARECER']}
+{'texto': 'Veamos si...', 'glosas': ['VER', 'MIRAR', 'OBSERVAR']}
+{'texto': 'y se', 'glosas': ['YEMA']}
+{'texto': 'el html.', 'glosas': []}
+{'texto': 'haciendo la', 'glosas': ['HACER']}
+{'texto': 'a ver si ahora se muestra', 'glosas': ['VER', 'MOSTRAR']}
+{'texto': 'ojalá que si', 'glosas': ['OJALÁ', 'SÍ']}
+{'texto': 'vamos a ver', 'glosas': []}
+{'texto': 'Siento fiable ahora.', 'glosas': []}
+{'texto': 'ok', 'glosas': []}

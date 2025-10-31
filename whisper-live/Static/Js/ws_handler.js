@@ -10,48 +10,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const deviceSelect = document.getElementById("device-select");
     const computeSelect = document.getElementById("compute-select");
     const configBtn = document.querySelector("button[onclick='configurarModelo()']");
-    const pInicial = resultadosDiv.querySelector("p"); // El párrafo inicial "La transcripción aparecerá aquí..."
+    const pInicial = resultadosDiv.querySelector("p");
 
-    // Función principal para conectar el WebSocket
+    // Conecta el WebSocket al cargar la página
+    connect();
+
     function connect() {
-        if (ws && ws.readyState === WebSocket.OPEN) {
-            console.log("El WebSocket ya está conectado.");
-            return;
-        }
+        if (ws && ws.readyState === WebSocket.OPEN) return;
 
         ws = new WebSocket("ws://" + window.location.host + "/ws");
 
         ws.onopen = () => {
-            console.log("✅ WebSocket conectado!");
-            // Limpiar el mensaje inicial si todavía está ahí
-            if (pInicial) {
-                pInicial.style.display = 'none';
-            }
-            // Actualizar estado de los botones
-            startBtn.disabled = true;
-            stopBtn.disabled = false;
-            modelSelect.disabled = true;
-            deviceSelect.disabled = true;
-            computeSelect.disabled = true;
-            configBtn.disabled = true;
+            console.log("✅ WebSocket conectado y esperando órdenes.");
+            // Al conectar, habilitamos el botón de start y deshabilitamos el de stop
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            modelSelect.disabled = false;
+            deviceSelect.disabled = false;
+            computeSelect.disabled = false;
+            configBtn.disabled = false;
         };
 
         ws.onmessage = (event) => {
+            // ===== AÑADE ESTA LÍNEA PARA VERIFICAR =====
+            console.log("Mensaje recibido del WebSocket:", event.data);
             try {
                 const data = JSON.parse(event.data);
                 const items = Array.isArray(data) ? data : [data];
+                
+                if (pInicial && pInicial.style.display !== 'none') {
+                    pInicial.style.display = 'none';
+                }
 
                 items.forEach((segmento) => {
                     const itemDiv = document.createElement("div");
                     itemDiv.className = "transcripcion-item";
-
                     const textoP = document.createElement("p");
                     textoP.className = "texto-original";
                     textoP.textContent = `"${segmento.texto ?? "..."}"`;
-                    
                     const glosasDiv = document.createElement("div");
                     glosasDiv.className = "glosas-container";
-
                     if (segmento.glosas && segmento.glosas.length > 0) {
                         segmento.glosas.forEach(glosa => {
                             const glosaSpan = document.createElement("span");
@@ -60,13 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             glosasDiv.appendChild(glosaSpan);
                         });
                     }
-                    
                     itemDiv.appendChild(textoP);
                     itemDiv.appendChild(glosasDiv);
-                    
-                    resultadosDiv.prepend(itemDiv); // prepend para que lo nuevo aparezca arriba
+                    resultadosDiv.prepend(itemDiv);
                 });
-
             } catch (e) {
                 console.error("Error procesando mensaje:", e);
             }
@@ -74,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onclose = () => {
             console.warn("🔌 WebSocket desconectado.");
+            // Se resetea el estado de los botones
             startBtn.disabled = false;
             stopBtn.disabled = true;
             modelSelect.disabled = false;
@@ -88,13 +84,34 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    startBtn.addEventListener("click", connect);
-
-    stopBtn.addEventListener("click", async () => {
-        if (ws) {
-            ws.close();
+    startBtn.addEventListener("click", () => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            console.log("Enviando comando 'start'...");
+            ws.send(JSON.stringify({ command: "start" }));
+            
+            // Actualizar estado de los botones
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            modelSelect.disabled = true;
+            deviceSelect.disabled = true;
+            computeSelect.disabled = true;
+            configBtn.disabled = true;
         }
-        await fetch("/stop", { method: "POST" });
+    });
+
+    stopBtn.addEventListener("click", () => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            console.log("Enviando comando 'stop'...");
+            ws.send(JSON.stringify({ command: "stop" }));
+
+            // Actualizar estado de los botones
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            modelSelect.disabled = false;
+            deviceSelect.disabled = false;
+            computeSelect.disabled = false;
+            configBtn.disabled = false;
+        }
     });
 
     exitBtn.addEventListener("click", async () => {

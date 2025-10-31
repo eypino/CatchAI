@@ -58,6 +58,5 @@ desktop.ini
 # --- Modelos descargados o generados localmente ---
 *.pt
 *.onnx
-models/
 checkpoints/
 weights/
