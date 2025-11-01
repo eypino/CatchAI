@@ -10,6 +10,11 @@ import asyncio
 
 from Models.Whisper_transcribe_V3 import resultado_queue, iniciar_sistema, detener_sistema, sistema_activo
 
+# === NUEVO (ChatGPT): imports solo para el modo de prueba desde archivo ===
+import json  # NUEVO
+from pathlib import Path  # NUEVO
+# ==========================================================================
+
 app = FastAPI(title="CatchAI - Transcriptor en vivo")
 templates = Jinja2Templates(directory="Templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -20,9 +25,10 @@ async def send_results(websocket: WebSocket):
     try:
         while True:
             resultado = await resultado_queue.get()
-            
+
+            # El cliente de Godot espera un ARRAY de objetos; mantenemos formato:
             await websocket.send_json([resultado])
-            
+
             resultado_queue.task_done()
 
     except (WebSocketDisconnect, asyncio.CancelledError):
@@ -59,6 +65,18 @@ async def websocket_endpoint(websocket: WebSocket):
                         sender_task = None
                 else:
                     print("⚠️ Sistema ya estaba detenido. Comando 'stop' ignorado.")
+
+            # === NUEVO (ChatGPT): modo de prueba: enviar transcripciones.json por WS ===
+            elif command == "start_file":
+                # Envía el contenido de Storage/transcripciones.json como si fuera el stream
+                print("▶️ Modo prueba: enviando Storage/transcripciones.json")
+                await stream_transcripciones_desde_archivo(websocket)
+            # ==========================================================================
+
+            # === NUEVO (ChatGPT): util simple para probar conectividad desde Godot ===
+            elif command == "ping":
+                await websocket.send_json([{"ok": True, "msg": "pong"}])
+            # ==========================================================================
 
     except WebSocketDisconnect:
         print("🔌 Cliente desconectado.")
@@ -103,3 +121,33 @@ def configurar_modelo(cfg: ConfiguracionModelo):
 
 if __name__ == "__main__":
     uvicorn.run("fastapi_interface:app", host="localhost", port=8000, reload=True)
+
+
+
+# ============================ BLOQUE AÑADIDO (ChatGPT) ============================
+# Función de apoyo para pruebas: envía por WebSocket el contenido de
+# Storage/transcripciones.json (un arreglo de objetos con campos 'texto' y 'glosas').
+# No interfiere con el flujo normal basado en la cola 'resultado_queue'.
+async def stream_transcripciones_desde_archivo(websocket: WebSocket):
+    try:
+        base_dir = Path(__file__).parent
+        trans_path = base_dir / "Storage" / "transcripciones.json"
+        if not trans_path.exists():
+            await websocket.send_json([{"error": "transcripciones.json no encontrado"}])
+            return
+
+        with trans_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # Garantizamos enviar SIEMPRE como lista de un elemento (compatibilidad con Godot)
+        for item in data if isinstance(data, list) else [data]:
+            await websocket.send_json([item])
+            await asyncio.sleep(0.05)  # pequeño espaciamiento opcional
+        print("✅ Fin de envío de transcripciones.json")
+    except Exception as e:
+        print(f"❌ Error enviando transcripciones desde archivo: {e}")
+        try:
+            await websocket.send_json([{"error": str(e)}])
+        except Exception:
+            pass
+# ================================================================================ 

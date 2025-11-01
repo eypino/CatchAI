@@ -2356,5 +2356,501 @@
     {
         "texto": "ok",
         "glosas": []
+    },
+    {
+        "texto": "hola probando hola",
+        "glosas": [
+            "HOLA",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "¡Feludo!",
+        "glosas": [
+            "FELIZ"
+        ]
+    },
+    {
+        "texto": "uno dos tres",
+        "glosas": [
+            "TERCERO/A"
+        ]
+    },
+    {
+        "texto": "Alô, hola probando.",
+        "glosas": [
+            "HOLA",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "probando uno, dos, tres",
+        "glosas": [
+            "PRUEBA",
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "¡Vola, test, test!",
+        "glosas": [
+            "VOLANTÍN",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Provando",
+        "glosas": [
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "1, 2, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "¡Mandoavatar!",
+        "glosas": []
+    },
+    {
+        "texto": "ahora probando uno, dos...",
+        "glosas": [
+            "PRUEBA",
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "¡Los estrés!",
+        "glosas": [
+            "PREOCUPADO/A"
+        ]
+    },
+    {
+        "texto": "¡Una dos!",
+        "glosas": [
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "3, probando 2.",
+        "glosas": [
+            "PRUEBA",
+            "3",
+            "2"
+        ]
+    },
+    {
+        "texto": "Hola hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "Mola pro le pro",
+        "glosas": [
+            "MOLINO",
+            "LEER",
+            "PROYECTOR"
+        ]
+    },
+    {
+        "texto": "¡Está listo!",
+        "glosas": [
+            "QUEDAR/SE",
+            "YA"
+        ]
+    },
+    {
+        "texto": "Probando  es, es...",
+        "glosas": [
+            "PRUEBA",
+            "COMPROBAR"
+        ]
+    },
+    {
+        "texto": "...",
+        "glosas": []
+    },
+    {
+        "texto": "¡Vando!",
+        "glosas": []
+    },
+    {
+        "texto": "3, 6.",
+        "glosas": [
+            "3",
+            "6"
+        ]
+    },
+    {
+        "texto": "oh no... oh no...",
+        "glosas": [
+            "NO"
+        ]
+    },
+    {
+        "texto": "Hola, hola, hola, hola, hola, hola, des...",
+        "glosas": [
+            "HOLA",
+            "DESEAR"
+        ]
+    },
+    {
+        "texto": "desde o de o uno dos uno dos",
+        "glosas": []
+    },
+    {
+        "texto": "1, 2, 3, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3",
+            "3"
+        ]
+    },
+    {
+        "texto": "Hola, hola, una...",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "Hola hola, te esteo una...",
+        "glosas": [
+            "HOLA",
+            "AGREGAR"
+        ]
+    },
+    {
+        "texto": "Hola, uno, dos, tres.",
+        "glosas": [
+            "HOLA",
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "¡Ando!",
+        "glosas": []
+    },
+    {
+        "texto": "probando 1, 2, 3",
+        "glosas": [
+            "PRUEBA",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Hola, hola, hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "1, 2, 3, probando",
+        "glosas": [
+            "PRUEBA",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Pro... Probando, bando",
+        "glosas": [
+            "PRUEBA",
+            "BANDA-DE-MÚSICA"
+        ]
+    },
+    {
+        "texto": "Hola, hola, unuado, unuado",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "estrés estrés",
+        "glosas": [
+            "ANGUSTIADO/A"
+        ]
+    },
+    {
+        "texto": "¡Rooven, ¡Rooven!",
+        "glosas": [
+            "ROBAR",
+            "ROTO/A"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "Uno dos, uno dos, tres, tres.",
+        "glosas": []
+    },
+    {
+        "texto": "probando una dos...",
+        "glosas": [
+            "PRUEBA",
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "3 probando",
+        "glosas": [
+            "PRUEBA",
+            "3"
+        ]
+    },
+    {
+        "texto": "1, 2, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "una de las tres",
+        "glosas": [
+            "ALGUNO/A",
+            "TERCERO/A"
+        ]
+    },
+    {
+        "texto": "Pro ando",
+        "glosas": [
+            "APROVECHAR"
+        ]
+    },
+    {
+        "texto": "No no no no",
+        "glosas": [
+            "NO"
+        ]
+    },
+    {
+        "texto": "dos tres tres",
+        "glosas": [
+            "DOS-PUNTOS",
+            "TERCERO/A"
+        ]
+    },
+    {
+        "texto": "Profesora",
+        "glosas": [
+            "PROFESOR/A"
+        ]
+    },
+    {
+        "texto": "alumno no",
+        "glosas": [
+            "NO"
+        ]
+    },
+    {
+        "texto": "Universidad",
+        "glosas": [
+            "UNIVERSIDAD"
+        ]
+    },
+    {
+        "texto": "probando",
+        "glosas": [
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "1, 2, 3, 1, 2, 3, probando",
+        "glosas": [
+            "PRUEBA",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "1, 2, 3, 4, 5, 6",
+        "glosas": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ]
+    },
+    {
+        "texto": "probando uno dos",
+        "glosas": [
+            "PRUEBA",
+            "DOS-PUNTOS"
+        ]
+    },
+    {
+        "texto": "Hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "y Lin, José María.",
+        "glosas": [
+            "YEMA",
+            "MARIDO"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "malalo",
+        "glosas": [
+            "MALO/A"
+        ]
+    },
+    {
+        "texto": "Buenos días, buenos días.",
+        "glosas": [
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "probando, hola, hola",
+        "glosas": [
+            "PRUEBA",
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "Hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "no me ha dado estrés",
+        "glosas": [
+            "NO",
+            "NADA"
+        ]
+    },
+    {
+        "texto": "Hola, hola, adiós.",
+        "glosas": [
+            "HOLA",
+            "CHAO"
+        ]
+    },
+    {
+        "texto": "Adiós, Dios, Universidad.",
+        "glosas": [
+            "DIOS",
+            "DESPEDIDA",
+            "UNIVERSIDAD"
+        ]
+    },
+    {
+        "texto": "universidad, conocimiento",
+        "glosas": [
+            "UNIVERSIDAD",
+            "CONOCER"
+        ]
+    },
+    {
+        "texto": "conocimiento",
+        "glosas": [
+            "CONOCER",
+            "INFORMACIÓN"
+        ]
+    },
+    {
+        "texto": "Inteligencia",
+        "glosas": [
+            "INTELIGENCIA"
+        ]
+    },
+    {
+        "texto": "María",
+        "glosas": []
+    },
+    {
+        "texto": "o la probando un...",
+        "glosas": [
+            "PRUEBA",
+            "COMPROBAR"
+        ]
+    },
+    {
+        "texto": "1, 2, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Buen día, Buen día, siad, siad",
+        "glosas": [
+            "BUENOS-DÍAS",
+            "SIDA"
+        ]
+    },
+    {
+        "texto": "por favor, gato, gato, to",
+        "glosas": [
+            "POR-FAVOR",
+            "GATO/A"
+        ]
+    },
+    {
+        "texto": "persona persona",
+        "glosas": [
+            "PERSONA"
+        ]
+    },
+    {
+        "texto": "alumnos, alumnos, per, per",
+        "glosas": [
+            "ALUMNO/A",
+            "PERO"
+        ]
+    },
+    {
+        "texto": "Sí, sí.",
+        "glosas": [
+            "SÍ"
+        ]
     }
 ]
