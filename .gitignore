@@ -50,3 +50,5 @@ desktop.ini
 *.onnx
 checkpoints/
 weights/
+whisper-live/Storage/transcripciones.txt
+whisper-live/Storage/transcripciones.json

@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const configBtn = document.querySelector("button[onclick='configurarModelo()']");
     const pInicial = resultadosDiv.querySelector("p");
 
+    // ================== INICIO DE LA MEJORA ==================
+    // 1. Creamos una cola para acumular mensajes y un temporizador.
+    let messageQueue = [];
+    let debounceTimer = null;
+    const DEBOUNCE_DELAY_MS = 150; // Aumenta si aún ves saltos, disminuye para más reactividad.
+    // =================== FIN DE LA MEJORA ====================
+
+
     // Conecta el WebSocket al cargar la página
     connect();
 
@@ -34,30 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = JSON.parse(event.data);
                 const items = Array.isArray(data) ? data : [data];
                 
-                if (pInicial && pInicial.style.display !== 'none') {
-                    pInicial.style.display = 'none';
-                }
+                // ================== INICIO DE LA MEJORA ==================
+                // 2. En lugar de actualizar el HTML, añadimos los mensajes a la cola.
+                messageQueue.push(...items);
 
-                items.forEach((segmento) => {
-                    const itemDiv = document.createElement("div");
-                    itemDiv.className = "transcripcion-item";
-                    const textoP = document.createElement("p");
-                    textoP.className = "texto-original";
-                    textoP.textContent = `"${segmento.texto ?? "..."}"`;
-                    const glosasDiv = document.createElement("div");
-                    glosasDiv.className = "glosas-container";
-                    if (segmento.glosas && segmento.glosas.length > 0) {
-                        segmento.glosas.forEach(glosa => {
-                            const glosaSpan = document.createElement("span");
-                            glosaSpan.className = "glosa-pill";
-                            glosaSpan.textContent = glosa;
-                            glosasDiv.appendChild(glosaSpan);
-                        });
+                // 3. Reiniciamos el temporizador cada vez que llega un mensaje.
+                clearTimeout(debounceTimer);
+
+                // 4. Programamos la actualización del HTML para que ocurra una sola vez
+                //    después de una breve pausa sin nuevos mensajes.
+                debounceTimer = setTimeout(() => {
+                    if (messageQueue.length > 0) {
+                        actualizarResultadosEnHTML(messageQueue);
+                        messageQueue = []; // Vaciamos la cola después de procesarla
                     }
-                    itemDiv.appendChild(textoP);
-                    itemDiv.appendChild(glosasDiv);
-                    resultadosDiv.prepend(itemDiv);
-                });
+                }, DEBOUNCE_DELAY_MS);
+                // =================== FIN DE LA MEJORA ====================
+
             } catch (e) {
                 console.error("Error procesando mensaje:", e);
             }
@@ -65,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onclose = () => {
             console.warn("🔌 WebSocket desconectado.");
-
             startBtn.disabled = false;
             stopBtn.disabled = true;
             modelSelect.disabled = false;
@@ -79,6 +79,46 @@ document.addEventListener("DOMContentLoaded", () => {
             ws.close();
         };
     }
+
+    // ================== INICIO DE LA MEJORA ==================
+    // 5. La lógica para actualizar el HTML ahora está en su propia función.
+    function actualizarResultadosEnHTML(items) {
+        if (pInicial && pInicial.style.display !== 'none') {
+            pInicial.style.display = 'none';
+        }
+
+        // Usamos un DocumentFragment para una actualización más eficiente del DOM.
+        const fragment = document.createDocumentFragment();
+
+        items.forEach((segmento) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "transcripcion-item";
+
+            const textoP = document.createElement("p");
+            textoP.className = "texto-original";
+            textoP.textContent = `"${segmento.texto ?? "..."}"`;
+
+            const glosasDiv = document.createElement("div");
+            glosasDiv.className = "glosas-container";
+
+            if (segmento.glosas && segmento.glosas.length > 0) {
+                segmento.glosas.forEach(glosa => {
+                    const glosaSpan = document.createElement("span");
+                    glosaSpan.className = "glosa-pill";
+                    glosaSpan.textContent = glosa;
+                    glosasDiv.appendChild(glosaSpan);
+                });
+            }
+            itemDiv.appendChild(textoP);
+            itemDiv.appendChild(glosasDiv);
+            fragment.appendChild(itemDiv);
+        });
+
+        // Añadimos todos los nuevos elementos al DOM de una sola vez.
+        resultadosDiv.prepend(fragment);
+    }
+    // =================== FIN DE LA MEJORA ====================
+
 
     startBtn.addEventListener("click", () => {
         if (ws && ws.readyState === WebSocket.OPEN) {

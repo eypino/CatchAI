@@ -40,7 +40,7 @@ def load_config():
         return {
           "audio": {"samplerate": 16000, "block_duration_ms": 500, "chunk_duration_ms": 2000, "channels": 1, "sentence_pause_ms": 1200},
           "vad": {"sensitivity": 2, "speech_threshold": 0.3},
-          "whisper": {"model_size": "small", "device": "cpu", "compute_type": "int8", "beam_size": 1, "no_speech_prob": 0.6},
+          "whisper": {"model_size": "small", "device": "cpu", "compute_type": "int8", "beam_size": 5, "no_speech_prob": 0.6},
           "faiss": {"top_k": 20, "similarity_threshold": 0.55},
           "openai": {"embedding_model": "text-embedding-3-small", "chat_model": "gpt-4o-mini"}
         }
@@ -371,7 +371,7 @@ def aggregate_sentences():
     global sistema_activo
     sentence_buffer = []
     last_segment_time = time.time()
-    pause_threshold = CONFIG['audio']['sentence_pause_ms'] / 1000.0
+    pause_threshold = CONFIG['audio']['sentence_pause_ms'] / 1000
 
     while sistema_activo:
         try:
