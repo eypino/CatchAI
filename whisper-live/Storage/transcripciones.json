@@ -1,2856 +1,462 @@
 [
     {
-        "inicio": 0.0,
-        "fin": 2.0,
-        "texto": "este proyecto consiste en un sistema que transforma la voz hablada en espanol a lengua de senas chilena en tiempo real, utilizando inteligencia artificial para transcribir el audio a texto y luego convertirlo en glosas basadas en el glosario oficial de la lsch, con el objetivo de captar la idea principal del mensaje y expresarla de la manera mas cercana posible a la estructura de la lengua de senas, integrando ademas un personaje 3d animado que interpreta las glosas en tiempo real para mejorar la inclusion comunicacional en espacios educativos, laborales y de atencion de servicios",
+        "texto": "de mediano.",
+        "glosas": [
+            "MEDIA",
+            "MITAD"
+        ]
+    },
+    {
+        "texto": "este esto es lo que es lo que es el",
         "glosas": []
     },
     {
-        "inicio": 0.0,
-        "fin": 3.76,
-        "texto": " prueba para ver",
+        "texto": "así así te quiero",
         "glosas": [
-            "PRUEBA",
-            "COMPROBAR",
-            "RESULTADO"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 2.0,
-        "texto": " como detecta",
-        "glosas": [
-            "CÓMO",
-            "DETECTIVE",
-            "DESCUBRIR"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 1.5,
-        "texto": " el...",
-        "glosas": [
-            "EL",
-            "HOMBRE"
-        ]
-    },
-    {
-        "inicio": 1.5,
-        "fin": 2.0,
-        "texto": " ...wisp.",
-        "glosas": [
-            "VAPOR",
-            "BRISA"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 2.0,
-        "texto": " Per junto con...",
-        "glosas": [
-            "JUNTARSE",
-            "PAREJA",
-            "COMPARTIR",
-            "TAMBIÉN"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 1.0,
-        "texto": " las glosas.",
-        "glosas": [
-            "GLOBO",
-            "GRITAR",
-            "GARGANTA"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 0.68,
-        "texto": " de la meta va bien.",
-        "glosas": [
-            "BUENO",
-            "RESULTADO",
-            "MEJOR"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 2.0,
-        "texto": " Fertile texto",
-        "glosas": [
-            "TEXTO",
-            "FECUNDAR",
-            "ABUNDANTE"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 1.12,
-        "texto": " que lo demuestre.",
-        "glosas": [
-            "MOSTRAR",
-            "PRUEBA"
-        ]
-    },
-    {
-        "inicio": 0.0,
-        "fin": 2.0,
-        "texto": " pero va demasiado bien",
-        "glosas": [
-            "BUENO/A",
-            "MUCHAS-VECES",
-            "MEJOR"
-        ]
-    },
-    {
-        "texto": "3, viéndose...",
-        "glosas": []
-    },
-    {
-        "texto": "funciona el procesamiento del audio.",
-        "glosas": []
-    },
-    {
-        "texto": "Mi nombre es Eileen.",
-        "glosas": [
-            "NOMBRE",
-            "LLAMARSE"
-        ]
-    },
-    {
-        "texto": "Nati, Marín.  Quiero saber si...  Y mi glosa C está en el...  actualizando o no.  Por favor.  Cuéntame, dice que está procesando.",
-        "glosas": [
-            "SABER",
-            "INFORMAR",
-            "POR-FAVOR",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "dando el audio con una duración de...",
-        "glosas": [
-            "AUDÍFONO",
-            "DAR"
-        ]
-    },
-    {
-        "texto": "Un segundo.",
-        "glosas": []
-    },
-    {
-        "texto": "Y ahora está traducido.",
-        "glosas": [
-            "YA",
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "Como corresponde.",
-        "glosas": [
-            "CÓMO",
-            "COMO",
+            "QUERER",
             "BIEN"
         ]
     },
     {
-        "texto": "a traducir algo y quiero",
+        "texto": "computo, bastan, bastan",
         "glosas": [
-            "YO-YO",
-            "QUERER",
-            "TRADUCIR"
+            "COMPUTADOR",
+            "BASTÓN"
         ]
     },
     {
-        "texto": "Vamos a ver si esto...",
+        "texto": "Podemos, Podemos, Podemos, Podemos...",
         "glosas": [
-            "VER",
-            "QUIZÁS",
+            "PODER"
+        ]
+    },
+    {
+        "texto": "Todas las palabras que tomen.",
+        "glosas": [
+            "TOMATE",
+            "TODOS/AS",
+            "PALABRA"
+        ]
+    },
+    {
+        "texto": "lograr, lograr, ahora, ahora todo el...",
+        "glosas": [
             "TODO/A"
         ]
     },
     {
-        "texto": "Esto lo traduce correctamente.",
-        "glosas": [
-            "CORRECTO/A",
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "Dar el servidor.",
-        "glosas": [
-            "DAR"
-        ]
-    },
-    {
-        "texto": "Una vez...",
-        "glosas": [
-            "VECES"
-        ]
-    },
-    {
-        "texto": "instaladas las dependencias.",
+        "texto": "Hola buenas tardes",
         "glosas": []
     },
     {
-        "texto": "ejecute el siguiente ejercicio.",
-        "glosas": [
-            "EJERCICIO",
-            "SOLAMENTE"
-        ]
-    },
-    {
-        "texto": "carpeta raíz del proyecto.",
-        "glosas": [
-            "CARPETA",
-            "RAÍZ",
-            "PROYECTO"
-        ]
-    },
-    {
-        "texto": "nombre es",
-        "glosas": [
-            "NOMBRE",
-            "LLAMARSE"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR",
-            "DIFUNDIR"
-        ]
-    },
-    {
-        "texto": "el nombre de mi",
-        "glosas": [
-            "NOMBRE"
-        ]
-    },
-    {
-        "texto": "mi hijo es Max.",
-        "glosas": [
-            "HIJO/A",
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "Chimomarín.",
+        "texto": "probando cómo funciona",
         "glosas": []
     },
     {
-        "texto": "nombre es Aileen.",
-        "glosas": [
-            "NOMBRE",
-            "LLAMARSE"
-        ]
-    },
-    {
-        "texto": "Y soy la mamá de Máximo Marín.",
-        "glosas": [
-            "MAMÁ"
-        ]
-    },
-    {
-        "texto": "Amá Rosana Collar.",
-        "glosas": [
-            "AMANTE",
-            "COLLAR"
-        ]
-    },
-    {
-        "texto": "Te encuentro a mi lado.",
-        "glosas": [
-            "ENCONTRARSE",
-            "LUGAR"
-        ]
-    },
-    {
-        "texto": "a mi hijo Max",
-        "glosas": [
-            "MAMÁ"
-        ]
-    },
-    {
-        "texto": "ver si encuentras el contexto correcto.",
-        "glosas": [
-            "VER",
-            "ENCONTRAR",
-            "CORRECTO/A"
-        ]
-    },
-    {
-        "texto": "Correcto, pero me parece que no.",
-        "glosas": [
-            "CORRECTO/A",
-            "PERO",
-            "PARECER"
-        ]
-    },
-    {
-        "texto": "que estás escuchando.",
-        "glosas": [
-            "QUÉ",
-            "ESCUCHAR"
-        ]
-    },
-    {
-        "texto": "Buenos días, probando...",
-        "glosas": [
-            "BUENOS-DÍAS",
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "el modelo",
+        "texto": "el nuevo modelo",
         "glosas": []
     },
     {
-        "texto": "Bueno, ya está, ¿sí?",
-        "glosas": [
-            "YA",
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "Seguramente no se me actualizó el...",
-        "glosas": [
-            "SEGURO/A",
-            "NOVEDAD",
-            "NO-HABER"
-        ]
-    },
-    {
-        "texto": "Claro, seguramente no, ¿verdad?",
-        "glosas": [
-            "NO",
-            "VERDAD"
-        ]
-    },
-    {
-        "texto": "A ver, mira.",
-        "glosas": [
-            "MIRAR",
-            "VER"
-        ]
-    },
-    {
-        "texto": "Mejor nos va a quedar en ese sentido.",
-        "glosas": [
-            "MEJOR",
-            "QUEDAR/SE"
-        ]
-    },
-    {
-        "texto": "Buenos veracruces, flororochas.",
-        "glosas": [
-            "BUENOS-DÍAS",
-            "FLOR"
-        ]
-    },
-    {
-        "texto": "Los chunks porque eran muy cortos.",
-        "glosas": [
-            "POCO/A",
-            "CORTAR-CON-TIJERAS"
-        ]
-    },
-    {
-        "texto": "El problema es que se cargaba.",
-        "glosas": [
-            "PROBLEMA"
-        ]
-    },
-    {
-        "texto": "Contaba muchas palabras.  Sí.",
-        "glosas": [
-            "PALABRA",
-            "MUCHAS-VECES",
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "Entonces es mejor que el chan sea largo.",
-        "glosas": [
-            "MEJOR",
-            "CHANCHO"
-        ]
-    },
-    {
-        "texto": "y pierdanme en el colaborar.",
+        "texto": "Tratando de ver que...",
         "glosas": []
     },
     {
-        "texto": "Ya, ahora que lo conviertes a...",
-        "glosas": [
-            "YA",
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "¿Tu figura está arriba?  No, no, no, espérate.",
-        "glosas": [
-            "NO",
-            "ESPERAR"
-        ]
-    },
-    {
-        "texto": "No, es que no lo cambiaste.",
-        "glosas": [
-            "NO",
-            "CAMBIAR",
-            "NUNCA"
-        ]
-    },
-    {
-        "texto": "¿Es este?",
+        "texto": "hola buenas tratando de",
         "glosas": []
     },
     {
-        "texto": "Entonces, ¿no hubo nunca ese cambio?  No.",
+        "texto": "probar el modelo con el FAT3",
         "glosas": [
-            "NUNCA",
-            "CAMBIAR",
-            "NO"
+            "3"
         ]
     },
     {
-        "texto": "Si le ponen más del chunks.",
-        "glosas": [
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "Cámbelo, cámbelo los chavos.",
-        "glosas": [
-            "INTERCAMBIAR",
-            "CHIVO"
-        ]
-    },
-    {
-        "texto": "lo prueben 5 como lo han dado muchos",
-        "glosas": [
-            "CÓMO",
-            "DADO",
-            "MUCHAS-VECES",
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "pero cambia lo mismo",
-        "glosas": [
-            "CAMBIAR",
-            "IGUAL",
-            "PERO"
-        ]
-    },
-    {
-        "texto": "Eh...",
+        "texto": "a ver si funciona",
         "glosas": []
     },
     {
-        "texto": "Nación del 16.",
+        "texto": "Hola buenas tardes",
         "glosas": [
-            "NACIÓN",
-            "DÍA-DE",
-            "SEXTO/A"
+            "BUENAS-TARDES"
         ]
     },
     {
-        "texto": "El chunk de 200...",
-        "glosas": []
-    },
-    {
-        "texto": "No, pues sí, está pues terminado",
+        "texto": "tratando de que funcione el modelo.",
         "glosas": [
-            "NO",
-            "SÍ",
-            "TERMINAR"
+            "TRATAR"
         ]
     },
     {
-        "texto": "Está en 0,5.",
+        "texto": "el modelo, viendo que...",
         "glosas": [
-            "CERO",
-            "MITAD",
-            "PORCENTAJE",
-            "ENCONTRARSE"
+            "MIRAR"
         ]
     },
     {
-        "texto": "con dos segundos.",
+        "texto": "y...  ¡Experimenta!",
         "glosas": [
-            "DOS-PUNTOS",
-            "POCO-TIEMPO"
+            "EXPERIMENTO"
         ]
     },
     {
-        "texto": "que nos afecta mucho porque el tema es que",
-        "glosas": [
-            "NOSOTROS/AS",
-            "TEMA",
-            "IMPORTANTE"
-        ]
-    },
-    {
-        "texto": "ahora como está agregado cada vez que",
-        "glosas": [
-            "AGREGAR",
-            "CÓMO",
-            "A-VECES"
-        ]
-    },
-    {
-        "texto": "yo haga una pausa, ahí se me iría.",
-        "glosas": [
-            "PARAR",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "Eso es lo que hacen",
-        "glosas": [
-            "QUÉ",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "porque ya no afecta",
-        "glosas": [
-            "YA",
-            "NO"
-        ]
-    },
-    {
-        "texto": "el tema de que se vea palabra a palabra.",
-        "glosas": [
-            "TEMA",
-            "PALABRA",
-            "SÍLABA"
-        ]
-    },
-    {
-        "texto": "sino que yo al momento de hablar",
-        "glosas": [
-            "HABLAR"
-        ]
-    },
-    {
-        "texto": "si se pausa",
-        "glosas": [
-            "SUSPENDER",
-            "PARAR"
-        ]
-    },
-    {
-        "texto": "Ya, eso es una prueba para...",
-        "glosas": [
-            "YA",
-            "PRUEBA",
-            "PARA"
-        ]
-    },
-    {
-        "texto": "ver cómo funciona pero...",
-        "glosas": []
-    },
-    {
-        "texto": "la idea es que",
-        "glosas": [
-            "IDEA",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "Ya como estoy hablando...",
-        "glosas": [
-            "YA",
-            "HABLAR",
-            "CÓMO"
-        ]
-    },
-    {
-        "texto": "y cuáltame de continuamente hasta el momento que se...",
-        "glosas": [
-            "CUÁL",
-            "TIEMPO",
-            "HASTA",
-            "MÁS",
-            "DEBAJO"
-        ]
-    },
-    {
-        "texto": "para",
+        "texto": "¡Para!",
         "glosas": [
             "PARA"
         ]
     },
     {
-        "texto": "que ove una pausa, pequeña pausa.",
-        "glosas": []
-    },
-    {
-        "texto": "de ahí también.",
+        "texto": "No, no, no, no.",
         "glosas": [
-            "TAMBIÉN"
+            "NO"
         ]
     },
     {
-        "texto": "¿Dónde la CPU?",
+        "texto": "debería entregar un buen resultado.",
         "glosas": [
-            "DÓNDE",
+            "RESULTADO",
+            "BIEN"
+        ]
+    },
+    {
+        "texto": "Considerando",
+        "glosas": []
+    },
+    {
+        "texto": "las especificaciones que tiene el computador de",
+        "glosas": [
             "COMPUTADOR"
         ]
     },
     {
-        "texto": "Bueno, me falta instalar a este gustador de...",
+        "texto": "...pería rendir para...",
         "glosas": [
-            "BUENO/A",
-            "GUSTAR",
-            "FALTAR"
+            "PARA"
         ]
     },
     {
-        "texto": "Gracias.",
+        "texto": "de purar más",
         "glosas": [
-            "GRACIAS"
+            "PURÉ"
         ]
     },
     {
-        "texto": "Sí, también.",
+        "texto": "el lenguaje",
         "glosas": [
-            "SÍ",
-            "TAMBIÉN"
+            "LENGUAJE"
         ]
     },
     {
-        "texto": "muy nuevo, ahora es lo que está haciendo...",
+        "texto": "de México, lo que sea.",
         "glosas": [
-            "NOVEDAD",
-            "NUEVO/A",
-            "HACER",
-            "HOY"
+            "MÉXICO"
         ]
     },
     {
-        "texto": "Trata de transcribirlo",
+        "texto": "ahora está lanzando un",
         "glosas": [
-            "TRATAR"
-        ]
-    },
-    {
-        "texto": "a través de plazos.",
-        "glosas": []
-    },
-    {
-        "texto": "Ehm...  ¿Tienes capta?",
-        "glosas": []
-    },
-    {
-        "texto": "va a empezar a inventar el whisper",
-        "glosas": [
-            "EMPEZAR",
-            "INVENTAR"
-        ]
-    },
-    {
-        "texto": "pero ahora lo que está haciendo son las transcripciones",
-        "glosas": [
-            "PERO",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "con un nuevo diccionario que estaba...",
-        "glosas": [
-            "NOVEDAD",
-            "NUEVO/A",
-            "DICCIONARIO"
-        ]
-    },
-    {
-        "texto": "mejorado",
-        "glosas": [
-            "MEJOR"
-        ]
-    },
-    {
-        "texto": "ya que antes no tenía el contexto",
-        "glosas": [
-            "ANTES",
-            "NO-HABER"
-        ]
-    },
-    {
-        "texto": "esto es todo y ahora incluso guarda la memoria.",
-        "glosas": [
-            "MEMORIZAR",
-            "YA"
-        ]
-    },
-    {
-        "texto": "de lo que se está diciendo.",
-        "glosas": []
-    },
-    {
-        "texto": "cada vez que salen una línea de...",
-        "glosas": [
-            "A-VECES",
-            "SALIR"
-        ]
-    },
-    {
-        "texto": "texto se está guardando dentro del info.",
-        "glosas": [
-            "TEXTO",
-            "GUARDAR",
-            "INFORMACIÓN"
-        ]
-    },
-    {
-        "texto": "información de que se está lanzando.",
-        "glosas": [
-            "INFORMACIÓN",
-            "TIRAR",
-            "NOTICIA"
-        ]
-    },
-    {
-        "texto": "ahora",
-        "glosas": []
-    },
-    {
-        "texto": "Ehm...  Ahí...",
-        "glosas": []
-    },
-    {
-        "texto": "Ahí es donde paró.",
-        "glosas": [
-            "DÓNDE",
-            "PARAR"
-        ]
-    },
-    {
-        "texto": "haciendo una recopilación de...",
-        "glosas": [
-            "HACER",
-            "REUNIÓN",
-            "AGREGAR"
-        ]
-    },
-    {
-        "texto": "de lo anterior dicho, ya que ahora estamos...",
-        "glosas": [
-            "YA",
-            "NOSOTROS/AS",
-            "DECIR"
-        ]
-    },
-    {
-        "texto": "funcionado a través de pausas.",
-        "glosas": []
-    },
-    {
-        "texto": "Hay una pequeña pausa.",
-        "glosas": [
-            "POCO-TIEMPO",
-            "PARAR"
-        ]
-    },
-    {
-        "texto": "toda esa información que se recopile.",
-        "glosas": [
-            "INFORMACIÓN"
-        ]
-    },
-    {
-        "texto": "hasta la pausa",
-        "glosas": [
-            "HASTA",
-            "PARAR"
-        ]
-    },
-    {
-        "texto": "Chagipiti",
-        "glosas": []
-    },
-    {
-        "texto": "modelo LLM.",
-        "glosas": []
-    },
-    {
-        "texto": "a tratar de costear el tema de los tokens",
-        "glosas": [
-            "TEMA",
-            "TRATAR"
-        ]
-    },
-    {
-        "texto": "que no quedamos toquen.",
-        "glosas": [
-            "QUÉ",
-            "QUEDAR/SE",
-            "NO",
-            "TOCAR-BOCINA"
-        ]
-    },
-    {
-        "texto": "hasta que no lance la alerta",
-        "glosas": [
-            "HASTA",
-            "ALARMA"
-        ]
-    },
-    {
-        "texto": "No vea, está recopilando, recopilando.",
-        "glosas": [
-            "NO",
-            "OBSERVAR"
-        ]
-    },
-    {
-        "texto": "cobilando hasta que se lanza y ahí",
-        "glosas": [
-            "HASTA",
-            "YA"
-        ]
-    },
-    {
-        "texto": "fue lanzado ya en el",
-        "glosas": [
-            "YA",
             "TIRAR"
         ]
     },
     {
-        "texto": "los Thermalware HVAC skin dependent.  Ahí se empieza a dar un  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...  ...",
+        "texto": "el éxico bastante cotado o sea son solo",
         "glosas": []
     },
     {
-        "texto": "entonces como esta falta",
+        "texto": "que antes estaba lanzado.",
         "glosas": [
-            "CÓMO",
-            "FALTAR"
+            "ANTES",
+            "TIRAR"
         ]
     },
     {
-        "texto": "Es unos cuantos segundos",
-        "glosas": [
-            "POCO-TIEMPO"
-        ]
-    },
-    {
-        "texto": "que trata de como tratar de galmas.",
-        "glosas": [
-            "CÓMO",
-            "TRATAR",
-            "GALLO"
-        ]
-    },
-    {
-        "texto": "Sin adicciones.",
-        "glosas": []
-    },
-    {
-        "texto": "se detecta solamente",
-        "glosas": [
-            "SOLAMENTE",
-            "DETECTIVE"
-        ]
-    },
-    {
-        "texto": "o debería de tener una alerta de...",
-        "glosas": [
-            "ALARMA",
-            "TENER"
-        ]
-    },
-    {
-        "texto": "que se está haciendo una pausa para la población de...",
-        "glosas": []
-    },
-    {
-        "texto": "del contexto.",
-        "glosas": []
-    },
-    {
-        "texto": "¡Muchas gracias!",
-        "glosas": [
-            "GRACIAS",
-            "MUCHAS-VECES"
-        ]
-    },
-    {
-        "texto": "trata de mejorar el tema de...",
-        "glosas": [
-            "TEMA",
-            "MEJOR",
-            "TRATAR",
-            "ARREGLAR"
-        ]
-    },
-    {
-        "texto": "de lo que se está transcribiendo.",
-        "glosas": [
-            "TEXTO",
-            "LEER",
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "M.",
-        "glosas": []
-    },
-    {
-        "texto": "Y por ahí un poco más por ahí.",
-        "glosas": [
-            "MÁS",
-            "POCO-TIEMPO"
-        ]
-    },
-    {
-        "texto": "Al final va a ser que igual vaya...",
-        "glosas": [
-            "IGUAL",
-            "FINAL",
-            "VIRAR"
-        ]
-    },
-    {
-        "texto": "tratando a la par pero obviamente",
-        "glosas": [
-            "PERO",
-            "TODO/A",
-            "TRATAR"
-        ]
-    },
-    {
-        "texto": "la descripción va a ser más rápida de lo que está...",
-        "glosas": [
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "saliendo a la señal.",
-        "glosas": [
-            "SALIR"
-        ]
-    },
-    {
-        "texto": "Bienvenido.",
-        "glosas": [
-            "BIENVENIDA"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": []
-    },
-    {
-        "texto": "¿Qué?  ¿Qué haces?  No.",
-        "glosas": [
-            "QUÉ",
-            "QUÉ-HACES",
-            "NO"
-        ]
-    },
-    {
-        "texto": "Ponen la ceja.",
-        "glosas": []
-    },
-    {
-        "texto": "¡No va, no está muy cómodo!",
-        "glosas": [
-            "NO",
-            "CÓMODA",
-            "NO-GUSTAR"
-        ]
-    },
-    {
-        "texto": "Sí, la coptamos.",
-        "glosas": [
-            "SÍ",
-            "COPIAR"
-        ]
-    },
-    {
-        "texto": "como dije las transcripciones",
-        "glosas": [
-            "CÓMO",
-            "DECIR"
-        ]
-    },
-    {
-        "texto": "si alcanzas a ver porque...",
-        "glosas": [
-            "VER",
-            "POR-QUÉ",
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "Australia",
-        "glosas": [
-            "AUSTRALIA"
-        ]
-    },
-    {
-        "texto": "Alemania",
-        "glosas": []
-    },
-    {
-        "texto": "próximo estado de mi amor.",
-        "glosas": [
-            "AMOR",
-            "FUTURO"
-        ]
-    },
-    {
-        "texto": "con dudamente en su cuna.",
-        "glosas": [
-            "CUNA",
-            "ENCONTRARSE"
-        ]
-    },
-    {
-        "texto": "Ahora se titula el...",
-        "glosas": []
-    },
-    {
-        "texto": "informe",
-        "glosas": [
-            "INFORMAR"
-        ]
-    },
-    {
-        "texto": "de avance, catch eye",
-        "glosas": []
-    },
-    {
-        "texto": "importante que cuando vía...",
-        "glosas": [
-            "IMPORTANTE"
-        ]
-    },
-    {
-        "texto": "los pierdas.",
-        "glosas": []
-    },
-    {
-        "texto": "es difícil de hacer.",
-        "glosas": [
-            "DIFÍCIL",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "Vamos a iniciar la grabación.",
-        "glosas": [
-            "INICIAR",
-            "GRABAR-VIDEO"
-        ]
-    },
-    {
-        "texto": "28 de octubre",
-        "glosas": [
-            "OCTUBRE"
-        ]
-    },
-    {
-        "texto": "Estamos observando que...",
-        "glosas": [
-            "NOSOTROS/AS",
-            "MIRAR",
-            "OBSERVAR"
-        ]
-    },
-    {
-        "texto": "las grabaciones de videos con el modelo",
-        "glosas": [
-            "VIDEO",
-            "GRABAR-VIDEO"
-        ]
-    },
-    {
-        "texto": "es de gran alcance",
-        "glosas": [
-            "IMPORTANTE",
-            "GRANIZO",
-            "LARGO/A"
-        ]
-    },
-    {
-        "texto": "y con un float de 16",
-        "glosas": []
-    },
-    {
-        "texto": "está transcribiendo bastante",
-        "glosas": []
-    },
-    {
-        "texto": "rápido",
-        "glosas": []
-    },
-    {
-        "texto": "Algunas palabras que no están siendo...",
-        "glosas": [
-            "ALGUNO/A",
-            "PALABRA",
-            "NO-HABER"
-        ]
-    },
-    {
-        "texto": "Traducidas como corresponde.",
-        "glosas": [
-            "TRADUCIR",
-            "BIEN",
-            "CÓMO"
-        ]
-    },
-    {
-        "texto": "O quizás es otro el problema.",
-        "glosas": [
-            "PROBLEMA",
-            "QUIZÁS",
-            "OTRO/A"
-        ]
-    },
-    {
-        "texto": "pausa en donde se perdieron bastante",
-        "glosas": [
-            "DÓNDE",
-            "PERDER",
-            "ABUNDANTE"
-        ]
-    },
-    {
-        "texto": "esas pausas de",
-        "glosas": []
-    },
-    {
-        "texto": "la captura de las palabras",
-        "glosas": [
-            "PALABRA"
-        ]
-    },
-    {
-        "texto": "vez una pausa muy larga",
-        "glosas": [
-            "LARGO/A",
-            "POCO-TIEMPO",
-            "PARAR"
-        ]
-    },
-    {
-        "texto": "no está traduciendo para nada",
-        "glosas": [
-            "NO",
-            "TRADUCIR",
-            "NADA"
-        ]
-    },
-    {
-        "texto": "El micrófono por lo menos está haciendo su...",
-        "glosas": [
-            "MICRO",
-            "MENOS",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "parte y al parecer capta",
-        "glosas": [
-            "PARECER"
-        ]
-    },
-    {
-        "texto": "un audio de gran calidad",
-        "glosas": [
-            "AUDÍFONO",
-            "GRANIZO",
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "Por lo menos las palabras...",
-        "glosas": [
-            "PALABRA",
-            "MENOS"
-        ]
-    },
-    {
-        "texto": "bastante bien",
-        "glosas": [
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "traducidas",
-        "glosas": [
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "es que no se están viendo",
-        "glosas": [
-            "NO",
-            "VER",
-            "PERMANECER-EN-UN-LUGAR"
-        ]
-    },
-    {
-        "texto": "reflejadas en la interfase.",
-        "glosas": []
-    },
-    {
-        "texto": "Hay algunas palabras que efectivamente...",
-        "glosas": [
-            "ALGUNO/A",
-            "EFECTIVO",
-            "A-VECES",
-            "PALABRA"
-        ]
-    },
-    {
-        "texto": "se está saltando",
-        "glosas": []
-    },
-    {
-        "texto": "grave la situación",
-        "glosas": [
-            "GRAVE",
-            "PROBLEMA"
-        ]
-    },
-    {
-        "texto": "quizás aumentando los chunks",
-        "glosas": [
-            "QUIZÁS",
-            "AGREGAR",
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "y pudiendo tener",
-        "glosas": [
-            "PODER",
-            "TENER"
-        ]
-    },
-    {
-        "texto": "mejor contexto.",
-        "glosas": [
-            "MEJOR",
-            "OPORTUNIDAD"
-        ]
-    },
-    {
-        "texto": "se pueda mejorar",
-        "glosas": [
-            "MEJOR",
-            "PODER",
-            "ARREGLAR"
-        ]
-    },
-    {
-        "texto": "Hay una...",
-        "glosas": []
-    },
-    {
-        "texto": "unas traducciones",
-        "glosas": []
-    },
-    {
-        "texto": "que no tienen mucha",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "ejemplo es que no se están viendo",
-        "glosas": [
-            "EJEMPLO",
-            "NO",
-            "VER"
-        ]
-    },
-    {
-        "texto": "no puede ser no ver permanecer en un lugar.",
-        "glosas": [
-            "NO",
-            "VER",
-            "PERMANECER-EN-UN-LUGAR"
-        ]
-    },
-    {
-        "texto": "el contexto no es correcto.",
-        "glosas": [
-            "ESCENARIO",
-            "NO",
-            "CORRECTO/A"
-        ]
-    },
-    {
-        "texto": "Otra cosa es que...",
-        "glosas": [
-            "OTRO/A",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "Me estaba enamorando mucho en llevarlo al front end.",
-        "glosas": [
-            "ENAMORADO/A",
-            "LLEVAR",
-            "FRONTERA"
-        ]
-    },
-    {
-        "texto": "y ahí hay algo que observar",
-        "glosas": [
-            "OBSERVAR"
-        ]
-    },
-    {
-        "texto": "ser de usabilidad",
-        "glosas": [
-            "ÚTIL",
-            "EVALUACIÓN"
-        ]
-    },
-    {
-        "texto": "Hay glosas que no se están...",
-        "glosas": [
-            "NADA",
-            "FALTAR"
-        ]
-    },
-    {
-        "texto": "observan si se ven",
-        "glosas": [
-            "OBSERVAR",
-            "VER",
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "ese retrying request de",
-        "glosas": [
-            "SOLICITUD",
-            "REPETIR",
-            "INTENTAR"
-        ]
-    },
-    {
-        "texto": "la competición de 35",
-        "glosas": [
-            "OLIMPIADA",
-            "GRADO"
-        ]
-    },
-    {
-        "texto": "está tomando",
-        "glosas": []
-    },
-    {
-        "texto": "Un buffer demasiado largo.",
-        "glosas": [
-            "LARGO/A",
-            "ABUNDANTE"
-        ]
-    },
-    {
-        "texto": "para poder",
-        "glosas": [
-            "PARA",
-            "PODER"
-        ]
-    },
-    {
-        "texto": "y ya",
-        "glosas": [
-            "YA"
-        ]
-    },
-    {
-        "texto": "Oh no.",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "Hola buenas tardes",
-        "glosas": [
-            "HOLA",
-            "BUENAS-TARDES"
-        ]
-    },
-    {
-        "texto": "haciendo la prueba para...",
-        "glosas": [
-            "PRUEBA",
-            "HACER",
-            "PARA"
-        ]
-    },
-    {
-        "texto": "Hola buenas tardes",
-        "glosas": [
-            "HOLA",
-            "BUENAS-TARDES"
-        ]
-    },
-    {
-        "texto": "del inicio",
-        "glosas": [
-            "INICIAR",
-            "DÍA-DE",
-            "PRIMERO/A"
-        ]
-    },
-    {
-        "texto": "3 por Tomón",
-        "glosas": []
-    },
-    {
-        "texto": "Puerto Mundo",
-        "glosas": [
-            "MUNDO"
-        ]
-    },
-    {
-        "texto": "¿Por qué por todo mundo es por todo...",
-        "glosas": [
-            "POR-QUÉ",
-            "MUNDO"
-        ]
-    },
-    {
-        "texto": "¿Monta?",
-        "glosas": []
-    },
-    {
-        "texto": "Hola buenas tardes, este es un...",
+        "texto": "Hola buenas tardes, este es un prog-",
         "glosas": [
             "HOLA",
             "BUENAS-TARDES",
-            "ESTUFA",
-            "EJEMPLO"
-        ]
-    },
-    {
-        "texto": "proyecto",
-        "glosas": [
             "PROYECTO"
         ]
     },
     {
-        "texto": "diseñas para",
+        "texto": "Programa de Televisión, Comunicación",
         "glosas": [
-            "PROYECTO",
-            "PARA"
+            "TELEVISIÓN"
         ]
     },
     {
-        "texto": "a ver si...",
+        "texto": "de toda la región de Chile.",
         "glosas": [
-            "VER",
-            "QUIZÁS"
+            "REGIONES-DE-CHILE"
         ]
     },
     {
-        "texto": "se logra conseguir Platinum",
+        "texto": "les informamos de que",
         "glosas": [
-            "PLATA",
-            "GANAR"
+            "INFORMAR",
+            "AVISAR"
         ]
     },
     {
-        "texto": "este lo pudiera traducir",
+        "texto": "que es un imprevisto en el...",
         "glosas": [
-            "TRADUCIR",
-            "PODER"
+            "SORPRESA",
+            "INMEDIATO/A"
         ]
     },
     {
-        "texto": "va mucho más rápido de lo que ve.",
+        "texto": "tema de las candidaturas de...",
         "glosas": [
-            "VER",
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "pensaba con el método de la...",
-        "glosas": [
-            "PENSAR",
-            "ETCÉTERA"
-        ]
-    },
-    {
-        "texto": "no sé si es por el tema del",
-        "glosas": [
-            "NO",
-            "SÍ",
             "TEMA"
         ]
     },
     {
-        "texto": "el procesamiento que tiene detrás pero",
+        "texto": "este noviembre 19",
         "glosas": [
-            "PERO"
+            "NOVIEMBRE",
+            "1",
+            "9"
         ]
     },
     {
-        "texto": "va mucho mas",
-        "glosas": [
-            "MÁS"
-        ]
-    },
-    {
-        "texto": "rápido de lo que se espera",
-        "glosas": [
-            "RÁPIDO/A",
-            "ESPERAR"
-        ]
-    },
-    {
-        "texto": "así no tal vez",
-        "glosas": [
-            "QUIZÁS",
-            "NO"
-        ]
-    },
-    {
-        "texto": "yo por ejemplo",
-        "glosas": [
-            "EJEMPLO",
-            "POR-QUÉ"
-        ]
-    },
-    {
-        "texto": "Nosotros",
+        "texto": "en el cual surgió",
         "glosas": []
     },
     {
-        "texto": "¿Ustedes?",
+        "texto": "que el cambio de vocas",
+        "glosas": [
+            "CAMBIAR"
+        ]
+    },
+    {
+        "texto": "de vocales haya sido",
+        "glosas": [
+            "VOZ",
+            "SÍLABA"
+        ]
+    },
+    {
+        "texto": "y un efecto derrumbado",
+        "glosas": [
+            "VÉRTIGO",
+            "RESBALARSE"
+        ]
+    },
+    {
+        "texto": "tomador en tema de",
+        "glosas": [
+            "TEMA"
+        ]
+    },
+    {
+        "texto": "las candidaturas de los postulantes.",
+        "glosas": [
+            "SOLICITUD",
+            "SELECCIONAR"
+        ]
+    },
+    {
+        "texto": "La lengua de señas chip.",
+        "glosas": [
+            "LENGUA-DE-SEÑAS"
+        ]
+    },
+    {
+        "texto": "Elena es el idioma natural de la copa.",
+        "glosas": [
+            "COPA"
+        ]
+    },
+    {
+        "texto": "comunidad sorda, pero al menos el...",
+        "glosas": [
+            "SORDO/A",
+            "OYENTE"
+        ]
+    },
+    {
+        "texto": "3% de los oyentes la comprende.",
         "glosas": [
             "OYENTE",
-            "NOSOTROS/AS"
+            "COMPRENDER",
+            "3"
         ]
     },
     {
-        "texto": "el contexto.",
-        "glosas": []
-    },
-    {
-        "texto": "de un cuartamando.",
-        "glosas": []
-    },
-    {
-        "texto": "Este es un proyecto de innovación.",
+        "texto": "y aunque existen intérpretes humanos no hay",
         "glosas": [
-            "PROYECTO",
-            "INNOVACIÓN",
-            "ÚNICO/A"
+            "INTÉRPRETE",
+            "NO-HABER"
         ]
     },
     {
-        "texto": "donde es de",
-        "glosas": [
-            "DÓNDE",
-            "DEBAJO",
-            "DEPENDE"
-        ]
-    },
-    {
-        "texto": "ayuda para",
-        "glosas": [
-            "AYUDAR",
-            "PARA"
-        ]
-    },
-    {
-        "texto": "el trabajo para estudiar",
-        "glosas": [
-            "TRABAJAR",
-            "ESTUDIAR",
-            "PARA"
-        ]
-    },
-    {
-        "texto": "para",
-        "glosas": [
-            "PARA"
-        ]
-    },
-    {
-        "texto": "jugar, caminar, correr",
-        "glosas": [
-            "JUGAR",
-            "CAMINAR",
-            "CORRER"
-        ]
-    },
-    {
-        "texto": "nosotros somos chilenos",
-        "glosas": [
-            "NOSOTROS/AS",
-            "CHILENO/A"
-        ]
-    },
-    {
-        "texto": "que no gusta la inteligencia",
-        "glosas": [
-            "NO-GUSTAR",
-            "INTELIGENCIA"
-        ]
-    },
-    {
-        "texto": "artificial.",
+        "texto": "herramientas tecnológicas que automatizan",
         "glosas": [
             "ROBOT"
         ]
     },
     {
-        "texto": "la lengua de señas",
+        "texto": "en esta traducción. Esto mantiene",
+        "glosas": [
+            "MANTENER"
+        ]
+    },
+    {
+        "texto": "una barrera invisible en la educación.",
+        "glosas": [
+            "EDUCACIÓN"
+        ]
+    },
+    {
+        "texto": "los medios y los servicios digitales de nuestro país.",
+        "glosas": []
+    },
+    {
+        "texto": "país para cambiar esta realidad.",
+        "glosas": [
+            "CAMBIAR"
+        ]
+    },
+    {
+        "texto": "creamos una aplicación",
+        "glosas": [
+            "INVENTAR"
+        ]
+    },
+    {
+        "texto": "el primer sistema del...",
+        "glosas": [
+            "PRIMERO/A"
+        ]
+    },
+    {
+        "texto": "tiene una médica que traduce por...",
+        "glosas": [
+            "MÉDICO",
+            "TRADUCIR"
+        ]
+    },
+    {
+        "texto": "en español a lenguaje de señas.",
         "glosas": [
             "LENGUA-DE-SEÑAS",
-            "IDIOMA"
+            "LENGUAJE"
         ]
     },
     {
-        "texto": "el traducción",
-        "glosas": [
-            "TRADUCIR",
-            "SOLAMENTE"
-        ]
-    },
-    {
-        "texto": "saber cómo",
-        "glosas": [
-            "SABER",
-            "CÓMO"
-        ]
-    },
-    {
-        "texto": "a universitarios, profesores.",
-        "glosas": [
-            "UNIVERSIDAD",
-            "ALUMNO/A",
-            "PROFESOR/A"
-        ]
-    },
-    {
-        "texto": "sobre salunos.",
+        "texto": "silena en tiempo real mediante un",
         "glosas": []
     },
     {
-        "texto": "dinero, todo.",
+        "texto": "una avatar 3d utiliza",
         "glosas": [
-            "DINERO"
+            "3"
         ]
     },
     {
-        "texto": "y te vas a trabajar",
+        "texto": "inteligencia artificial y un diccionario visto.",
         "glosas": [
-            "YO-YO",
-            "VASO",
-            "TRABAJAR"
+            "INTELIGENCIA",
+            "DICCIONARIO"
         ]
     },
     {
-        "texto": "Hola, buenas tardes.",
+        "texto": "al propio, capaz de evolucionar desde...",
         "glosas": [
-            "HOLA",
-            "BUENAS-TARDES"
+            "PROPIO/A",
+            "HUMANO/A"
         ]
     },
     {
-        "texto": "deshaciendo prueba para...",
+        "texto": "palabras hasta conversaciones completas.",
         "glosas": [
-            "PRUEBA",
-            "DESHACER",
-            "PARA"
+            "CONVERSAR"
         ]
     },
     {
-        "texto": "y",
-        "glosas": []
-    },
-    {
-        "texto": "ver si funciona",
+        "texto": "de positiva número 4",
         "glosas": [
-            "VER",
-            "COMPROBAR",
-            "QUIZÁS"
+            "NUMEROSO/A",
+            "4"
         ]
     },
     {
-        "texto": "este.",
-        "glosas": []
-    },
-    {
-        "texto": "a ver si funciona de la misma...",
+        "texto": "El mundo ex...",
         "glosas": [
-            "VER",
-            "IGUAL",
-            "SÍ"
+            "MUNDO"
         ]
     },
     {
-        "texto": "forma el tema de",
+        "texto": "existen proyectos similares.",
         "glosas": [
-            "TEMA",
-            "FORMA"
-        ]
-    },
-    {
-        "texto": "implemento",
-        "glosas": []
-    },
-    {
-        "texto": "Hola, ¿cómo estamos?",
-        "glosas": [
-            "HOLA",
-            "CÓMO",
-            "NOSOTROS/AS"
-        ]
-    },
-    {
-        "texto": "somos de puertomón",
-        "glosas": [
-            "NOSOTROS/AS",
-            "PUERTO MONTT"
-        ]
-    },
-    {
-        "texto": "este es nuestro proyecto de inteligencia.",
-        "glosas": [
-            "NOSOTROS/AS",
             "PROYECTO",
-            "INTELIGENCIA"
+            "IGUAL"
         ]
     },
     {
-        "texto": "en cierta visual.",
-        "glosas": []
-    },
-    {
-        "texto": "en el cual",
-        "glosas": []
-    },
-    {
-        "texto": "tenemos",
+        "texto": "similares pero la mayoría",
         "glosas": [
-            "NOSOTROS/AS",
-            "TENER"
-        ]
-    },
-    {
-        "texto": "planteado el tema de",
-        "glosas": [
-            "TEMA",
-            "SOLAMENTE"
-        ]
-    },
-    {
-        "texto": "e implementar esto",
-        "glosas": []
-    },
-    {
-        "texto": "de la lenguaje de señas en...",
-        "glosas": [
-            "LENGUA-DE-SEÑAS",
-            "IDIOMA",
-            "ENCONTRAR"
-        ]
-    },
-    {
-        "texto": "todo chile",
-        "glosas": [
-            "TODO-EL-DÍA",
-            "CHILE"
-        ]
-    },
-    {
-        "texto": "Gracias.",
-        "glosas": [
-            "GRACIAS"
-        ]
-    },
-    {
-        "texto": "una prueba",
-        "glosas": [
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "Si, un proyecto",
-        "glosas": [
-            "SÍ",
-            "PROYECTO"
-        ]
-    },
-    {
-        "texto": "del duro",
-        "glosas": [
-            "DURO/A"
-        ]
-    },
-    {
-        "texto": "eh",
-        "glosas": []
-    },
-    {
-        "texto": "básicamente",
-        "glosas": [
-            "BASE",
+            "IGUAL",
             "MÁS-O-MENOS"
         ]
     },
     {
-        "texto": "estamos haciendo un troctor de...",
+        "texto": "están desarrollados en inglés. Sin embargo...",
         "glosas": [
-            "NOSOTROS/AS",
-            "HACER",
-            "TRACTOR",
-            "DADO",
-            "REDONDO/A"
+            "INGLÉS"
         ]
     },
     {
-        "texto": "automático con",
-        "glosas": [
-            "AUTOMÓVIL",
-            "ROBOT",
-            "PERO"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "¿Te elegí en certificiel?",
-        "glosas": [
-            "ELEGIR",
-            "CERTIFICADO"
-        ]
-    },
-    {
-        "texto": "Bayema.",
+        "texto": "ninguno aborda el idioma espacial.",
         "glosas": []
     },
     {
-        "texto": "no puede que no puede",
+        "texto": "ni considera la diversidad.",
         "glosas": [
-            "NO",
-            "NO-PODER"
+            "DIFERENTE"
         ]
     },
     {
-        "texto": "cambiar de la chamba o se escapar.",
+        "texto": "a cultural o comunicacional.",
         "glosas": [
-            "CAMBIAR",
-            "ESCAPAR"
+            "CULTURA"
         ]
     },
     {
-        "texto": "probando probando",
+        "texto": "de nuestra región.",
         "glosas": [
-            "PRUEBA",
-            "COMPROBAR",
-            "PRUEBA"
+            "REGIONES-DE-CHILE"
         ]
     },
     {
-        "texto": "Buenas tardes.",
+        "texto": "Cachaín nos busca reemplazar",
         "glosas": [
-            "BUENAS-TARDES"
+            "REEMPLAZAR"
         ]
     },
     {
-        "texto": "con las noches",
+        "texto": "se comunican. Es una herramienta diseñada",
         "glosas": [
-            "NOCHE",
-            "BUENAS-NOCHES"
+            "HABLAR",
+            "CONVERSAR"
         ]
     },
     {
-        "texto": "1, 2, 3",
-        "glosas": []
-    },
-    {
-        "texto": "también se ve.",
-        "glosas": [
-            "TAMBIÉN",
-            "VER"
-        ]
-    },
-    {
-        "texto": "Jodigo",
-        "glosas": []
-    },
-    {
-        "texto": "que el cuasar se debe de comer una poronga.",
-        "glosas": [
-            "CUÁL",
-            "COMER",
-            "POROTO"
-        ]
-    },
-    {
-        "texto": "Hola buenas tardes",
-        "glosas": [
-            "HOLA",
-            "BUENAS-TARDES"
-        ]
-    },
-    {
-        "texto": "Esta es una prueba para ver",
-        "glosas": [
-            "PRUEBA",
-            "VER"
-        ]
-    },
-    {
-        "texto": "el contexto",
-        "glosas": [
-            "ESCENARIO"
-        ]
-    },
-    {
-        "texto": "de lo que es las palabras",
-        "glosas": [
-            "PALABRA"
-        ]
-    },
-    {
-        "texto": "para ver si no...",
-        "glosas": [
-            "VER",
-            "NO"
-        ]
-    },
-    {
-        "texto": "Repite las palabras",
-        "glosas": [
-            "PALABRA",
-            "REPETIR",
-            "OTRA-VEZ"
-        ]
-    },
-    {
-        "texto": "que están saliendo",
-        "glosas": [
-            "SALIR"
-        ]
-    },
-    {
-        "texto": "la idea es poder",
-        "glosas": [
-            "IDEA",
-            "PODER"
-        ]
-    },
-    {
-        "texto": "ver el resultado de",
-        "glosas": [
-            "RESULTADO",
-            "VER"
-        ]
-    },
-    {
-        "texto": "y",
-        "glosas": [
-            "YEMA"
-        ]
-    },
-    {
-        "texto": "y creo que está fallando el...",
-        "glosas": [
-            "ERROR",
-            "CREER",
-            "FALLECER"
-        ]
-    },
-    {
-        "texto": "bien",
-        "glosas": [
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "...emmm...",
-        "glosas": []
-    },
-    {
-        "texto": "sin embargo, el recuerdo",
-        "glosas": [
-            "RECUERDO",
-            "RECORDAR"
-        ]
-    },
-    {
-        "texto": "Esto está funcionando bien.",
-        "glosas": [
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "nuevamente que creo que no le di a",
-        "glosas": [
-            "NUEVO/A",
-            "CREER",
-            "OTRA-VEZ"
-        ]
-    },
-    {
-        "texto": "a iniciar ahora",
-        "glosas": [
-            "INICIAR"
-        ]
-    },
-    {
-        "texto": "si esta devolviendo",
-        "glosas": [
-            "SÍ",
-            "RECUPERAR"
-        ]
-    },
-    {
-        "texto": "ehh",
-        "glosas": []
-    },
-    {
-        "texto": "que debería ser el",
-        "glosas": [
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "el index",
-        "glosas": [
-            "INVENTARIO"
-        ]
-    },
-    {
-        "texto": "no sé por qué está devolviendo",
-        "glosas": [
-            "NO",
-            "POR-QUÉ"
-        ]
-    },
-    {
-        "texto": "antes de que",
-        "glosas": [
-            "ANTES"
-        ]
-    },
-    {
-        "texto": "impresione eeeh iniciar",
-        "glosas": [
-            "SORPRESA",
-            "INICIAR"
-        ]
-    },
-    {
-        "texto": "no sé si es alguna",
-        "glosas": [
-            "NO",
-            "ALGUNO/A"
-        ]
-    },
-    {
-        "texto": "de",
-        "glosas": []
-    },
-    {
-        "texto": "algo de algún...",
-        "glosas": [
-            "ALGUNO/A"
-        ]
-    },
-    {
-        "texto": "un comando de lo que pueda...",
-        "glosas": [
-            "PODER",
-            "MANDAR"
-        ]
-    },
-    {
-        "texto": "pero bueno la cosa que",
-        "glosas": [
-            "PERO",
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "funcionando de lo más bien",
-        "glosas": [
-            "BIEN",
-            "CUMPLIR"
-        ]
-    },
-    {
-        "texto": "parece que no hay muchos trabones obviamente",
-        "glosas": [
-            "PARECER",
-            "NO-HABER",
-            "NUMEROSO/A"
-        ]
-    },
-    {
-        "texto": "las palabras que no sabe",
-        "glosas": [
-            "PALABRA",
-            "NO-SABER"
-        ]
-    },
-    {
-        "texto": "no lo estás",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "haciendo.",
-        "glosas": [
-            "HACER"
-        ]
-    },
-    {
-        "texto": "la cola",
-        "glosas": [
-            "COLA"
-        ]
-    },
-    {
-        "texto": "la vacía porque no hay pala...",
-        "glosas": [
-            "VACÍO/A",
-            "NO-HABER",
-            "PALA"
-        ]
-    },
-    {
-        "texto": "inicial tenemos nombre",
-        "glosas": []
-    },
-    {
-        "texto": "ustedes",
-        "glosas": []
-    },
-    {
-        "texto": "tu, yo",
-        "glosas": [
-            "PROPIO/A"
-        ]
-    },
-    {
-        "texto": "bien",
-        "glosas": [
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "¡Casa!",
-        "glosas": [
-            "CASA"
-        ]
-    },
-    {
-        "texto": "trabajo",
-        "glosas": [
-            "TRABAJO"
-        ]
-    },
-    {
-        "texto": "¡Pesor!",
-        "glosas": [
-            "PESO"
-        ]
-    },
-    {
-        "texto": "alumno",
-        "glosas": [
-            "ALUMNO/A"
-        ]
-    },
-    {
-        "texto": "¡Hola, buena!",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "a lo buenas tardes",
-        "glosas": [
-            "BUENAS-TARDES"
-        ]
-    },
-    {
-        "texto": "ahora sí",
-        "glosas": [
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "probar y ver",
-        "glosas": [
-            "INTENTAR",
-            "VER"
-        ]
-    },
-    {
-        "texto": "todo lo que se está lanzando.",
-        "glosas": [
-            "TODO/A",
-            "TIRAR"
-        ]
-    },
-    {
-        "texto": "¡Muchas gracias por ver el video!",
-        "glosas": [
-            "GRACIAS",
-            "VER",
-            "VIDEO"
-        ]
-    },
-    {
-        "texto": "no parece que estas",
-        "glosas": [
-            "NO",
-            "PARECER"
-        ]
-    },
-    {
-        "texto": "no sé qué está pasando",
-        "glosas": [
-            "NO",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "no sé qué habrá pasado",
-        "glosas": [
-            "NO-SABER",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "no está haciendo...",
-        "glosas": [
-            "NO",
-            "HACER"
-        ]
-    },
-    {
-        "texto": "nada",
-        "glosas": [
-            "NADA"
-        ]
-    },
-    {
-        "texto": "Hay algo que no está detectando.",
-        "glosas": [
-            "NO",
-            "NADA"
-        ]
-    },
-    {
-        "texto": "no sé qué será",
-        "glosas": [
-            "NO",
-            "SABER",
-            "QUÉ"
-        ]
-    },
-    {
-        "texto": "aglosa nuestra...",
-        "glosas": [
-            "NOSOTROS/AS"
-        ]
-    },
-    {
-        "texto": "Pero",
-        "glosas": [
-            "PERO"
-        ]
-    },
-    {
-        "texto": "aglosa nuestra...",
-        "glosas": [
-            "NOSOTROS/AS"
-        ]
-    },
-    {
-        "texto": "no no no no no",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "vamos de nuevo con la grabación a ver si está",
-        "glosas": [
-            "GRABAR-VIDEO",
-            "OTRA-VEZ",
-            "VER",
-            "EXISTIR"
-        ]
-    },
-    {
-        "texto": "desaparecen las glosas",
-        "glosas": [
-            "DESAPARECER"
-        ]
-    },
-    {
-        "texto": "Veamos si...",
-        "glosas": [
-            "VER",
-            "MIRAR",
-            "OBSERVAR"
-        ]
-    },
-    {
-        "texto": "y se",
-        "glosas": [
-            "YEMA"
-        ]
-    },
-    {
-        "texto": "el html.",
-        "glosas": []
-    },
-    {
-        "texto": "haciendo la",
-        "glosas": [
-            "HACER"
-        ]
-    },
-    {
-        "texto": "a ver si ahora se muestra",
-        "glosas": [
-            "VER",
-            "MOSTRAR"
-        ]
-    },
-    {
-        "texto": "ojalá que si",
-        "glosas": [
-            "OJALÁ",
-            "SÍ"
-        ]
-    },
-    {
-        "texto": "vamos a ver",
-        "glosas": []
-    },
-    {
-        "texto": "Siento fiable ahora.",
-        "glosas": []
-    },
-    {
-        "texto": "ok",
-        "glosas": []
-    },
-    {
-        "texto": "hola probando hola",
-        "glosas": [
-            "HOLA",
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "¡Feludo!",
-        "glosas": [
-            "FELIZ"
-        ]
-    },
-    {
-        "texto": "uno dos tres",
-        "glosas": [
-            "TERCERO/A"
-        ]
-    },
-    {
-        "texto": "Alô, hola probando.",
-        "glosas": [
-            "HOLA",
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "probando uno, dos, tres",
-        "glosas": [
-            "PRUEBA",
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "¡Vola, test, test!",
-        "glosas": [
-            "VOLANTÍN",
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "Provando",
-        "glosas": [
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "1, 2, 3",
-        "glosas": [
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "¡Mandoavatar!",
-        "glosas": []
-    },
-    {
-        "texto": "ahora probando uno, dos...",
-        "glosas": [
-            "PRUEBA",
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "¡Los estrés!",
-        "glosas": [
-            "PREOCUPADO/A"
-        ]
-    },
-    {
-        "texto": "¡Una dos!",
-        "glosas": [
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "3, probando 2.",
-        "glosas": [
-            "PRUEBA",
-            "3",
-            "2"
-        ]
-    },
-    {
-        "texto": "Hola hola",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "Mola pro le pro",
-        "glosas": [
-            "MOLINO",
-            "LEER",
-            "PROYECTOR"
-        ]
-    },
-    {
-        "texto": "¡Está listo!",
-        "glosas": [
-            "QUEDAR/SE",
-            "YA"
-        ]
-    },
-    {
-        "texto": "Probando  es, es...",
-        "glosas": [
-            "PRUEBA",
-            "COMPROBAR"
-        ]
-    },
-    {
-        "texto": "...",
-        "glosas": []
-    },
-    {
-        "texto": "¡Vando!",
-        "glosas": []
-    },
-    {
-        "texto": "3, 6.",
-        "glosas": [
-            "3",
-            "6"
-        ]
-    },
-    {
-        "texto": "oh no... oh no...",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "Hola, hola, hola, hola, hola, hola, des...",
-        "glosas": [
-            "HOLA",
-            "DESEAR"
-        ]
-    },
-    {
-        "texto": "desde o de o uno dos uno dos",
-        "glosas": []
-    },
-    {
-        "texto": "1, 2, 3, 3",
-        "glosas": [
-            "1",
-            "2",
-            "3",
-            "3"
-        ]
-    },
-    {
-        "texto": "Hola, hola, una...",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "Hola hola, te esteo una...",
-        "glosas": [
-            "HOLA",
-            "AGREGAR"
-        ]
-    },
-    {
-        "texto": "Hola, uno, dos, tres.",
-        "glosas": [
-            "HOLA",
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "¡Ando!",
-        "glosas": []
-    },
-    {
-        "texto": "probando 1, 2, 3",
-        "glosas": [
-            "PRUEBA",
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "Hola, hola, hola",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "1, 2, 3, probando",
-        "glosas": [
-            "PRUEBA",
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "Pro... Probando, bando",
-        "glosas": [
-            "PRUEBA",
-            "BANDA-DE-MÚSICA"
-        ]
-    },
-    {
-        "texto": "Hola, hola, unuado, unuado",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "estrés estrés",
-        "glosas": [
-            "ANGUSTIADO/A"
-        ]
-    },
-    {
-        "texto": "¡Rooven, ¡Rooven!",
-        "glosas": [
-            "ROBAR",
-            "ROTO/A"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "Uno dos, uno dos, tres, tres.",
-        "glosas": []
-    },
-    {
-        "texto": "probando una dos...",
-        "glosas": [
-            "PRUEBA",
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "3 probando",
-        "glosas": [
-            "PRUEBA",
-            "3"
-        ]
-    },
-    {
-        "texto": "1, 2, 3",
-        "glosas": [
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "una de las tres",
-        "glosas": [
-            "ALGUNO/A",
-            "TERCERO/A"
-        ]
-    },
-    {
-        "texto": "Pro ando",
-        "glosas": [
-            "APROVECHAR"
-        ]
-    },
-    {
-        "texto": "No no no no",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "dos tres tres",
-        "glosas": [
-            "DOS-PUNTOS",
-            "TERCERO/A"
-        ]
-    },
-    {
-        "texto": "Profesora",
-        "glosas": [
-            "PROFESOR/A"
-        ]
-    },
-    {
-        "texto": "alumno no",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "Universidad",
-        "glosas": [
-            "UNIVERSIDAD"
-        ]
-    },
-    {
-        "texto": "probando",
-        "glosas": [
-            "PRUEBA"
-        ]
-    },
-    {
-        "texto": "1, 2, 3, 1, 2, 3, probando",
-        "glosas": [
-            "PRUEBA",
-            "1",
-            "2",
-            "3",
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "1, 2, 3, 4, 5, 6",
-        "glosas": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"
-        ]
-    },
-    {
-        "texto": "probando uno dos",
-        "glosas": [
-            "PRUEBA",
-            "DOS-PUNTOS"
-        ]
-    },
-    {
-        "texto": "Hola",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "y Lin, José María.",
-        "glosas": [
-            "YEMA",
-            "MARIDO"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "malalo",
-        "glosas": [
-            "MALO/A"
-        ]
-    },
-    {
-        "texto": "Buenos días, buenos días.",
-        "glosas": [
-            "BUENOS-DÍAS"
-        ]
-    },
-    {
-        "texto": "probando, hola, hola",
-        "glosas": [
-            "PRUEBA",
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "Hola",
-        "glosas": [
-            "HOLA"
-        ]
-    },
-    {
-        "texto": "¡Suscríbete!",
-        "glosas": [
-            "SUPLICAR"
-        ]
-    },
-    {
-        "texto": "no me ha dado estrés",
-        "glosas": [
-            "NO",
-            "NADA"
-        ]
-    },
-    {
-        "texto": "Hola, hola, adiós.",
-        "glosas": [
-            "HOLA",
-            "CHAO"
-        ]
-    },
-    {
-        "texto": "Adiós, Dios, Universidad.",
-        "glosas": [
-            "DIOS",
-            "DESPEDIDA",
-            "UNIVERSIDAD"
-        ]
-    },
-    {
-        "texto": "universidad, conocimiento",
-        "glosas": [
-            "UNIVERSIDAD",
-            "CONOCER"
-        ]
-    },
-    {
-        "texto": "conocimiento",
-        "glosas": [
-            "CONOCER",
-            "INFORMACIÓN"
-        ]
-    },
-    {
-        "texto": "Inteligencia",
-        "glosas": [
-            "INTELIGENCIA"
-        ]
-    },
-    {
-        "texto": "María",
-        "glosas": []
-    },
-    {
-        "texto": "o la probando un...",
-        "glosas": [
-            "PRUEBA",
-            "COMPROBAR"
-        ]
-    },
-    {
-        "texto": "1, 2, 3",
-        "glosas": [
-            "1",
-            "2",
-            "3"
-        ]
-    },
-    {
-        "texto": "Buen día, Buen día, siad, siad",
-        "glosas": [
-            "BUENOS-DÍAS",
-            "SIDA"
-        ]
-    },
-    {
-        "texto": "por favor, gato, gato, to",
-        "glosas": [
-            "POR-FAVOR",
-            "GATO/A"
-        ]
-    },
-    {
-        "texto": "persona persona",
+        "texto": "para Chile y Latinoamérica. Incluso...",
         "glosas": [
-            "PERSONA"
+            "CHILE"
         ]
     },
     {
-        "texto": "alumnos, alumnos, per, per",
+        "texto": "adaptable y debajo costo.",
         "glosas": [
-            "ALUMNO/A",
-            "PERO"
+            "BARATO/A",
+            "DEBAJO"
         ]
     },
     {
-        "texto": "Sí, sí.",
+        "texto": "con potencial de integrarse en televisión.",
         "glosas": [
-            "SÍ"
+            "TELEVISIÓN",
+            "INTEGRACIÓN"
         ]
     }
 ]

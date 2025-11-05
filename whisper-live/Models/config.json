@@ -2,9 +2,9 @@
   "audio": {
     "samplerate": 16000,
     "block_duration_ms": 500,
-    "chunk_duration_ms": 2000,
+    "chunk_duration_ms": 2500,
     "channels": 1,
-    "sentence_pause_ms": 1200
+    "sentence_pause_ms": 1000
   },
   "vad": {
     "sensitivity": 2,
@@ -13,13 +13,13 @@
   "whisper": {
     "model_size": "small",
     "device": "cpu",
-    "compute_type": "int8",
+    "compute_type": "float32",
     "beam_size": 5,
     "no_speech_prob": 0.6
   },
   "faiss": {
     "top_k": 20,
-    "similarity_threshold": 0.55
+    "similarity_threshold": 0.6
   },
   "openai": {
     "embedding_model": "text-embedding-3-small",
