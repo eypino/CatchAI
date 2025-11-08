@@ -1,462 +1,282 @@
 [
     {
-        "texto": "de mediano.",
+        "texto": "Hola, hola...",
         "glosas": [
-            "MEDIA",
-            "MITAD"
+            "HOLA"
         ]
     },
     {
-        "texto": "este esto es lo que es lo que es el",
-        "glosas": []
-    },
-    {
-        "texto": "así así te quiero",
+        "texto": "Si, si, si",
         "glosas": [
-            "QUERER",
-            "BIEN"
+            "SÍ"
         ]
     },
     {
-        "texto": "computo, bastan, bastan",
+        "texto": "Saludo 2",
         "glosas": [
-            "COMPUTADOR",
-            "BASTÓN"
+            "SALUDO",
+            "HOLA",
+            "2"
         ]
     },
     {
-        "texto": "Podemos, Podemos, Podemos, Podemos...",
+        "texto": "Bueno, bueno, días, días.",
         "glosas": [
-            "PODER"
+            "BUENOS-DÍAS"
         ]
     },
     {
-        "texto": "Todas las palabras que tomen.",
+        "texto": "Me llamo Marcos Marcos",
         "glosas": [
-            "TOMATE",
-            "TODOS/AS",
-            "PALABRA"
+            "MARIDO",
+            "MARISCO"
         ]
     },
     {
-        "texto": "lograr, lograr, ahora, ahora todo el...",
+        "texto": "Ula ula",
         "glosas": [
-            "TODO/A"
+            "LUPA"
         ]
     },
     {
-        "texto": "Hola buenas tardes",
-        "glosas": []
-    },
-    {
-        "texto": "probando cómo funciona",
-        "glosas": []
-    },
-    {
-        "texto": "el nuevo modelo",
-        "glosas": []
-    },
-    {
-        "texto": "Tratando de ver que...",
-        "glosas": []
-    },
-    {
-        "texto": "hola buenas tratando de",
-        "glosas": []
-    },
-    {
-        "texto": "probar el modelo con el FAT3",
+        "texto": "Hola",
         "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "Buenos días, uno, dos, tres",
+        "glosas": [
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "hola buenas, hola buenas, días uno, días uno",
+        "glosas": [
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "1, 2, 3, 1, 2, 3, Universidad  la universidad, la inteligencia.",
+        "glosas": [
+            "UNIVERSIDAD",
+            "INTELIGENCIA",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
             "3"
         ]
     },
     {
-        "texto": "a ver si funciona",
+        "texto": "hola, hola, buenos días",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "en días más marcos.",
+        "glosas": [
+            "MAÑANA",
+            "MARZO"
+        ]
+    },
+    {
+        "texto": "1, 1, 2, 2, 3",
+        "glosas": [
+            "1",
+            "1",
+            "2",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "Buenos, buenos días, días.",
+        "glosas": [
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "hola, hola, inteligencia",
+        "glosas": [
+            "HOLA",
+            "INTELIGENCIA"
+        ]
+    },
+    {
+        "texto": "Universidad",
+        "glosas": [
+            "UNIVERSIDAD"
+        ]
+    },
+    {
+        "texto": "¡Puerto Monto!",
+        "glosas": [
+            "PUERTO MONTT"
+        ]
+    },
+    {
+        "texto": "en la universidad.",
+        "glosas": [
+            "UNIVERSIDAD"
+        ]
+    },
+    {
+        "texto": "¡Ayufufufu!",
         "glosas": []
     },
     {
-        "texto": "Hola buenas tardes",
+        "texto": "hola, probando",
         "glosas": [
-            "BUENAS-TARDES"
-        ]
-    },
-    {
-        "texto": "tratando de que funcione el modelo.",
-        "glosas": [
-            "TRATAR"
-        ]
-    },
-    {
-        "texto": "el modelo, viendo que...",
-        "glosas": [
-            "MIRAR"
-        ]
-    },
-    {
-        "texto": "y...  ¡Experimenta!",
-        "glosas": [
+            "HOLA",
             "EXPERIMENTO"
         ]
     },
     {
-        "texto": "¡Para!",
+        "texto": "1, 2, 3",
         "glosas": [
-            "PARA"
-        ]
-    },
-    {
-        "texto": "No, no, no, no.",
-        "glosas": [
-            "NO"
-        ]
-    },
-    {
-        "texto": "debería entregar un buen resultado.",
-        "glosas": [
-            "RESULTADO",
-            "BIEN"
-        ]
-    },
-    {
-        "texto": "Considerando",
-        "glosas": []
-    },
-    {
-        "texto": "las especificaciones que tiene el computador de",
-        "glosas": [
-            "COMPUTADOR"
-        ]
-    },
-    {
-        "texto": "...pería rendir para...",
-        "glosas": [
-            "PARA"
-        ]
-    },
-    {
-        "texto": "de purar más",
-        "glosas": [
-            "PURÉ"
-        ]
-    },
-    {
-        "texto": "el lenguaje",
-        "glosas": [
-            "LENGUAJE"
-        ]
-    },
-    {
-        "texto": "de México, lo que sea.",
-        "glosas": [
-            "MÉXICO"
-        ]
-    },
-    {
-        "texto": "ahora está lanzando un",
-        "glosas": [
-            "TIRAR"
-        ]
-    },
-    {
-        "texto": "el éxico bastante cotado o sea son solo",
-        "glosas": []
-    },
-    {
-        "texto": "que antes estaba lanzado.",
-        "glosas": [
-            "ANTES",
-            "TIRAR"
-        ]
-    },
-    {
-        "texto": "Hola buenas tardes, este es un prog-",
-        "glosas": [
-            "HOLA",
-            "BUENAS-TARDES",
-            "PROYECTO"
-        ]
-    },
-    {
-        "texto": "Programa de Televisión, Comunicación",
-        "glosas": [
-            "TELEVISIÓN"
-        ]
-    },
-    {
-        "texto": "de toda la región de Chile.",
-        "glosas": [
-            "REGIONES-DE-CHILE"
-        ]
-    },
-    {
-        "texto": "les informamos de que",
-        "glosas": [
-            "INFORMAR",
-            "AVISAR"
-        ]
-    },
-    {
-        "texto": "que es un imprevisto en el...",
-        "glosas": [
-            "SORPRESA",
-            "INMEDIATO/A"
-        ]
-    },
-    {
-        "texto": "tema de las candidaturas de...",
-        "glosas": [
-            "TEMA"
-        ]
-    },
-    {
-        "texto": "este noviembre 19",
-        "glosas": [
-            "NOVIEMBRE",
             "1",
-            "9"
-        ]
-    },
-    {
-        "texto": "en el cual surgió",
-        "glosas": []
-    },
-    {
-        "texto": "que el cambio de vocas",
-        "glosas": [
-            "CAMBIAR"
-        ]
-    },
-    {
-        "texto": "de vocales haya sido",
-        "glosas": [
-            "VOZ",
-            "SÍLABA"
-        ]
-    },
-    {
-        "texto": "y un efecto derrumbado",
-        "glosas": [
-            "VÉRTIGO",
-            "RESBALARSE"
-        ]
-    },
-    {
-        "texto": "tomador en tema de",
-        "glosas": [
-            "TEMA"
-        ]
-    },
-    {
-        "texto": "las candidaturas de los postulantes.",
-        "glosas": [
-            "SOLICITUD",
-            "SELECCIONAR"
-        ]
-    },
-    {
-        "texto": "La lengua de señas chip.",
-        "glosas": [
-            "LENGUA-DE-SEÑAS"
-        ]
-    },
-    {
-        "texto": "Elena es el idioma natural de la copa.",
-        "glosas": [
-            "COPA"
-        ]
-    },
-    {
-        "texto": "comunidad sorda, pero al menos el...",
-        "glosas": [
-            "SORDO/A",
-            "OYENTE"
-        ]
-    },
-    {
-        "texto": "3% de los oyentes la comprende.",
-        "glosas": [
-            "OYENTE",
-            "COMPRENDER",
+            "2",
             "3"
         ]
     },
     {
-        "texto": "y aunque existen intérpretes humanos no hay",
+        "texto": "1, 2, 3",
         "glosas": [
-            "INTÉRPRETE",
-            "NO-HABER"
-        ]
-    },
-    {
-        "texto": "herramientas tecnológicas que automatizan",
-        "glosas": [
-            "ROBOT"
-        ]
-    },
-    {
-        "texto": "en esta traducción. Esto mantiene",
-        "glosas": [
-            "MANTENER"
-        ]
-    },
-    {
-        "texto": "una barrera invisible en la educación.",
-        "glosas": [
-            "EDUCACIÓN"
-        ]
-    },
-    {
-        "texto": "los medios y los servicios digitales de nuestro país.",
-        "glosas": []
-    },
-    {
-        "texto": "país para cambiar esta realidad.",
-        "glosas": [
-            "CAMBIAR"
-        ]
-    },
-    {
-        "texto": "creamos una aplicación",
-        "glosas": [
-            "INVENTAR"
-        ]
-    },
-    {
-        "texto": "el primer sistema del...",
-        "glosas": [
-            "PRIMERO/A"
-        ]
-    },
-    {
-        "texto": "tiene una médica que traduce por...",
-        "glosas": [
-            "MÉDICO",
-            "TRADUCIR"
-        ]
-    },
-    {
-        "texto": "en español a lenguaje de señas.",
-        "glosas": [
-            "LENGUA-DE-SEÑAS",
-            "LENGUAJE"
-        ]
-    },
-    {
-        "texto": "silena en tiempo real mediante un",
-        "glosas": []
-    },
-    {
-        "texto": "una avatar 3d utiliza",
-        "glosas": [
+            "1",
+            "2",
             "3"
         ]
     },
     {
-        "texto": "inteligencia artificial y un diccionario visto.",
+        "texto": "probando, probando uno",
         "glosas": [
-            "INTELIGENCIA",
-            "DICCIONARIO"
+            "EXPERIMENTO",
+            "COMPROBAR"
         ]
     },
     {
-        "texto": "al propio, capaz de evolucionar desde...",
+        "texto": "1, 2, 3, 4, 4",
         "glosas": [
-            "PROPIO/A",
-            "HUMANO/A"
-        ]
-    },
-    {
-        "texto": "palabras hasta conversaciones completas.",
-        "glosas": [
-            "CONVERSAR"
-        ]
-    },
-    {
-        "texto": "de positiva número 4",
-        "glosas": [
-            "NUMEROSO/A",
+            "1",
+            "2",
+            "3",
+            "4",
             "4"
         ]
     },
     {
-        "texto": "El mundo ex...",
+        "texto": "Sí, sí, sí.",
         "glosas": [
-            "MUNDO"
+            "SÍ"
         ]
     },
     {
-        "texto": "existen proyectos similares.",
+        "texto": "The month, the month.",
         "glosas": [
-            "PROYECTO",
-            "IGUAL"
+            "MES"
         ]
     },
     {
-        "texto": "similares pero la mayoría",
+        "texto": "hola hola probando",
         "glosas": [
-            "IGUAL",
-            "MÁS-O-MENOS"
+            "HOLA",
+            "EXPERIMENTO"
         ]
     },
     {
-        "texto": "están desarrollados en inglés. Sin embargo...",
+        "texto": "Saludos, dos, bueno, buenos días, diez.",
         "glosas": [
-            "INGLÉS"
+            "HOLA",
+            "BUENOS-DÍAS"
         ]
     },
     {
-        "texto": "ninguno aborda el idioma espacial.",
+        "texto": "hola hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "1, 2, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Hola, hola, hola, probar, probando, uno, uno, dos...",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "nos vemos en el próximo vídeo.",
+        "glosas": [
+            "NOSOTROS/AS",
+            "NOS-JUNTAMOS",
+            "MAÑANA"
+        ]
+    },
+    {
+        "texto": "Gracias.",
+        "glosas": [
+            "GRACIAS"
+        ]
+    },
+    {
+        "texto": "hola, hola, hola",
+        "glosas": [
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "saludos  saludos",
+        "glosas": [
+            "SALUDO",
+            "HOLA"
+        ]
+    },
+    {
+        "texto": "No 2, no 2, 3, 3",
+        "glosas": [
+            "NO",
+            "2",
+            "2",
+            "3",
+            "3"
+        ]
+    },
+    {
+        "texto": "Universidad",
+        "glosas": [
+            "UNIVERSIDAD"
+        ]
+    },
+    {
+        "texto": "Godot Godot",
+        "glosas": [
+            "DIOS"
+        ]
+    },
+    {
+        "texto": "Pueble velo",
         "glosas": []
     },
     {
-        "texto": "ni considera la diversidad.",
+        "texto": "Inteligencia",
         "glosas": [
-            "DIFERENTE"
-        ]
-    },
-    {
-        "texto": "a cultural o comunicacional.",
-        "glosas": [
-            "CULTURA"
-        ]
-    },
-    {
-        "texto": "de nuestra región.",
-        "glosas": [
-            "REGIONES-DE-CHILE"
-        ]
-    },
-    {
-        "texto": "Cachaín nos busca reemplazar",
-        "glosas": [
-            "REEMPLAZAR"
-        ]
-    },
-    {
-        "texto": "se comunican. Es una herramienta diseñada",
-        "glosas": [
-            "HABLAR",
-            "CONVERSAR"
-        ]
-    },
-    {
-        "texto": "para Chile y Latinoamérica. Incluso...",
-        "glosas": [
-            "CHILE"
-        ]
-    },
-    {
-        "texto": "adaptable y debajo costo.",
-        "glosas": [
-            "BARATO/A",
-            "DEBAJO"
-        ]
-    },
-    {
-        "texto": "con potencial de integrarse en televisión.",
-        "glosas": [
-            "TELEVISIÓN",
-            "INTEGRACIÓN"
+            "INTELIGENCIA"
         ]
     }
 ]

@@ -993,3 +993,81 @@
 {'texto': 'para Chile y Latinoamérica. Incluso...', 'glosas': ['CHILE']}
 {'texto': 'adaptable y debajo costo.', 'glosas': ['BARATO/A', 'DEBAJO']}
 {'texto': 'con potencial de integrarse en televisión.', 'glosas': ['TELEVISIÓN', 'INTEGRACIÓN']}
+{'texto': 'probando 1, 2, 3', 'glosas': ['EXPERIMENTO', '1', '2', '3']}
+{'texto': 'Hola probando uno', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': 'Nos vemos en el próximo video.', 'glosas': ['NOSOTROS/AS', 'NOS-JUNTAMOS']}
+{'texto': '¡Saludos! Somos Departement.', 'glosas': ['SALUDO', 'DEPARTAMENTO']}
+{'texto': 'Hola, uno, dos, tres, probando.', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': 'hola hola, uno, dos, tres', 'glosas': ['HOLA']}
+{'texto': 'hola hola probando uno dos tres', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': 'Puerto Monta Universidad de Inteligencia', 'glosas': ['PUERTO MONTT', 'MONTAÑA', 'UNIVERSIDAD', 'INTELIGENCIA']}
+{'texto': 'o le da probando 1, 2, 3', 'glosas': ['EXPERIMENTO', '1', '2', '3']}
+{'texto': 'Hola, hola, 1, 2, 3...', 'glosas': ['HOLA', '1', '2', '3']}
+{'texto': 'cuando uno, dos, tres', 'glosas': ['VECES', 'TERCERO/A']}
+{'texto': 'dos tres', 'glosas': ['TERCERO/A']}
+{'texto': 'hola, hola', 'glosas': ['HOLA']}
+{'texto': 'uno, uno, dos, dos, tres  3', 'glosas': ['TERCERO/A', '3']}
+{'texto': 'Universidad  Universidad', 'glosas': ['UNIVERSIDAD']}
+{'texto': 'inteligencia', 'glosas': ['INTELIGENCIA']}
+{'texto': 'inteligencia', 'glosas': ['INTELIGENCIA']}
+{'texto': '¡Muchas gracias!', 'glosas': ['GRACIAS']}
+{'texto': '¡Buenos días, días! Somos, somos saludos.', 'glosas': ['BUENOS-DÍAS']}
+{'texto': '1,2,3,4', 'glosas': ['1', '2', '3', '4']}
+{'texto': '¡Ludos!', 'glosas': []}
+{'texto': 'Buenos días, buenas tardes', 'glosas': ['BUENOS-DÍAS', 'BUENAS-TARDES']}
+{'texto': '¡Buenas días!', 'glosas': ['BUENOS-DÍAS']}
+{'texto': 'hola', 'glosas': ['HOLA']}
+{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
+{'texto': '¡Suscríbete!', 'glosas': []}
+{'texto': 'Hola, 1, 2, 3, probando...', 'glosas': ['HOLA', 'EXPERIMENTO', '1', '2', '3']}
+{'texto': '1, 2, 3, probando', 'glosas': ['EXPERIMENTO', 'COMPROBAR', '1', '2', '3']}
+{'texto': 'Hola, uno, dos, tres, uno, dos, tres, probando, probando.', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': 'la universidad  Institución', 'glosas': ['UNIVERSIDAD', 'INSTITUTO']}
+{'texto': 'hola, hola', 'glosas': ['HOLA']}
+{'texto': 'alumnos, alumnos, alumnos probando', 'glosas': ['ALUMNO/A', 'PRUEBA']}
+{'texto': 'Hola, hola, hola', 'glosas': ['HOLA']}
+{'texto': 'Hola, hola.', 'glosas': ['HOLA']}
+{'texto': 'Buenas días', 'glosas': ['BUENOS-DÍAS']}
+{'texto': 'con balazzo y el aso y el menos de ya, menos de ya.', 'glosas': ['YA']}
+{'texto': 'tuo, tuo, tuo, puse, puse', 'glosas': ['PROPIO/A']}
+{'texto': 'Hola, hola...', 'glosas': ['HOLA']}
+{'texto': 'Si, si, si', 'glosas': ['SÍ']}
+{'texto': 'Saludo 2', 'glosas': ['SALUDO', 'HOLA', '2']}
+{'texto': 'Bueno, bueno, días, días.', 'glosas': ['BUENOS-DÍAS']}
+{'texto': 'Me llamo Marcos Marcos', 'glosas': ['MARIDO', 'MARISCO']}
+{'texto': 'Ula ula', 'glosas': ['LUPA']}
+{'texto': 'Hola', 'glosas': ['HOLA']}
+{'texto': 'Buenos días, uno, dos, tres', 'glosas': ['BUENOS-DÍAS']}
+{'texto': 'hola buenas, hola buenas, días uno, días uno', 'glosas': ['BUENOS-DÍAS']}
+{'texto': '1, 2, 3, 1, 2, 3, Universidad  la universidad, la inteligencia.', 'glosas': ['UNIVERSIDAD', 'INTELIGENCIA', '1', '2', '3', '1', '2', '3']}
+{'texto': 'hola, hola, buenos días', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'en días más marcos.', 'glosas': ['MAÑANA', 'MARZO']}
+{'texto': '1, 1, 2, 2, 3', 'glosas': ['1', '1', '2', '2', '3']}
+{'texto': '¡Suscríbete!', 'glosas': ['SUPLICAR']}
+{'texto': 'Buenos, buenos días, días.', 'glosas': ['BUENOS-DÍAS']}
+{'texto': 'hola, hola, inteligencia', 'glosas': ['HOLA', 'INTELIGENCIA']}
+{'texto': 'Universidad', 'glosas': ['UNIVERSIDAD']}
+{'texto': '¡Puerto Monto!', 'glosas': ['PUERTO MONTT']}
+{'texto': 'en la universidad.', 'glosas': ['UNIVERSIDAD']}
+{'texto': '¡Ayufufufu!', 'glosas': []}
+{'texto': 'hola, probando', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
+{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
+{'texto': 'probando, probando uno', 'glosas': ['EXPERIMENTO', 'COMPROBAR']}
+{'texto': '1, 2, 3, 4, 4', 'glosas': ['1', '2', '3', '4', '4']}
+{'texto': 'Sí, sí, sí.', 'glosas': ['SÍ']}
+{'texto': 'The month, the month.', 'glosas': ['MES']}
+{'texto': 'hola hola probando', 'glosas': ['HOLA', 'EXPERIMENTO']}
+{'texto': 'Saludos, dos, bueno, buenos días, diez.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'hola hola', 'glosas': ['HOLA']}
+{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
+{'texto': 'Hola, hola, hola, probar, probando, uno, uno, dos...', 'glosas': ['HOLA']}
+{'texto': 'nos vemos en el próximo vídeo.', 'glosas': ['NOSOTROS/AS', 'NOS-JUNTAMOS', 'MAÑANA']}
+{'texto': 'Gracias.', 'glosas': ['GRACIAS']}
+{'texto': 'hola, hola, hola', 'glosas': ['HOLA']}
+{'texto': 'saludos  saludos', 'glosas': ['SALUDO', 'HOLA']}
+{'texto': 'No 2, no 2, 3, 3', 'glosas': ['NO', '2', '2', '3', '3']}
+{'texto': 'Universidad', 'glosas': ['UNIVERSIDAD']}
+{'texto': 'Godot Godot', 'glosas': ['DIOS']}
+{'texto': 'Pueble velo', 'glosas': []}
+{'texto': 'Inteligencia', 'glosas': ['INTELIGENCIA']}
