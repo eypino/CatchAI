@@ -9,7 +9,7 @@ import os
 import signal
 import asyncio
 
-from Models.Whisper_transcribe_V3 import resultado_queue, iniciar_sistema, detener_sistema, sistema_activo
+from Models.Whisper_transcribe_V4 import resultado_queue, iniciar_sistema, detener_sistema, sistema_activo
 
 # === NUEVO (Marcos): imports solo para el modo de prueba desde archivo ===
 import json  # NUEVO
@@ -173,7 +173,7 @@ class ConfiguracionModelo(BaseModel):
 
 @app.post("/configurar_modelo")
 def configurar_modelo(cfg: ConfiguracionModelo):
-    from Models import Whisper_transcribe_V2 as wp
+    from Models import Whisper_transcribe_V4 as wp
     try:
         print(f"Intentando reconfigurar el modelo a: {cfg.model_size}, {cfg.device}, {cfg.compute_type}")
         wp.model = wp.WhisperModel(cfg.model_size, device=cfg.device, compute_type=cfg.compute_type)

@@ -993,81 +993,409 @@
 {'texto': 'para Chile y Latinoamérica. Incluso...', 'glosas': ['CHILE']}
 {'texto': 'adaptable y debajo costo.', 'glosas': ['BARATO/A', 'DEBAJO']}
 {'texto': 'con potencial de integrarse en televisión.', 'glosas': ['TELEVISIÓN', 'INTEGRACIÓN']}
-{'texto': 'probando 1, 2, 3', 'glosas': ['EXPERIMENTO', '1', '2', '3']}
-{'texto': 'Hola probando uno', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': 'Nos vemos en el próximo video.', 'glosas': ['NOSOTROS/AS', 'NOS-JUNTAMOS']}
-{'texto': '¡Saludos! Somos Departement.', 'glosas': ['SALUDO', 'DEPARTAMENTO']}
-{'texto': 'Hola, uno, dos, tres, probando.', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': 'hola hola, uno, dos, tres', 'glosas': ['HOLA']}
-{'texto': 'hola hola probando uno dos tres', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': 'Puerto Monta Universidad de Inteligencia', 'glosas': ['PUERTO MONTT', 'MONTAÑA', 'UNIVERSIDAD', 'INTELIGENCIA']}
-{'texto': 'o le da probando 1, 2, 3', 'glosas': ['EXPERIMENTO', '1', '2', '3']}
-{'texto': 'Hola, hola, 1, 2, 3...', 'glosas': ['HOLA', '1', '2', '3']}
-{'texto': 'cuando uno, dos, tres', 'glosas': ['VECES', 'TERCERO/A']}
-{'texto': 'dos tres', 'glosas': ['TERCERO/A']}
-{'texto': 'hola, hola', 'glosas': ['HOLA']}
-{'texto': 'uno, uno, dos, dos, tres  3', 'glosas': ['TERCERO/A', '3']}
-{'texto': 'Universidad  Universidad', 'glosas': ['UNIVERSIDAD']}
-{'texto': 'inteligencia', 'glosas': ['INTELIGENCIA']}
-{'texto': 'inteligencia', 'glosas': ['INTELIGENCIA']}
-{'texto': '¡Muchas gracias!', 'glosas': ['GRACIAS']}
-{'texto': '¡Buenos días, días! Somos, somos saludos.', 'glosas': ['BUENOS-DÍAS']}
-{'texto': '1,2,3,4', 'glosas': ['1', '2', '3', '4']}
-{'texto': '¡Ludos!', 'glosas': []}
-{'texto': 'Buenos días, buenas tardes', 'glosas': ['BUENOS-DÍAS', 'BUENAS-TARDES']}
-{'texto': '¡Buenas días!', 'glosas': ['BUENOS-DÍAS']}
-{'texto': 'hola', 'glosas': ['HOLA']}
-{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
+{'texto': 'hola, hola, buenas, buenas, esto, esto va a ser, va a ser una', 'glosas': ['HOLA']}
+{'texto': 'una prueba', 'glosas': ['PRUEBA']}
+{'texto': 'la lengua', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'Vengo a desayar a chilenas', 'glosas': ['CHILENO/A']}
+{'texto': 'es, es un', 'glosas': ['ÚNICO/A']}
+{'texto': 'de la comunidad.', 'glosas': ['COMUNA']}
+{'texto': 'La lengua de Seña chilena', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'es el idioma natural de la comunidad sorda.', 'glosas': ['LENGUA-DE-SEÑAS', 'IDIOMA']}
+{'texto': 'pero muy pocas personas oyentes la', 'glosas': ['OYENTE']}
+{'texto': 'entienden. Aunque existen intérpretes', 'glosas': ['INTÉRPRETE', 'ENTENDER', 'INTERPRETAR']}
+{'texto': 'humanos, no hay arroja.', 'glosas': ['HUMANO/A', 'TIRAR']}
+{'texto': 'Hay herramientas, herramientas tecnológicas.', 'glosas': []}
+{'texto': '¿Qué? ¿Qué? ¿Qué? ¿Qué? ¿Realiza? ¿Realiza?', 'glosas': ['QUÉ-HACES']}
+{'texto': 'en este tranc...  traduc...  traducción de forma automática.', 'glosas': ['TRADUCIR']}
+{'texto': 'automática.', 'glosas': ['ROBOT']}
+{'texto': 'esto creó una barra, barra, barra, limita.', 'glosas': ['BAR']}
+{'texto': 'El limitado de la educación, son los...', 'glosas': ['EDUCACIÓN', 'EDUCACIÓN-DIFERENCIAL']}
+{'texto': 'los medios de hiela', 'glosas': ['HIELO']}
+{'texto': 'la lengua de', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'señas chilenas, es el idioma natural.', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A']}
+{'texto': 'de la comunidad sorda.', 'glosas': ['SORDO/A']}
+{'texto': 'pocas personas suyentes la entienden.', 'glosas': ['OYENTE', 'NO-ENTENDER']}
+{'texto': 'Aunque existen intérpretes humanos', 'glosas': ['INTÉRPRETE']}
+{'texto': 'No existe herramientas tecnológicas.', 'glosas': ['NO-HABER', 'MARTILLO']}
+{'texto': 'que realicen una traducción de forma...', 'glosas': ['TRADUCIR']}
+{'texto': 'forma automática.', 'glosas': ['ROBOT']}
+{'texto': 'esto, esto creó, creó una barrera', 'glosas': ['OBSTÁCULO']}
+{'texto': 'era limita, mitad de...', 'glosas': ['MITAD']}
+{'texto': 'educa educación a los medios.', 'glosas': ['EDUCACIÓN']}
+{'texto': 'medios y accesos.', 'glosas': []}
+{'texto': 'vitales en Chile.', 'glosas': ['REGIONES-DE-CHILE']}
+{'texto': 'de los servicios digitales.', 'glosas': ['INTERNET', 'CORREO-ELECTRÓNICO']}
+{'texto': 'estar este problema desarrollamos', 'glosas': ['PROBLEMA']}
+{'texto': 'Nos vemos en el próximo vídeo, ¡hasta la próxima!', 'glosas': ['OTRA-VEZ']}
+{'texto': 'que traduce la voz en esp...  Paren, paren frente a la tarjeta.', 'glosas': ['PARAR', 'TRADUCIR']}
+{'texto': 'en español a lengüe de señas.', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': '¡Signatinha chilena, chilena!', 'glosas': ['CHILENO/A']}
+{'texto': 'En tiempo, en tiempo real, real con una...', 'glosas': []}
+{'texto': 'usa, usa inteligencia, agencia artística', 'glosas': ['INTELIGENCIA', 'ARTE']}
+{'texto': 'con una batata R33C.', 'glosas': ['BATIDORA', '3', '3']}
+{'texto': 'y un diccionario.', 'glosas': ['DICCIONARIO']}
+{'texto': 'visual para el propio propio', 'glosas': ['PROPIO/A']}
+{'texto': 'la lengua de', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'Chilena es el idioma natural de la', 'glosas': ['CHILENO/A']}
+{'texto': 'comunidad sorda, pero al menos el 3', 'glosas': ['SORDO/A', '3']}
+{'texto': 'por ciento de los oyentes la comprende.', 'glosas': ['PORCENTAJE']}
+{'texto': 'Aunque existen intérpretes humanos, no hay', 'glosas': ['INTÉRPRETE']}
+{'texto': 'herramientas tecnológicas que automatizan.', 'glosas': ['ROBOT']}
+{'texto': 'aticen esta traducción', 'glosas': ['TRADUCIR']}
+{'texto': 'esto mantiene un', 'glosas': ['MANTENER', 'PERMANECER-EN-EL-TIEMPO']}
+{'texto': 'y sí leí en la educación.', 'glosas': ['EDUCACIÓN']}
+{'texto': 'los medios y los servicios.', 'glosas': ['DIARIO', 'CORREO']}
+{'texto': 'una barra barra barra  imbecil', 'glosas': ['BAR']}
+{'texto': 'de nuestro país.', 'glosas': ['NACIONAL']}
+{'texto': 'La lengua de Ceña Chilena es...  La lengua de Ceña Chilena es...', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A']}
+{'texto': 'si le dio más, si le dio más natural, natural, de la c... de la c...', 'glosas': ['MÁS']}
+{'texto': 'Comunidad. Comunidad. Sorda. Sorda.', 'glosas': ['SORDO/A']}
+{'texto': 'Pero, pero al menos, al menos, el 3, el 3  3% 3% de los ojitos de los oyentes, la oyentes, la...', 'glosas': ['MÁS-O-MENOS', 'OYENTE', '3', '3', '3', '3']}
+{'texto': 'comprende, comprende, de yau, yau', 'glosas': ['COMPRENDER']}
+{'texto': 'aunque existen interpredesum', 'glosas': ['INTÉRPRETE']}
+{'texto': 'manos, manos, no hay, no hay herramienta, herramienta.', 'glosas': ['NO']}
+{'texto': 'tecnologías que automáticos.', 'glosas': ['ROBOT']}
+{'texto': 'Dicen esta traducción.', 'glosas': ['TRADUCIR']}
+{'texto': 'esto mantiene una', 'glosas': ['MANTENER']}
+{'texto': 'barrara barrara  impisible impisible  enla enla enla  educación, educación, los medios, los medios', 'glosas': ['EDUCACIÓN', 'BARRER']}
+{'texto': '¡Suscríbete, suscríbete!', 'glosas': []}
+{'texto': 'La lengua de señas', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'chilena es el idioma natural de la comunidad.  son sorda, sorda, pero, pero al menos', 'glosas': ['CHILENO/A']}
+{'texto': 'menos es el del 3%', 'glosas': ['MENOS', 'PORCENTAJE', '3']}
+{'texto': 'por ciento de lo soy, lo soy y antes', 'glosas': ['PORCENTAJE']}
+{'texto': 'la comprende', 'glosas': ['COMPRENDER']}
+{'texto': 'y aunque que existen interpetes.', 'glosas': ['INTÉRPRETE', 'EXISTIR']}
+{'texto': 'herramientas tecnológicas.  de sus humanos, humanos, no hay, no hay, no hay herramientas.', 'glosas': ['HUMANO/A', 'NO']}
+{'texto': 'esta traducción, 100', 'glosas': ['TRADUCIR', '1', '0', '0']}
+{'texto': 'que un mucho más...  Dicen, dicen, este traduc...', 'glosas': ['MÁS', 'MÁS-O-MENOS', 'TRADUCIR']}
+{'texto': 'Esto mantiene una barrera.', 'glosas': ['MANTENER']}
+{'texto': 'la educación, la educación, los medios', 'glosas': ['EDUCACIÓN']}
+{'texto': 'La lengua de señas chilena es el idioma natural de la comunidad sorda.', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'pero al menos el 3% de los oyentes la comprende  ya un kick', 'glosas': ['OYENTE', 'COMPRENDER', 'PATADA', '3']}
+{'texto': 'existen interpredesos humanos, no hay herramientas tecnologicas que automaticen', 'glosas': ['INTÉRPRETE', 'ROBOT']}
+{'texto': 'en esta traducción, esto mantiene una barrera invisible en la educación, son los medios', 'glosas': ['EDUCACIÓN', 'MANTENER']}
+{'texto': 'y los servicios digitales eres en nuestro país  para cambiar esa realidad', 'glosas': ['CAMBIAR']}
+{'texto': 'creamos, creamos el primer sistema en la latinoamerica que traduce  vos vos', 'glosas': ['TRADUCIR', 'VOZ']}
+{'texto': 'es español  la cual  pasa al lenguadese  en el tiempo real', 'glosas': ['CASTELLANO', 'LENGUA-DE-SEÑAS', 'TIEMPO']}
+{'texto': 'Median, median, tutu, nabata, nabata, tracé, tracé, ut, utiliza, utiliza, inteligencia,  gencia artificial, yunde, yundex, exonario, sonario, visual, visual pro...  propio, capaz de evolucionar desde las palabras, harás ataca con conversaciones, es complejo.', 'glosas': ['INTELIGENCIA', 'CONVERSAR', 'HABLAR']}
+{'texto': 'La lengua de ceñas chilenas es el idioma natural de la comunidad sorda, pero al menos  el 3% de los oyentes la comprende.', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A', '3']}
+{'texto': 'y aunque existen intérpretes humanos, no hay herramientas tecnológicas que automatizan esta...', 'glosas': ['INTÉRPRETE', 'ROBOT']}
+{'texto': 'traducción.  Esto mantiene una barrera invisible en el...', 'glosas': ['MANTENER', 'OBSTÁCULO', 'MURO']}
+{'texto': 'educación, los medios y los servicios, servicios digitales y digitales en nuestro país.  Para cambiar.', 'glosas': ['EDUCACIÓN', 'CAMBIAR']}
+{'texto': 'traduce, traduce de voz, voz en español, señor, señor.  A lengua de diseño, diseño, chilena, lena, en tiempo, en tiempo re...', 'glosas': ['TRADUCIR', 'VOZ', 'SEÑOR', 'TIEMPO']}
+{'texto': 'por sesiones, sesiones complejitas', 'glosas': ['MUCHAS-VECES', 'CICLO']}
+{'texto': 'La lengua de señas chilenas es el líder.', 'glosas': ['LENGUA-DE-SEÑAS', 'LÍDER']}
+{'texto': 'de la comunidad sorda.', 'glosas': ['SORDO/A']}
+{'texto': 'pero al menos el 3% de los oyentes', 'glosas': ['OYENTE', 'MÁS-O-MENOS', '3']}
+{'texto': 'la comprende y aunque que existen', 'glosas': ['EXISTIR', 'TODO/A', 'INCLUIR']}
+{'texto': 'No hay... No hay...  R... R... Mita, mita...', 'glosas': ['NADA', 'NO-HABER']}
+{'texto': 'hasta que no lo jígicas', 'glosas': []}
+{'texto': 'que automaticen este traduc...', 'glosas': ['TRADUCIR']}
+{'texto': 'traducción.', 'glosas': ['TRADUCIR']}
+{'texto': 'Esto mantiene una barra.', 'glosas': ['BAR', 'MANTENER']}
+{'texto': 'en la educación.', 'glosas': ['EDUCACIÓN']}
+{'texto': 'digitales en nuestro país.', 'glosas': ['COMPUTADOR', 'VIDEO']}
+{'texto': 'era indivisible en la dub...', 'glosas': ['DIVIDIR']}
+{'texto': 'la prueba del sistema de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta.', 'glosas': ['TRABAJAR']}
+{'texto': 'para la comunidad sorda en Chile.', 'glosas': ['SORDO/A', 'CHILE', 'LENGUA-DE-SEÑAS']}
+{'texto': 'sabemos que la educación es muy importante', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'un 3% de la población.', 'glosas': ['PORCENTAJE', '3']}
+{'texto': 'población no hay gente, hay gente, compre, compre.', 'glosas': ['GENTE', 'COMPRAR']}
+{'texto': 'déstalé, déstalé, lenguade, lenguade, sena, chile.', 'glosas': []}
+{'texto': 'este proyecto traduce la', 'glosas': ['PROYECTO', 'TRADUCIR']}
+{'texto': 'lo usas en un tiempo real.', 'glosas': ['USAR', 'POCO-TIEMPO']}
+{'texto': 'es un traduc...  autora, automático, que espero', 'glosas': ['TRADUCIR']}
+{'texto': 'esperamos que ayuden a muchas personas', 'glosas': ['OJALÁ', 'AYUDAR']}
+{'texto': 'personas más.', 'glosas': ['PERSONA', 'MÁS']}
+{'texto': 'Hola, buenas días.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'Esta es una prueba del sistema de tranquilidad.', 'glosas': ['PRUEBA', 'PAZ', 'CALMADO/A']}
+{'texto': 'trabajando en una nueva herramienta para la comunidad.', 'glosas': ['COOPERAR']}
+{'texto': 'muy importante.', 'glosas': ['IMPORTANTE']}
+{'texto': 'sabemos que la educación es muy importante.', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'del 3% de la población.', 'glosas': ['PORCENTAJE', '3']}
+{'texto': 'si uno llena, si uno llena, te conté, comprende la...  comprende la lengua de seña chile', 'glosas': ['LENGUA-DE-SEÑAS', 'LLENAR']}
+{'texto': 'Este proyecto traduce...', 'glosas': ['PROYECTO', 'TRADUCIR']}
+{'texto': 'la voz, la voz del español', 'glosas': ['VOZ', 'ESPAÑOL/A']}
+{'texto': 'español agló agló 60 60', 'glosas': ['ESPAÑOL/A', '6', '0', '6', '0']}
+{'texto': 'es un traducción traducción del automático', 'glosas': ['TRADUCIR']}
+{'texto': 'zonas.', 'glosas': []}
+{'texto': 'Hola, buenos días.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'Esta es una prueba del sistema de transcripts.', 'glosas': ['PRUEBA']}
+{'texto': 'mi nombre es Matías', 'glosas': []}
+{'texto': 'Nosotros estamos trabajando en una...', 'glosas': ['TRABAJO', 'PROYECTO']}
+{'texto': 'para la comunidad sorda de Chile.', 'glosas': ['SORDO/A', 'CHILE']}
+{'texto': 'Sabemos que la educación es muy importante.', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'actualmente', 'glosas': ['HOY']}
+{'texto': 'solo un 3x3x7', 'glosas': ['SOLAMENTE', 'ÚNICO/A', '3', '3', '7']}
+{'texto': 'la lengua de la lengua de ese señaje.', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'días. Esta es una prueba del sistema de...', 'glosas': ['TODOS-LOS-DÍAS', 'PRUEBA']}
+{'texto': 'estamos trabajando en una nueva herramienta para...', 'glosas': ['PROYECTO', 'TRABAJAR']}
+{'texto': 'la comunidad sorda de Chile.', 'glosas': ['CHILE', 'LENGUA-DE-SEÑAS']}
+{'texto': 'Sabemos que la educación...', 'glosas': ['EDUCACIÓN']}
+{'texto': 'es importante.', 'glosas': ['IMPORTANTE']}
+{'texto': 'de  actual', 'glosas': ['HOY', 'NUEVO/A']}
+{'texto': 'Actualmente, solo...', 'glosas': ['SOLAMENTE']}
+{'texto': 'solo el 3x3% de la...', 'glosas': ['PORCENTAJE', '3', '3']}
+{'texto': 'Hola, buenos días.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'Esta es una prueba del sistema de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'Nosotros estamos trabajando.', 'glosas': ['TRABAJO']}
+{'texto': 'trabajando en una nueva herramienta para el comunito.', 'glosas': ['COOPERAR']}
+{'texto': 'en Chile', 'glosas': ['CHILE']}
+{'texto': 'sabemos que la educación es...', 'glosas': ['EDUCACIÓN']}
+{'texto': 'es muy importante.', 'glosas': ['IMPORTANTE']}
+{'texto': 'y eso es todo', 'glosas': ['YA']}
+{'texto': 'actualmente es solo', 'glosas': ['SOLAMENTE', 'HOY']}
+{'texto': 'Este es el proyecto.', 'glosas': ['PROYECTO']}
+{'texto': 'puede ser la señalina chilena chilena', 'glosas': ['CHILENO/A']}
+{'texto': 'es un es un traductor', 'glosas': ['TRADUCIR']}
+{'texto': 'automáticos', 'glosas': ['ROBOT']}
+{'texto': '¿Cuánta persona sonas hay?', 'glosas': []}
+{'texto': 'esperamos ayuda ayuda a mucha', 'glosas': ['AYUDAR', 'ESPERAR']}
+{'texto': 'persona.  fin de la prueba', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola, buenos días.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'Esta es una prueba del sistema de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'y nosotros estamos trabajando en una...', 'glosas': ['TRABAJO', 'PROYECTO']}
+{'texto': 'es una nueva herramienta de la comunidad sorda.', 'glosas': ['SORDO/A']}
+{'texto': 'sabemos que la educación es muy, muy importante.', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'de chile, chile.', 'glosas': ['CHILE', 'CHILENO/A']}
+{'texto': 'igualmente eso es solo el 3%', 'glosas': ['TAMBIÉN', 'PORCENTAJE', '3']}
+{'texto': 'importante.  Siento de la población haciéndole una gente que te compre.', 'glosas': ['COMPRAR']}
+{'texto': 'comprende, comprende la lengua, lengua de ceceña y a chile.', 'glosas': ['CHILE', 'COMPRENDER']}
+{'texto': 'chilena, chilena, este, este proceso.', 'glosas': ['CHILENO/A']}
+{'texto': 'proceso otra dulce de la voz', 'glosas': ['DULCE', 'CANTAR']}
+{'texto': '¡Vos despañol, pañol!', 'glosas': ['ESPAÑOL/A']}
+{'texto': 'Hola, buenos días, esta es una...', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'prueba del sistema de transcripción.', 'glosas': ['PRUEBA', 'COMPROBAR']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para...', 'glosas': ['PROYECTO', 'TRABAJAR']}
+{'texto': 'para la comunidad sozor de Chichile.  Sabe, sabemos que la educación...', 'glosas': ['ENSEÑANZA-BÁSICA', 'SABER']}
+{'texto': 'educación es muy importante.  Actualmente, este es solo un 3x', 'glosas': ['EDUCACIÓN', '3']}
+{'texto': 'por ciencientos del todo de la población, población hay uno y uno.  de comprender prenden la lengua de', 'glosas': ['TODOS/AS', 'NUMEROSO/A', 'COMPRENDER']}
+{'texto': 'Hola buenos días, esta es una prueba.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'del sistema de transcripción.', 'glosas': []}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la...', 'glosas': ['TRABAJAR']}
+{'texto': 'comunidad sorda de Chile. Sabemos que la educación', 'glosas': ['LENGUA-DE-SEÑAS', 'ENSEÑANZA-MEDIA']}
+{'texto': 'es muy importante. Actualmente es', 'glosas': ['IMPORTANTE']}
+{'texto': 'solo el 3% de la población oyente.', 'glosas': ['OYENTE', '3']}
+{'texto': 'comprende la lengua de ceceña chilena chilena.  este este proyecto', 'glosas': ['CHILENO/A', 'CHILE', 'PROYECTO']}
+{'texto': 'proyecto traduce de...  de la b... la b... b... b... a...', 'glosas': ['PROYECTO', 'TRADUCIR']}
+{'texto': 'A España, señor, señor, aglosa, aglosa de la señal.', 'glosas': ['ESPAÑA', 'SEÑOR']}
+{'texto': 'Es un traductoro.', 'glosas': ['TRADUCIR', 'INTÉRPRETE']}
+{'texto': 'Otro automático, automático que esp-esperemos.', 'glosas': ['ESPERAR']}
+{'texto': 'queremos que ayude a muchachas.', 'glosas': ['MUJER', 'AYUDAR']}
+{'texto': 'Hola, buenos días.  Esta es una prueba...', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'del sistema de transcripción.', 'glosas': ['DACTILOLÓGICO']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para...', 'glosas': ['PROYECTO', 'TRABAJAR']}
+{'texto': 'la comunidad sorda de chile.', 'glosas': ['CHILE', 'LENGUA-DE-SEÑAS']}
+{'texto': 'que la educación es muy importante. Actualmente', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'solo el 3% del cierto.', 'glosas': ['PORCENTAJE', '3']}
+{'texto': 'del por ciento de la población.', 'glosas': ['PORCENTAJE']}
+{'texto': 'Hola, buenos días, esta es una...', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'prueba del sistema de transcripción.', 'glosas': ['PRUEBA', 'COMPROBAR', 'DACTILOLÓGICO']}
+{'texto': 'Nosotros estamos trabajando.', 'glosas': ['TRABAJO']}
+{'texto': 'trabajando en una nueva herramienta.', 'glosas': []}
+{'texto': 'sabemos que la educación, la educación es muy importante.', 'glosas': []}
+{'texto': 'importante.', 'glosas': []}
+{'texto': 'Actualmente solo el 3%', 'glosas': ['3']}
+{'texto': 'Hola, buenas tardes, probando...', 'glosas': ['HOLA', 'BUENAS-TARDES', 'EXPERIMENTO']}
+{'texto': 'que funciona bien, que está tomando bien los tokens.', 'glosas': ['BIEN']}
+{'texto': 'Hola, buenos días.  es una prueba, es una prueba del sistema de...', 'glosas': ['PRUEBA']}
+{'texto': 'tranquilo y tranquilo y precisión.  Nosotros es esto, es esto, vamos a trabajar, vamos a trabajar.', 'glosas': ['TRABAJAR']}
+{'texto': 'en una herramienta', 'glosas': []}
+{'texto': 'para la comunidad.', 'glosas': ['COMUNA', 'PARA']}
+{'texto': 'Sorda, Sorda, Chile, Chile.', 'glosas': ['SORDO/A', 'CHILE', 'CHILENO/A']}
+{'texto': 'Sabemos que la educación', 'glosas': ['EDUCACIÓN']}
+{'texto': 'es muy importante.', 'glosas': ['IMPORTANTE']}
+{'texto': 'Actualmente es MenteSoluntreLuntre', 'glosas': []}
+{'texto': '3% por ciento toda la población allí.', 'glosas': ['PORCENTAJE', '3']}
+{'texto': 'conté con prender a la lengua de C', 'glosas': []}
+{'texto': 'este proyecto traduce la', 'glosas': ['PROYECTO', 'TRADUCIR']}
+{'texto': 'la voz del español.', 'glosas': ['VOZ', 'CASTELLANO']}
+{'texto': 'cosas en tiempo real.  y ya chilele, le na, le na', 'glosas': ['CHILE', 'CHILENO/A', 'TIEMPO']}
+{'texto': 'Hola, buenos días.  Esta es una...', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'pruebas del sistema de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'Hola buenos días, este es una...', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'pruebas del sistema de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'Mi nombre es Matías, nosotros estamos trabajando...', 'glosas': ['TRABAJO']}
+{'texto': 'trabajando en una nueva herramienta para la comunidad.', 'glosas': ['COOPERAR']}
+{'texto': 'de Chile. Sabemos que la educación es muy importante.', 'glosas': ['CHILE', 'ENSEÑANZA-BÁSICA', 'IMPORTANTE']}
+{'texto': 'importante, por tanto, actualmente', 'glosas': ['IMPORTANTE']}
+{'texto': 'de la lengua lengua de seña seña chile', 'glosas': ['LENGUA-DE-SEÑAS']}
+{'texto': 'de la población, si no hay gente que te comprende', 'glosas': ['GENTE', 'NO-ENTENDER']}
+{'texto': 'Chilena, Lena.  Este, este...  proyecto trayecto traduce la voz', 'glosas': ['CHILENO/A', 'PROYECTO', 'VOZ', 'TRADUCIR']}
+{'texto': 'voz de español a los aglosas', 'glosas': ['ESPAÑOL/A', 'VOZ']}
+{'texto': 'en tiempo real.', 'glosas': ['INMEDIATO/A']}
+{'texto': 'automático que esperemos que ayude.', 'glosas': ['ROBOT', 'ESPERAR', 'APOYAR']}
+{'texto': 'es un, es un, trao, trao, trao, trao, trao, tomate', 'glosas': ['TOMATE']}
+{'texto': 'a muchas, muchas personas, zonas.', 'glosas': ['NUMEROSO/A']}
+{'texto': 'Hola, buenas.  Buenas, días, días, esto es una, esto es una prueba', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'pruebas del sistema de transmas de transcripción.', 'glosas': ['PRUEBA']}
+{'texto': 'Nombres matías, tías, nos, nos sorre...', 'glosas': ['NOSOTROS/AS', 'TÍO']}
+{'texto': 'Nosotros estamos trabajando, trabajando en una nueva...', 'glosas': ['NUEVO/A', 'TRABAJO']}
+{'texto': 'una nueva herramienta para', 'glosas': ['PARA']}
+{'texto': 'para la comunidad sorda de Chile.', 'glosas': ['SORDO/A', 'CHILE', 'LENGUA-DE-SEÑAS']}
+{'texto': 'de Chile.', 'glosas': ['CHILE']}
+{'texto': 'que la educación es muy importante.', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'Actualmente, actualmente, solo...  solo un 3% del centro de la población.', 'glosas': ['SOLAMENTE', 'CENTRO', '3']}
+{'texto': 'población no hay gente que compre de la lengua.  de la lengua de señas de señas chilenas chilenas.', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A']}
+{'texto': 'Este proyecto trayecto traduce  traduce la voz, la voz del español.', 'glosas': ['VOZ', 'TRADUCIR']}
+{'texto': 'del español a aglos, a aglos, a sentidos.  hace un tiempo real, es un...', 'glosas': []}
+{'texto': 'es un trauctor, trauctor, automático, automático.', 'glosas': ['TRACTOR']}
+{'texto': 'que esperemos que esperemos que ayude ayude a mucho', 'glosas': ['OJALÁ', 'AYUDAR']}
+{'texto': 'a muchas de las personas.', 'glosas': ['NUMEROSO/A', 'GENTE']}
+{'texto': 'Quiero, quiero...  que investigues una fu...', 'glosas': ['INVESTIGAR']}
+{'texto': 'una forma, una forma', 'glosas': ['REDONDO/A']}
+{'texto': 'de su plantar, plantar la versión que ten...', 'glosas': []}
+{'texto': 'que tengo de whisper whisper', 'glosas': ['SILENCIO']}
+{'texto': 'otra que ese, ese, ese', 'glosas': ['OTRO/A']}
+{'texto': 'Más, más rápido.', 'glosas': ['MÁS']}
+{'texto': 'por por  otra que  rápida y de mayor callos caralidad.', 'glosas': ['RÁPIDO/A']}
+{'texto': 'Busca Busca Internet', 'glosas': ['BUSCAR', 'INTERNET']}
+{'texto': 'lidar.', 'glosas': []}
+{'texto': 'net', 'glosas': ['INTERNET']}
+{'texto': 'para... para poder  Observen... Observen... Observenes...', 'glosas': ['OBSERVAR']}
+{'texto': 'poder', 'glosas': ['PODER']}
+{'texto': 'Hola buenas tardes esta es una prueba del sistema de transcripción mi nombre es Matías', 'glosas': ['HOLA', 'BUENAS-TARDES', 'PRUEBA', 'NOMBRE', 'MATRÍCULA']}
+{'texto': 'trabajando en la nueva herramienta para la comunidad sobra de chile. Sabemos que la educación es muy', 'glosas': ['CHILE', 'EDUCACIÓN']}
+{'texto': 'importante. Actualmente solo de...', 'glosas': ['IMPORTANTE', 'SOLAMENTE']}
+{'texto': 'por ciento de la población oyente comprende la lengua de señas chilena. Este proyecto traduce la', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A', 'LENGUAJE']}
+{'texto': 'voz del español aglosa san tiempo real. Es un trauc...', 'glosas': []}
+{'texto': 'automático que esperemos que ayude a muchas personas, probando uno, dos, tres, probando el audio.', 'glosas': ['COMPROBAR', 'GRABAR-AUDIO', 'EXPERIMENTO']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de...', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'estamos trabajando en una nueva herramienta para la comunidad sorda de chile', 'glosas': ['CHILE', 'TRABAJAR']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente solo el...', 'glosas': ['EDUCACIÓN', 'IMPORTANTE']}
+{'texto': '3% de la población oyente comprende la lengua de señas chilenas.', 'glosas': ['OYENTE', 'LENGUA-DE-SEÑAS', 'CHILENO/A', 'COMPRENDER', '3']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en...', 'glosas': ['PROYECTO', 'TRADUCIR', 'CASTELLANO']}
+{'texto': 'tiempo real. Es un traductor automático que esperamos que ayude a', 'glosas': ['TIEMPO', 'TRADUCIR', 'ESPERAR', 'AYUDAR']}
+{'texto': 'a muchas personas, probando 1, 2, 3 probando el audio.', 'glosas': ['MUCHAS-VECES', 'COMPROBAR', 'GRABAR-AUDIO', '1', '2', '3']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola buenos días esta es una prueba del sistema de transcripción', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Mi nombre es Matías, nosotros estamos trabajando en una nueva herramienta para la...', 'glosas': ['NOMBRE', 'TRABAJAR']}
+{'texto': 'Este proyecto traduce del voz a español a glosas.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ']}
+{'texto': 'en tiempo real. Es un traductor automático que sabemos que ayude a muchas personas.', 'glosas': ['TRADUCIR', 'AYUDAR', 'TIEMPO']}
+{'texto': '¿Cuánta personas hay? ¿20 personas?', 'glosas': ['GENTE', 'PERSONA', '2', '0']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola buenos días, esta es una prueba del sistema de tranclo...', 'glosas': ['HOLA', 'DÍA', 'PRUEBA']}
+{'texto': 'en una nueva herramienta para la comodidad de suerte de chile.', 'glosas': ['CHILE', 'CHILENO/A']}
+{'texto': 'Hola Buenos días, esta es una prueba del sistema de tránsito.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA', 'TRÁNSITO']}
+{'texto': 'comunidad sorda de chile. Sabemos que la educación es muy importante.', 'glosas': ['SORDO/A', 'CHILE', 'EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'Actualmente solo un 3% de la población oyente comprende la lengua de señas chilenas.', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A', 'OYENTE', '3']}
+{'texto': 'Elena. Este proyecto traduce la voz del español Aglosas en tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'CASTELLANO', 'TIEMPO']}
+{'texto': 'es un traductor automático que esperamos que ayude a muchas personas.', 'glosas': ['ROBOT', 'AYUDAR']}
+{'texto': 'probando 1, 2, 3 probando el audio. ¿Cuánta personas hay?', 'glosas': ['PRUEBA', 'AUDIOMETRÍA', '1', '2', '3']}
+{'texto': '20 personas, fin de la prueba.', 'glosas': ['PERSONA', 'FINAL', 'PRUEBA', '2', '0']}
+{'texto': 'Hola Buenos días esta es la prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Mi nombre es Matías, nosotros estamos trabajando en una nueva herramienta para', 'glosas': ['NOMBRE', 'TRABAJAR']}
+{'texto': 'la comunidad sorda de Chile. Sabemos que la educación es muy importante. Actualmente', 'glosas': ['SORDO/A', 'CHILE', 'EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'solo el 3% de la población oyente comprende la lengua de le des...', 'glosas': ['OYENTE', 'COMPRENDER', 'LENGUA-DE-SEÑAS', '3']}
+{'texto': 'señas chilenas. Este proyecto traduce la voz del español a glosas en tiempo real. Es un', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A', 'PROYECTO', 'TRADUCIR', 'VOZ']}
+{'texto': 'traductor automático que esperemos que ayude a muchas personas.', 'glosas': ['TRADUCIR', 'AYUDAR']}
+{'texto': 'probando 1, 2, 3 probando el audio. ¿Cuántas personas hay? 20 personas.', 'glosas': ['AUDÍFONO', '1', '2', '3', '2', '0']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de Chile.', 'glosas': ['TRABAJAR', 'CHILE']}
+{'texto': 'Sabemos que la educación es muy importante.', 'glosas': ['EDUCACIÓN', 'IMPORTANTE', 'SABER']}
+{'texto': 'Actualmente sobre el 3% de la población oyente comprende la lengua de señas chilenas.', 'glosas': ['OYENTE', 'COMPRENDER', 'LENGUA-DE-SEÑAS', 'CHILENO/A', '3']}
+{'texto': 'Este proyecto traduce la voz a la voz de la gente.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'GENTE']}
+{'texto': 'Este proyecto traduce la voz a español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ']}
+{'texto': 'Es un traductor automático que esperemos ayuda a muchas personas.', 'glosas': ['TRADUCIR', 'ROBOT', 'AYUDAR']}
+{'texto': 'Probando uno, dos.', 'glosas': ['EXPERIMENTO']}
+{'texto': '3. Probando el audio.', 'glosas': ['EXPERIMENTO', 'GRABAR-AUDIO', '3']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Vamos a la prueba. Hola buenas, ¿estás haciendo una prueba?', 'glosas': ['PRUEBA', 'HOLA', 'QUÉ-HACES', 'PREGUNTAR']}
+{'texto': 'A ver, ¿qué sale?', 'glosas': ['QUÉ', 'SALIR']}
+{'texto': 'Hola, buenos días.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de Chile.', 'glosas': ['TRABAJAR', 'CHILE']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente solo el 3% de la población oyente', 'glosas': ['EDUCACIÓN', 'IMPORTANTE', 'OYENTE', 'PORCENTAJE', '3']}
+{'texto': 'comprende la lengua de señas.', 'glosas': ['LENGUA-DE-SEÑAS', 'COMPRENDER']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'CASTELLANO', 'TIEMPO']}
+{'texto': 'Es un traductor que esperemos ayude a...', 'glosas': ['TRADUCIR', 'ESPERAR', 'AYUDAR']}
+{'texto': 'muchas personas. Probando 1, 2, 3 probando el audio. ¿Cuántas personas hay 20 personas?', 'glosas': ['MUCHAS-VECES', 'GRABAR-AUDIO', 'PERSONA', '1', '2', '3', '2', '0']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
 {'texto': '¡Suscríbete!', 'glosas': []}
-{'texto': 'Hola, 1, 2, 3, probando...', 'glosas': ['HOLA', 'EXPERIMENTO', '1', '2', '3']}
-{'texto': '1, 2, 3, probando', 'glosas': ['EXPERIMENTO', 'COMPROBAR', '1', '2', '3']}
-{'texto': 'Hola, uno, dos, tres, uno, dos, tres, probando, probando.', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': 'la universidad  Institución', 'glosas': ['UNIVERSIDAD', 'INSTITUTO']}
-{'texto': 'hola, hola', 'glosas': ['HOLA']}
-{'texto': 'alumnos, alumnos, alumnos probando', 'glosas': ['ALUMNO/A', 'PRUEBA']}
-{'texto': 'Hola, hola, hola', 'glosas': ['HOLA']}
-{'texto': 'Hola, hola.', 'glosas': ['HOLA']}
-{'texto': 'Buenas días', 'glosas': ['BUENOS-DÍAS']}
-{'texto': 'con balazzo y el aso y el menos de ya, menos de ya.', 'glosas': ['YA']}
-{'texto': 'tuo, tuo, tuo, puse, puse', 'glosas': ['PROPIO/A']}
-{'texto': 'Hola, hola...', 'glosas': ['HOLA']}
-{'texto': 'Si, si, si', 'glosas': ['SÍ']}
-{'texto': 'Saludo 2', 'glosas': ['SALUDO', 'HOLA', '2']}
-{'texto': 'Bueno, bueno, días, días.', 'glosas': ['BUENOS-DÍAS']}
-{'texto': 'Me llamo Marcos Marcos', 'glosas': ['MARIDO', 'MARISCO']}
-{'texto': 'Ula ula', 'glosas': ['LUPA']}
-{'texto': 'Hola', 'glosas': ['HOLA']}
-{'texto': 'Buenos días, uno, dos, tres', 'glosas': ['BUENOS-DÍAS']}
-{'texto': 'hola buenas, hola buenas, días uno, días uno', 'glosas': ['BUENOS-DÍAS']}
-{'texto': '1, 2, 3, 1, 2, 3, Universidad  la universidad, la inteligencia.', 'glosas': ['UNIVERSIDAD', 'INTELIGENCIA', '1', '2', '3', '1', '2', '3']}
-{'texto': 'hola, hola, buenos días', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
-{'texto': 'en días más marcos.', 'glosas': ['MAÑANA', 'MARZO']}
-{'texto': '1, 1, 2, 2, 3', 'glosas': ['1', '1', '2', '2', '3']}
-{'texto': '¡Suscríbete!', 'glosas': ['SUPLICAR']}
-{'texto': 'Buenos, buenos días, días.', 'glosas': ['BUENOS-DÍAS']}
-{'texto': 'hola, hola, inteligencia', 'glosas': ['HOLA', 'INTELIGENCIA']}
-{'texto': 'Universidad', 'glosas': ['UNIVERSIDAD']}
-{'texto': '¡Puerto Monto!', 'glosas': ['PUERTO MONTT']}
-{'texto': 'en la universidad.', 'glosas': ['UNIVERSIDAD']}
-{'texto': '¡Ayufufufu!', 'glosas': []}
-{'texto': 'hola, probando', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
-{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
-{'texto': 'probando, probando uno', 'glosas': ['EXPERIMENTO', 'COMPROBAR']}
-{'texto': '1, 2, 3, 4, 4', 'glosas': ['1', '2', '3', '4', '4']}
-{'texto': 'Sí, sí, sí.', 'glosas': ['SÍ']}
-{'texto': 'The month, the month.', 'glosas': ['MES']}
-{'texto': 'hola hola probando', 'glosas': ['HOLA', 'EXPERIMENTO']}
-{'texto': 'Saludos, dos, bueno, buenos días, diez.', 'glosas': ['HOLA', 'BUENOS-DÍAS']}
-{'texto': 'hola hola', 'glosas': ['HOLA']}
-{'texto': '1, 2, 3', 'glosas': ['1', '2', '3']}
-{'texto': 'Hola, hola, hola, probar, probando, uno, uno, dos...', 'glosas': ['HOLA']}
-{'texto': 'nos vemos en el próximo vídeo.', 'glosas': ['NOSOTROS/AS', 'NOS-JUNTAMOS', 'MAÑANA']}
-{'texto': 'Gracias.', 'glosas': ['GRACIAS']}
-{'texto': 'hola, hola, hola', 'glosas': ['HOLA']}
-{'texto': 'saludos  saludos', 'glosas': ['SALUDO', 'HOLA']}
-{'texto': 'No 2, no 2, 3, 3', 'glosas': ['NO', '2', '2', '3', '3']}
-{'texto': 'Universidad', 'glosas': ['UNIVERSIDAD']}
-{'texto': 'Godot Godot', 'glosas': ['DIOS']}
-{'texto': 'Pueble velo', 'glosas': []}
-{'texto': 'Inteligencia', 'glosas': ['INTELIGENCIA']}
+{'texto': 'Hola buenos días, esta es una prueba del sistema de transcripción. Mi nombre es Matías, nosotros estamos trabajando en una nueva herramienta', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'NOMBRE', 'PRUEBA', 'NUEVO/A', 'TRABAJAR']}
+{'texto': 'para la comunidad Sorda de Chile. Sabemos que la educación es muy importante. Actualmente', 'glosas': ['CHILE', 'SORDO/A', 'EDUCACIÓN', 'IMPORTANTE', 'HOY']}
+{'texto': 'solo el 3% de la población es muy importante.', 'glosas': ['SOLAMENTE', 'PORCENTAJE', 'IMPORTANTE', '3']}
+{'texto': 'Comprende la lengua de señas chilenas.', 'glosas': ['COMPRENDER', 'LENGUA-DE-SEÑAS', 'CHILENO/A']}
+{'texto': 'Este proyecto traduce de la voz del español a glosas en tiempo.', 'glosas': ['PROYECTO', 'VOZ', 'ESPAÑOL/A', 'TRADUCIR', 'TIEMPO']}
+{'texto': 'Es un traductor automático que esperemos ayuda a muchas personas.', 'glosas': ['TRADUCIR', 'ROBOT', 'AYUDAR', 'MUCHAS-VECES', 'PERSONA']}
+{'texto': 'Probando uno, dos, tres, probando el audio.', 'glosas': ['GRABAR-AUDIO', 'COMPROBAR', '1', '2', '3']}
+{'texto': 'Cuántos...', 'glosas': []}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de Chile.', 'glosas': ['NUEVO/A', 'SORDO/A', 'CHILE', 'TRABAJAR']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente, solo el 3% de la población oyente', 'glosas': ['SABER', 'EDUCACIÓN', 'IMPORTANTE', 'SOLAMENTE', 'OYENTE', '3']}
+{'texto': 'comprende la lengua de señas chilenas.', 'glosas': ['LENGUA-DE-SEÑAS', 'CHILENO/A', 'COMPRENDER']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'VOZ', 'ESPAÑOL/A', 'TRADUCIR', 'TIEMPO']}
+{'texto': 'Es un atrevedor automático que esperamos ayuda a...', 'glosas': ['ROBOT', 'AYUDAR', 'ESPERAR']}
+{'texto': 'muchas personas, probando 1, 2, 3 probando el audio.', 'glosas': ['MUCHAS-VECES', 'PERSONA', 'GRABAR-AUDIO', '1', '2', '3']}
+{'texto': '¿Cuántas personas hay? 20 personas, fin de la prueba.', 'glosas': ['PERSONA', 'FIN', 'PRUEBA', '2', '0']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la ca...', 'glosas': ['TRABAJAR', 'NUEVO/A']}
+{'texto': 'la comunidad sorda de Chile. Sabemos que la educación es muy importante. Actualmente,', 'glosas': ['SORDO/A', 'CHILE', 'SABER', 'EDUCACIÓN', 'IMPORTANTE', 'HOY']}
+{'texto': 'solo el 3% de la población oyente...', 'glosas': ['SOLAMENTE', 'PORCENTAJE', 'GENTE', 'OYENTE', '3']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda.', 'glosas': ['NUEVO/A', 'SORDO/A', 'TRABAJAR']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente, solo el 3% de la población oyente', 'glosas': ['SABER', 'EDUCACIÓN', 'IMPORTANTE', 'SOLAMENTE', 'OYENTE', '3']}
+{'texto': 'comprende la lengua de la comunidad sorda.', 'glosas': ['COMPRENDER', 'LENGUA-DE-SEÑAS', 'SORDO/A']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'VOZ', 'ESPAÑOL/A', 'TRADUCIR', 'TIEMPO']}
+{'texto': 'Es un traductor automático que es un truco de la voz de la gente.', 'glosas': ['TRADUCIR', 'VOZ', 'GENTE']}
+{'texto': 'Es un traductor automático que esperamos que ayude a muchas personas.', 'glosas': ['TRADUCIR', 'ESPERAR', 'AYUDAR', 'MUCHAS-VECES', 'PERSONA']}
+{'texto': 'Probando, uno, dos, tres, probando el audio.', 'glosas': ['GRABAR-AUDIO', 'COMPROBAR', '1', '2', '3']}
+{'texto': '¿Cuántas personas hay?', 'glosas': ['PERSONA', 'GENTE']}
+{'texto': '¿20 personas?', 'glosas': ['PERSONA', 'GENTE', '2', '0']}
+{'texto': 'Fin de la p...', 'glosas': ['FINAL', 'FIN']}
+{'texto': '¿20 personas? Fin de la prueba.', 'glosas': ['PERSONA', 'FIN', 'PRUEBA', '2', '0']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comodidad.', 'glosas': ['NUEVO/A', 'CÓMODA', 'TRABAJAR']}
+{'texto': 'Sabemos que la educación es muy importante.', 'glosas': ['SABER', 'EDUCACIÓN', 'IMPORTANTE']}
+{'texto': 'Actualmente sólo el 3% de la educación es muy importante.', 'glosas': ['HOY', 'SOLAMENTE', 'PORCENTAJE', 'EDUCACIÓN', 'IMPORTANTE', '3']}
+{'texto': 'Actualmente sólo el 3% de la población oyente comprende la lengua.', 'glosas': ['SOLAMENTE', 'PORCENTAJE', 'OYENTE', 'COMPRENDER', '3']}
+{'texto': 'Este proyecto traduce en el que la población oyente comprende la lengua de señas chilenas.', 'glosas': ['PROYECTO', 'LENGUA-DE-SEÑAS', 'OYENTE', 'COMPRENDER', 'TRADUCIR']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'ESPAÑOL/A', 'TIEMPO']}
+{'texto': 'Es un traductor automático que esperemos ayuda a la voz del español.', 'glosas': ['TRADUCIR', 'AYUDAR', 'VOZ']}
+{'texto': 'Es un traductor automático que esperemos ayuda a muchas personas.', 'glosas': ['TRADUCIR', 'AYUDAR', 'MUCHAS-VECES', 'PERSONA']}
+{'texto': 'Probando 1, 2, 3, probando el audio.', 'glosas': ['COMPROBAR', 'AUDIOMETRÍA', 'GRABAR-AUDIO', '1', '2', '3']}
+{'texto': '¿Cuántas personas hay, 20 personas, fin de la prueba?', 'glosas': ['PERSONA', 'FIN', 'PRUEBA', '2', '0']}
+{'texto': '¿Cuántas personas hay, 20 personas, fin de la prueba?', 'glosas': ['PERSONA', 'FIN', 'PRUEBA', '2', '0']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción.', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de Chile.', 'glosas': ['NUEVO/A', 'SORDO/A', 'CHILE', 'TRABAJAR']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente, solo el 3% de la población oyente comprende la lengua.', 'glosas': ['SABER', 'EDUCACIÓN', 'IMPORTANTE', 'SOLAMENTE', 'OYENTE', 'COMPRENDER', '3']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'VOZ', 'ESPAÑOL/A', 'TRADUCIR', 'TIEMPO']}
+{'texto': 'Es un traductor automático que se traduce a la lengua de la lengua.', 'glosas': ['TRADUCIR', 'LENGUAJE', 'IDIOMA']}
+{'texto': 'Es un traductor automático que esperemos ayude a muchas personas.', 'glosas': ['TRADUCIR', 'AYUDAR', 'MUCHAS-VECES', 'PERSONA']}
+{'texto': 'Probando, uno, dos, tres, probando el audio.', 'glosas': ['1', '2', '3']}
+{'texto': '¿Cuántas personas hay? ¿Veinte personas?', 'glosas': ['PERSONA', 'GENTE']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
+{'texto': 'Hola, buenos días. Esta es la prueba del sistema de transcripción. Nosotros estamos', 'glosas': ['NOSOTROS', 'HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'trabajando en una nueva herramienta para la comunidad.', 'glosas': ['TRABAJAR', 'NUEVO/A']}
+{'texto': 'Sabemos que la educación es muy importante. Actualmente, sobre el 3% de la población', 'glosas': ['SABER', 'EDUCACIÓN', 'IMPORTANTE', 'PORCENTAJE', '3']}
+{'texto': 'oyente comprende la lengua de la lengua.', 'glosas': ['OYENTE', 'COMPRENDER', 'LENGUAJE']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'ESPAÑOL/A', 'TIEMPO']}
+{'texto': 'Es un traductor automático que es...', 'glosas': ['TRADUCIR', 'ROBOT']}
+{'texto': 'un traductor automático que esperemos ayuda a muchas personas probando 1 2 3 probando el audio', 'glosas': ['TRADUCIR', 'AYUDAR', 'MUCHAS-VECES', '1', '2', '3']}
+{'texto': 'Hola, buenos días. Esta es una prueba del sistema de transcripción. Nosotros estamos', 'glosas': ['NOSOTROS', 'HOLA', 'BUENOS-DÍAS', 'PRUEBA']}
+{'texto': 'trabajando en una nueva herramienta para la', 'glosas': ['TRABAJAR', 'NUEVO/A']}
+{'texto': 'comunidad sorda de Chile. Sabemos que la educación es muy importante. Actualmente es solo el 3% de la', 'glosas': ['SORDO/A', 'CHILE', 'EDUCACIÓN', 'IMPORTANTE', 'SOLAMENTE', '3']}
+{'texto': 'población oyente comprende la lengua de señas chilena. Este proyecto traduce la voz del español a glosas en tiempo.', 'glosas': ['OYENTE', 'COMPRENDER', 'LENGUA-DE-SEÑAS', 'PROYECTO', 'TRADUCIR', 'VOZ', 'TIEMPO']}
+{'texto': 'Es un traductor automático que esperemos ayude a muchas personas, probando 1, 2, 3, probando el audio.', 'glosas': ['TRADUCIR', 'AYUDAR', 'PERSONA', '1', '2', '3']}
+{'texto': 'Cuantas personas hay? 20 personas. Fin de la prueba.', 'glosas': ['PERSONA', 'NUMEROSO/A', 'FIN', '2', '0']}
+{'texto': 'Hola buenos días esta es la prueba del sistema de transcripción nosotros estamos trabajando en una nueva herramienta para la comodidad', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA', 'NOSOTROS/AS', 'TRABAJO']}
+{'texto': 'sorda de Chile sabemos que la educación es muy importante actualmente solo el 3% de la población', 'glosas': ['SORDO/A', 'CHILE', 'EDUCACIÓN', 'IMPORTANTE', '3']}
+{'texto': 'oyente', 'glosas': ['OYENTE']}
+{'texto': 'comprende la lectura de señas del lenguaje chileno este proyecto traduce la voz del español', 'glosas': ['LENGUA-DE-SEÑAS', 'LEER', 'TRADUCIR', 'CASTELLANO', 'CHILENO/A']}
+{'texto': 'a glosas en', 'glosas': []}
+{'texto': 'tiempo real es un traductor automático que comprendemos ayude a muchas personas probando 1 2 3', 'glosas': ['TIEMPO', 'TRADUCIR', 'AYUDAR', 'MUCHAS-VECES', '1', '2', '3']}
+{'texto': 'probando 1 2 3 probando el audio', 'glosas': ['GRABAR-AUDIO', '1', '2', '3']}
+{'texto': 'Hola buenos días esta es la prueba del sistema de transcripción, nosotros estamos trabajando', 'glosas': ['HOLA', 'BUENOS-DÍAS', 'PRUEBA', 'NOSOTROS/AS', 'TRABAJO']}
+{'texto': 'en una nueva herramienta para la comunidad sorda de...', 'glosas': []}
+{'texto': 'Chile, sabemos que la educación es muy importante, actualmente solo el 3% de la población oyente', 'glosas': ['CHILE', 'EDUCACIÓN', 'IMPORTANTE', 'OYENTE', '3']}
+{'texto': 'comprende la lengua de señores.', 'glosas': ['LENGUA-DE-SEÑAS', 'SEÑOR']}
+{'texto': 'Este proyecto traduce la voz del español a glosas en un tiempo real.', 'glosas': ['PROYECTO', 'TRADUCIR', 'VOZ', 'TIEMPO']}
+{'texto': 'Es un traductor automático que esperó que la gente se vea en el mundo.', 'glosas': ['TRADUCIR', 'ESPERAR', 'GENTE', 'MUNDO']}
+{'texto': 'Es un traductor automático que esperemos ayude a muchas personas.', 'glosas': ['TRADUCIR', 'AYUDAR']}
+{'texto': 'Probando 1, 2, 3, probando el audio.', 'glosas': ['COMPROBAR', 'GRABAR-AUDIO', '1', '2', '3']}
+{'texto': '¿Cuántas personas hay?', 'glosas': ['PERSONA']}
+{'texto': '20 personas.', 'glosas': ['PERSONA', '2', '0']}
+{'texto': 'Fin de la prueba.', 'glosas': ['FINAL', 'PRUEBA']}
