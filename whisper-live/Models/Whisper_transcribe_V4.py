@@ -36,11 +36,12 @@ def load_config():
             return json.load(f)
     except FileNotFoundError:
         logging.warning("No se encontró config.json. Usando config por defecto.")
+        # ESTA ES LA CONFIGURACIÓN RECOMENDADA
         return {
           "audio": {"samplerate": 16000, "block_duration_ms": 1000, "chunk_duration_ms": 10000, "context_duration_ms": 2000, "channels": 1},
           "vad": {"threshold": 0.5, "min_silence_duration_ms": 1000},
           "whisper": {"model_size": "small", "device": "cpu", "compute_type": "int8", "beam_size": 1, "no_speech_prob": 0.4},
-          "faiss": {"top_k": 100, "similarity_threshold": 0.10},
+          "faiss": {"context_top_k": 20, "keyword_top_k": 3, "similarity_threshold": 0.25},
           "openai": {"embedding_model": "text-embedding-3-small", "chat_model": "gpt-4o-mini"}
         }
 
@@ -56,8 +57,8 @@ frame_per_chunk = int(samplerate * chunk_duration_ms / 1000)
 
 # ==== Colas ====
 audio_queue = queue.Queue()
-# text_queue YA NO ES NECESARIA, EL NUEVO HILO HACE TODO
-resultado_queue = asyncio.Queue() # La cola final para FastAPI
+text_queue = queue.Queue() # Hilo 2 escribe aquí
+resultado_queue = asyncio.Queue() # Hilo 3 escribe aquí
 audio_buffer = np.zeros((0, channels), dtype=np.float32)
 sistema_activo = False
 
@@ -78,7 +79,7 @@ PRONOMBRES_PATH = os.path.join(STORAGE_DIR, "Pronombres_map.json")
 FAISS_INDEX_PATH = os.path.join(STORAGE_DIR, "glosario.index")
 EMB_PATH = os.path.join(STORAGE_DIR, "glosario_embeddings.npy")
 
-# ==== Cliente OpenAI (Azure/GitHub) ====
+# ==== Cliente OpenAI (para Embeddings) ====
 GITHUB_TOKEN = obtener_token()
 OPENAI_BASE_URL = "https://models.inference.ai.azure.com"
 client = OpenAI(base_url=OPENAI_BASE_URL, api_key=GITHUB_TOKEN)
@@ -99,7 +100,7 @@ except Exception:
         "nosotros": "NOSOTROS", "ustedes": "USTEDES", "ellos": "ELLOS", "ellas": "ELLAS"
     }
 
-# ==== NUEVO: Conversor de Números ====
+# ==== Conversor de Números ====
 NUMBER_WORDS_MAP = {
     "cero": "0", "uno": "1", "dos": "2", "tres": "3", "cuatro": "4",
     "cinco": "5", "seis": "6", "siete": "7", "ocho": "8", "nueve": "9",
@@ -117,20 +118,35 @@ def convertir_palabras_numeros(texto):
             convertidas.append(p)
     return " ".join(convertidas)
 
-# ==== Funciones de marcadores ====
-def marcar_pronombres(texto):
+# ==== Stop Words (V8) ====
+STOP_WORDS = set([
+    "a", "al", "ante", "bajo", "con", "contra", "de", "del", "desde", "en", "entre", "es",
+    "hacia", "hasta", "la", "las", "le", "lo", "los", "me", "mi", "mis", "muy", "nos",
+    "o", "para", "pero", "por", "que", "se", "sin", "sobre", "su", "sus", "te", "tu",
+    "tus", "un", "una", "unas", "unos", "y", "ya", "soy", "eres", "somos", "son",
+    "estoy", "estás", "está", "estamos", "están", "el", "él", "ella", "ello", "eso", "este", "esta"
+])
+
+# ==== Funciones de marcadores (REDISEÑADAS V13) ====
+def extraer_pronombres_y_limpiar(texto):
+    """
+    V13: Extrae glosas de pronombres y devuelve el texto limpio.
+    """
     palabras = texto.lower().split()
-    marcadas = []
+    pronombres_encontrados = []
+    texto_limpio_palabras = []
+    
     for p in palabras:
         p_clean = p.translate(str.maketrans('', '', string.punctuation))
         if p_clean in PRONOMBRES_MAP:
-            marcadas.append(f"[PRON:{PRONOMBRES_MAP[p_clean]}]")
+            # Añade la glosa del pronombre (ej. "YO") a la lista
+            pronombres_encontrados.append(PRONOMBRES_MAP[p_clean])
         else:
-            marcadas.append(p)
-    return " ".join(marcadas)
-
-def quitar_marcadores(texto):
-    return re.sub(r"\[PRON:[^\]]+\]\s*", "", texto).strip()
+            # Esta palabra no es un pronombre, la conservamos
+            texto_limpio_palabras.append(p)
+            
+    # Devuelve las glosas encontradas y el texto sin esas palabras
+    return pronombres_encontrados, " ".join(texto_limpio_palabras)
 
 # =================================================================
 # BLOQUE 1: CARGA Y CREACIÓN DE FAISS (Sin cambios)
@@ -171,45 +187,103 @@ else:
 logging.info(f"✅ Glosario y FAISS cargados ({len(glosario)} palabras).")
 
 # =================================================================
-# BLOQUE 2: FUNCIÓN DE BÚSQUEDA CONTEXTUAL (Sin cambios)
+# BLOQUE 2: BÚSQUEDA HÍBRIDA (V13 - Modificado)
 # =================================================================
-def buscar_candidatas_contextuales(texto, top_k=CONFIG['faiss']['top_k'], threshold=CONFIG['faiss']['similarity_threshold']):
-    texto_para_buscar = quitar_marcadores(texto).strip()
-    if not texto_para_buscar:
-        return []
-    try:
-        resp = client.embeddings.create(model=CONFIG['openai']['embedding_model'], input=[texto_para_buscar])
-        embedding_query = np.array([resp.data[0].embedding]).astype("float32")
-    except Exception as e:
-        logging.error(f"Error generando embedding para la consulta: {e}")
-        return []
-    D, I = index.search(embedding_query, top_k)
+
+def _calcular_similitud(distancias, indices):
+    """Función helper para procesar resultados de FAISS."""
     resultados = []
-    indices = I[0]
-    distancias = D[0]
-    max_d, min_d = float(np.max(distancias)), float(np.min(distancias))
-    denom = (max_d - min_d + 1e-6) 
-    similitudes = 1 - ((distancias - min_d) / denom)
-    seen_glosas = set()
-    for idx, sim in zip(indices, similitudes):
-        if sim >= threshold:
-            glosa_palabra = glosario_df.iloc[idx]['Palabra'].upper().strip()
-            if glosa_palabra not in seen_glosas:
+    threshold = CONFIG['faiss']['similarity_threshold']
+    
+    if indices.size == 0:
+        return resultados
+
+    if indices.ndim == 1:
+        distancias = np.array([distancias])
+        indices = np.array([indices])
+
+    for i in range(indices.shape[0]):
+        D_row = distancias[i]
+        I_row = indices[i]
+        
+        max_d, min_d = float(np.max(D_row)), float(np.min(D_row))
+        denom = (max_d - min_d + 1e-6) 
+        similitudes = 1 - ((D_row - min_d) / denom)
+        
+        for idx, sim in zip(I_row, similitudes):
+            if sim >= threshold:
+                glosa_palabra = glosario_df.iloc[idx]['Palabra'].upper().strip()
                 glosa_desc = glosario_df.iloc[idx]['Descripción']
                 resultados.append({
                     "glosa": glosa_palabra,
                     "descripcion": glosa_desc,
                     "similitud_score": float(sim) 
                 })
-                seen_glosas.add(glosa_palabra)
-    resultados.sort(key=lambda x: x['similitud_score'], reverse=True)
-    return resultados[:top_k]
+    return resultados
+
+def buscar_contextual(texto):
+    """(Paso 1) Busca glosas usando el embedding de la frase completa."""
+    # V13: El texto ya viene limpio (sin pronombres/números)
+    if not texto: return []
+    top_k = CONFIG['faiss']['context_top_k']
+    
+    try:
+        resp = client.embeddings.create(model=CONFIG['openai']['embedding_model'], input=[texto])
+        embedding_query = np.array([resp.data[0].embedding]).astype("float32")
+    except Exception as e:
+        logging.error(f"Error en embedding contextual: {e}")
+        return []
+
+    D, I = index.search(embedding_query, top_k)
+    return _calcular_similitud(D[0], I[0])
+
+def buscar_por_palabras_clave(texto):
+    """(Paso 2) Busca glosas usando embeddings de palabras clave individuales."""
+    # V13: El texto ya viene limpio
+    palabras = texto.lower().split()
+    
+    palabras_clave = sorted(list(set([
+        p.translate(str.maketrans('', '', string.punctuation)) 
+        for p in palabras 
+        if p not in STOP_WORDS and len(p) > 2
+    ])))
+    
+    if not palabras_clave: return []
+    top_k = CONFIG['faiss']['keyword_top_k']
+    
+    try:
+        resp = client.embeddings.create(model=CONFIG['openai']['embedding_model'], input=palabras_clave)
+        embeddings_query = np.array([d.embedding for d in resp.data]).astype("float32")
+    except Exception as e:
+        logging.error(f"Error en embedding de keywords: {e}")
+        return []
+    
+    D_batch, I_batch = index.search(embeddings_query, top_k)
+    return _calcular_similitud(D_batch, I_batch)
+
+def buscar_candidatas_hibrido(texto):
+    """(Paso 3) Fusiona las búsquedas. (El texto ya está limpio)."""
+    candidatas_contexto = buscar_contextual(texto)
+    candidatas_keywords = buscar_por_palabras_clave(texto)
+    
+    glosas_vistas = set()
+    candidatas_fusionadas = []
+    
+    todas_candidatas = candidatas_contexto + candidatas_keywords
+    todas_candidatas.sort(key=lambda x: x['similitud_score'], reverse=True)
+
+    for cand in todas_candidatas:
+        if cand["glosa"] not in glosas_vistas:
+            candidatas_fusionadas.append(cand)
+            glosas_vistas.add(cand["glosa"])
+    
+    return candidatas_fusionadas[:100]
 
 # =================================================================
-# BLOQUE 3: LÓGICA DE TRADUCCIÓN CON LANGCHAIN
+# BLOQUE 3: LÓGICA DE TRADUCCIÓN CON LANGCHAIN (V13)
 # =================================================================
 
-# 1. Definir el modelo de lenguaje (LLM) de LangChain 
+# 1. Definir el modelo de lenguaje (LLM) de LangChain (OpenAI)
 llm = ChatOpenAI(
     model=CONFIG['openai']['chat_model'],
     openai_api_base=OPENAI_BASE_URL,
@@ -218,27 +292,27 @@ llm = ChatOpenAI(
     model_kwargs={"response_format": {"type": "json_object"}}
 )
 
-# 2. Definir la plantilla del prompt (V7 - MÁS ESTRICTA)
+# 2. Definir la plantilla del prompt (V13 - Más simple)
 prompt_template = """
 Eres un traductor experto de español a glosas de la Lengua de Señas Chilena (LSCh). Tu única tarea es analizar el texto de entrada y seleccionar el subconjunto MÁS apropiado de glosas candidatas, ordenándolas correctamente.
 
 **Contexto de la conversación anterior (si es relevante):**
 {contexto}
 
-**Texto a traducir:**
+**Texto a traducir (YA FILTRADO, sin pronombres ni números):**
 {texto}
 
 **Glosas Candidatas (con su descripción para ayudarte a elegir):**
 {candidatas_contexto}
 
 **Reglas OBLIGATORIAS E INQUEBRANTABLES:**
-1.  **SELECCIONA DESDE LAS CANDIDATAS (¡SÉ ESTRICTO!):** Estás recibiendo MUCHAS candidatas de baja similitud (top_k=100, umbral=0.10). Tu trabajo es RECHAZARLAS si no traducen el significado. Usa ÚNICAMENTE glosas que sean la traducción correcta.
-2.  **REGLA DE "FALSOS AMIGOS" (LA MÁS IMPORTANTE):** DEBES RECHAZAR glosas que sean semánticamente incorrectas, aunque suenen parecido. Si el texto dice "audio", RECHAZA "audífono". Si dice "personas", RECHAZA "muchas-veces". Es MEJOR omitir una glosa que mostrar una glosa INCORRECTA. Usa la "descripcion" de la candidata para confirmar el significado exacto.
-3.  **NO SUSTITUIR:** Si la glosa exacta no está en las candidatas (ej. el texto dice "probando") pero una parecida sí (ej. "EXPERIMENTO"), RECHAZA "EXPERIMENTO". No sustituyas, solo traduce lo que esté presente.
+1.  **SELECCIONA DESDE LAS CANDIDATAS (¡SÉ ESTRICTO!):** Estás recibiendo una lista de candidatas fusionadas (contexto + palabras clave). Tu trabajo es RECHAZARLAS si no traducen el significado. Usa ÚNICAMENTE glosas que sean la traducción correcta.
+2.  **REGLA DE "FALSOS AMIGOS" (LA MÁS IMPORTANTE):** DEBES RECHAZAR glosas que sean semánticamente incorrectas, aunque suenen parecido. Si el texto dice "audio", RECHAZA "audífono". Si dice "personas", RECHAZA "muchas-veces". Es MEJOR omitir una glosa que mostrar una glosa INCORRECTA.
+3.  **NO SUSTITUIR:** Si la glosa exacta no está en las candidatas (ej. el texto dice "probando") pero una parecida sí (ej. "EXPERIMENTO"), RECHAZA "EXPERIMENTO".
 4.  **NO REPITAS:** No uses la misma glosa más de una vez.
 5.  **NO INVENTES:** No modifiques ni combines glosas.
-6.  **ORDEN LÓGICO (¡MUY IMPORTANTE!):** Ordena las glosas finales para que sigan el orden lógico y gramatical del texto original en español, pero adaptado a la estructura de la LSCh (generalmente Sujeto-Objeto-Verbo).
-    * **Ejemplo de Orden:** "Yo voy a la casa roja" -> {{"glosas": ["YO", "CASA", "ROJO", "IR"]}}
+6.  **ORDEN LÓGICO (¡MUY IMPORTANTE!):** Ordena las glosas finales para que sigan el orden lógico y gramatical del texto original en español.
+    * **Ejemplo de Orden:** "voy casa roja" -> {{"glosas": ["CASA", "ROJO", "IR"]}}
 7.  **FORMATO JSON:** Devuelve la respuesta como un objeto JSON con una única clave "glosas" que contenga una lista de strings. Si ninguna glosa aplica, devuelve una lista vacía.
 """
 
@@ -247,11 +321,12 @@ prompt = ChatPromptTemplate.from_template(prompt_template)
 # 3. Definir el parser para la salida JSON 
 parser = JsonOutputParser()
 
-# 4. Crear la "cadena" (chain) de procesamiento 
+# 4. Crear la "cadena" (chain) de procesamiento (V13)
 chain = (
     RunnablePassthrough.assign(
+        # Llama a la búsqueda híbrida con el texto (que ya no tiene pronombres)
         candidatas_contexto=lambda x: json.dumps(
-            buscar_candidatas_contextuales(x["texto"]), 
+            buscar_candidatas_hibrido(x["texto"]),
             ensure_ascii=False,
             indent=2
         )
@@ -261,92 +336,106 @@ chain = (
     | parser
 )
 
-# 5. Función 'process_text' (AHORA ES LLAMADA INTERNAMENTE)
-def process_text_segment(texto_original, conversational_history):
+# 5. Función 'process_text' (HILO 3 - Lógica V13)
+def process_text():
     """
-    Procesa UN SOLO segmento de texto. Esta función es llamada por
-    el hilo principal de la tubería.
+    Hilo 3: Consume text_queue (frases de Whisper) y las traduce.
     """
-    
-    # 1. Convertir palabras-número a dígitos (ej. "uno" -> "1")
-    texto_con_numeros = convertir_palabras_numeros(texto_original)
-    
-    # 2. Extraer dígitos
-    numeros_como_glosas = re.findall(r'\d', texto_con_numeros)
-    texto_sin_numeros = re.sub(r'\d+', '', texto_con_numeros).strip()
-    
-    glosas_de_palabras = []
-    
-    # 3. Llamar a LangChain solo si queda texto
-    if texto_sin_numeros:
-        texto_marcado = marcar_pronombres(texto_sin_numeros)
-        contexto_str = " ".join(conversational_history)
+    global sistema_activo
+    conversational_history = deque(maxlen=4)
 
+    while sistema_activo:
         try:
-            response_json = chain.invoke({
-                "texto": texto_marcado,
-                "contexto": contexto_str if contexto_str else "No hay contexto previo."
-            })
-            glosas_crudas = response_json.get("glosas", [])
-
-            if not isinstance(glosas_crudas, list):
-                logging.warning(f"LangChain no devolvió una lista en el JSON: {glosas_crudas}")
-                glosas_crudas = []
+            texto_original = text_queue.get(timeout=1)
             
-            # 4. Validar glosas contra el glosario
-            glosas_validadas = []
-            seen = set()
-            for g in glosas_crudas:
-                if g and isinstance(g, str):
-                    g_clean = g.upper().strip()
-                    if g_clean in glosario and g_clean not in seen:
-                        glosas_validadas.append(g_clean)
-                        seen.add(g_clean)
+            # --- INICIO DE LA LÓGICA V13 ---
             
-            glosas_de_palabras = glosas_validadas
-
-        except Exception as e:
-            logging.error(f"Error al invocar o procesar la cadena de LangChain: {e}")
+            # 1. Pre-procesar: Extraer números
+            texto_con_numeros = convertir_palabras_numeros(texto_original)
+            numeros_como_glosas = re.findall(r'\d', texto_con_numeros)
+            texto_sin_numeros = re.sub(r'\d+', '', texto_con_numeros).strip()
+            
+            # 2. Pre-procesar: Extraer pronombres
+            pronombres_como_glosas, texto_limpio = extraer_pronombres_y_limpiar(texto_sin_numeros)
+            
             glosas_de_palabras = []
-    
-    # 5. Combinar glosas de palabras + números
-    glosas = glosas_de_palabras + numeros_como_glosas
-    
-    conversational_history.append(texto_original)
-    resultado = {"texto": texto_original, "glosas": glosas}
-    logging.info(f"Resultado: {resultado}")
-    
-    # 6. Guardar en archivos (sincrónico)
-    try:
-        with open(TRANSCRIPCION_TXT, "a", encoding="utf-8") as f:
-            f.write(str(resultado) + "\n")
-        
-        with open(TRANSCRIPCION_JSON, "r+", encoding="utf-8") as f:
-            data = json.load(f)
-            data.append(resultado)
-            f.seek(0)
-            f.truncate()
-            json.dump(data, f, ensure_ascii=False, indent=4)
-    except (FileNotFoundError, json.JSONDecodeError):
-            with open(TRANSCRIPCION_JSON, "w", encoding="utf-8") as f:
-                json.dump([resultado], f, ensure_ascii=False, indent=4)
-    
-    # 7. Enviar a FastAPI
-    resultado_queue.put_nowait(resultado)
+            
+            # 3. Llamar a LangChain solo si queda texto (ej. no si solo era "yo" o "dos")
+            if texto_limpio:
+                contexto_str = " ".join(conversational_history)
 
+                try:
+                    # El LLM solo recibe el texto limpio
+                    response_json = chain.invoke({
+                        "texto": texto_limpio, 
+                        "contexto": contexto_str if contexto_str else "No hay contexto previo."
+                    })
+                    glosas_crudas = response_json.get("glosas", [])
+
+                    if not isinstance(glosas_crudas, list):
+                        logging.warning(f"LangChain no devolvió una lista en el JSON: {glosas_crudas}")
+                        glosas_crudas = []
+                    
+                    # 4. Validar glosas contra el glosario
+                    glosas_validadas = []
+                    seen = set()
+                    for g in glosas_crudas:
+                        if g and isinstance(g, str):
+                            g_clean = g.upper().strip()
+                            if g_clean in glosario and g_clean not in seen:
+                                glosas_validadas.append(g_clean)
+                                seen.add(g_clean)
+                    
+                    glosas_de_palabras = glosas_validadas
+
+                except Exception as e:
+                    logging.error(f"Error al invocar o procesar la cadena de LangChain: {e}")
+                    glosas_de_palabras = []
+            
+            # 5. Combinar: Pronombres + Glosas del LLM + Números
+            #    (Le damos prioridad a los pronombres)
+            glosas = pronombres_como_glosas + glosas_de_palabras + numeros_como_glosas
+            
+            # --- FIN DE LA LÓGICA V13 ---
+
+            conversational_history.append(texto_original)
+            resultado = {"texto": texto_original, "glosas": glosas}
+            logging.info(f"Resultado: {resultado}")
+            
+            # Guardar en archivos
+            try:
+                with open(TRANSCRIPCION_TXT, "a", encoding="utf-8") as f:
+                    f.write(str(resultado) + "\n")
+                
+                with open(TRANSCRIPCION_JSON, "r+", encoding="utf-8") as f:
+                    data = json.load(f)
+                    data.append(resultado)
+                    f.seek(0)
+                    f.truncate()
+                    json.dump(data, f, ensure_ascii=False, indent=4)
+            except (FileNotFoundError, json.JSONDecodeError):
+                     with open(TRANSCRIPCION_JSON, "w", encoding="utf-8") as f:
+                        json.dump([resultado], f, ensure_ascii=False, indent=4)
+            
+            # Enviar a FastAPI
+            resultado_queue.put_nowait(resultado)
+
+        except queue.Empty:
+            continue
+        except Exception as e:
+            logging.error(f"Error en el hilo de process_text: {e}")
 
 # =================================================================
-# BLOQUE 4: FLUJO DE AUDIO (REVISADO - V7)
+# BLOQUE 4: FLUJO DE AUDIO (V12 - 3 Hilos)
 # =================================================================
 
-# 1. Callback de audio (simple)
+# 1. Hilo 1: Grabación
 def audio_callback(indata, frames, time, status):
     """Pone bloques de audio en una cola."""
     if status:
         logging.warning(status)
     audio_queue.put(indata.copy())
 
-# 2. Hilo de grabación
 def record_audio():
     """Inicia la grabación de audio desde el micrófono."""
     global sistema_activo
@@ -368,11 +457,11 @@ def record_audio():
         logging.error(f"Error en hilo de grabación: {e}")
         detener_sistema()
 
-# 3. Hilo de Transcripción y Traducción (NUEVA LÓGICA V7)
-def transcribe_and_process_pipeline():
+# 2. Hilo 2: Transcripción (Ventana Deslizante)
+def transcribe_sliding_window():
     """
-    Hilo único que maneja la transcripción y la traducción
-    para evitar el cuello de botella de la cola.
+    Hilo 2: Consume audio_queue, transcribe con VAD y ventana deslizante,
+    y pone el TEXTO resultante en text_queue.
     """
     global sistema_activo, audio_buffer
     
@@ -382,9 +471,8 @@ def transcribe_and_process_pipeline():
     }
     context_frames = int(samplerate * context_duration_ms / 1000)
     previous_text = ""
-    conversational_history = deque(maxlen=4)
 
-    logging.info("Tubería de Transcripción-Traducción (V7) iniciada.")
+    logging.info("Transcriptor VAD (Ventana Deslizante) iniciado. Esperando audio...")
 
     while sistema_activo:
         try:
@@ -392,17 +480,16 @@ def transcribe_and_process_pipeline():
             audio_chunk = audio_queue.get(timeout=0.1)
             audio_buffer = np.vstack((audio_buffer, audio_chunk))
 
-            # 2. Si el búfer no es lo suficientemente grande, esperar más audio
+            # 2. Si el búfer no es lo suficientemente grande, esperar
             if len(audio_buffer) < frame_per_chunk:
                 continue
-
+            
             # 3. Tenemos 10 segundos, procesar
             audio_data_to_process = audio_buffer.flatten().astype(np.float32)
             audio_buffer = audio_buffer[-context_frames:] # Conservar contexto
             
             logging.info(f"Procesando chunk de {len(audio_data_to_process)/samplerate:.1f}s...")
             
-            # 4. Transcribir el búfer
             segments, info = model.transcribe(
                 audio_data_to_process,
                 language="es",
@@ -412,25 +499,20 @@ def transcribe_and_process_pipeline():
                 initial_prompt=previous_text
             )
 
-            # 5. Bucle INTERNO: Procesar cada segmento INMEDIATAMENTE
+            # 4. Poner los segmentos en la text_queue para el Hilo 3
             full_transcription_chunk = []
             for segment in segments:
-                if not sistema_activo: # Chequeo de seguridad para salir rápido
+                if not sistema_activo:
                     break
-                
                 texto_transcrito = segment.text.strip()
                 if (texto_transcrito and 
                     segment.no_speech_prob < CONFIG['whisper']['no_speech_prob']):
                     
                     logging.info(f"Frase detectada (VAD): '{texto_transcrito}'")
+                    text_queue.put(texto_transcrito) # Pone el texto para el Hilo 3
                     full_transcription_chunk.append(texto_transcrito)
-                    
-                    # --- ¡EL CAMBIO CLAVE! ---
-                    # Llamar a la lógica de traducción aquí mismo,
-                    # no en un hilo separado.
-                    process_text_segment(texto_transcrito, conversational_history)
             
-            # 6. Actualizar el prompt de Whisper para el siguiente chunk
+            # 5. Actualizar el prompt de Whisper
             if full_transcription_chunk:
                 previous_text = " ".join(full_transcription_chunk)
                 logging.info(f"Contexto de prompt actualizado a: '...{previous_text[-50:]}'")
@@ -440,12 +522,12 @@ def transcribe_and_process_pipeline():
         except queue.Empty:
             continue
         except Exception as e:
-            logging.error(f"Error en la tubería de Transcripción-Traducción: {e}")
+            logging.error(f"Error en el hilo de transcripción: {e}")
             time.sleep(1)
 
 
 # =================================================================
-# BLOQUE 5: CONTROL DEL SISTEMA
+# BLOQUE 5: CONTROL DEL SISTEMA (V14 - Lógica de Estado Corregida)
 # =================================================================
 def iniciar_sistema():
     global sistema_activo
@@ -456,20 +538,20 @@ def iniciar_sistema():
     sistema_activo = True
     
     threads = [
+        # HILO 1: Graba audio
         threading.Thread(target=record_audio, name="AudioRecorder", daemon=True),
         
-        # --- ACTUALIZADO ---
-        # Llama a la nueva tubería unificada
-        threading.Thread(target=transcribe_and_process_pipeline, name="PipelineThread", daemon=True),
+        # HILO 2: Transcribe audio -> texto
+        threading.Thread(target=transcribe_sliding_window, name="WhisperTranscriber", daemon=True),
         
-        # EL HILO 'process_text' YA NO ES NECESARIO
-        # threading.Thread(target=process_text, name="TextProcessor", daemon=True)
+        # HILO 3: Traduce texto -> glosas
+        threading.Thread(target=process_text, name="TextProcessor", daemon=True)
     ]
     
     for t in threads:
         t.start()
         
-    logging.info("🚀 Sistema de transcripción + glosas (Tubería V7) iniciado.")
+    logging.info("🚀 Sistema de transcripción + glosas (Tubería V14) iniciado.")
 
 def detener_sistema():
     global sistema_activo
