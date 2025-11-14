@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CatchAI - Proyecto</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "secondary": "#6B7280",
+                        "destructive": "#E57373",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#1F2937",
+                        "text-light": "#F3F4F6",
+                        "text-secondary": "#9CA3AF"
+                    },
+                    fontFamily: { "display": ["Space Grotesk", "sans-serif"] },
+                    borderRadius: { "lg": "0.5rem", "xl": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    
+    <link href="/static/Css/Estilos.css" rel="stylesheet">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-text-light transition-colors duration-300">
+    
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="wavy-lines-container">
+        <svg class="wavy-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+            <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+            <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+        </svg>
+        <svg class="wavy-line" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+            <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+            <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+        </svg>
+    </div>
+
+    <div id="settingsOverlay" class="fixed inset-0 bg-black/50 z-10 hidden transition-opacity duration-300" aria-hidden="true"></div>
+
+    <div class="relative z-10 flex min-h-screen w-full flex-col">
+        
+        <header class="sticky top-0 z-10 flex items-center justify-between px-6 lg:px-8 py-4 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-3xl">graphic_eq</span>
+                <h1 class="text-2xl font-bold tracking-tight">CatchAI</h1>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-6">
+                <a href="/" id="nav-app" class="nav-link">App</a> <a href="#proposito" id="nav-proposito" class="nav-link">Propósito</a>
+                <a href="#features" id="nav-features" class="nav-link">Cómo Funciona</a>
+                <a href="#equipo" id="nav-equipo" class="nav-link">El Equipo</a>
+                </nav>
+
+            <button id="settingsBtn" class="flex items-center justify-center w-10 h-10 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-secondary dark:text-text-secondary">settings</span>
+            </button>
+        </header>
+        
+        <aside id="settingsPanel" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white dark:bg-background-dark/80 dark:backdrop-blur-lg border-l border-black/10 dark:border-white/10 z-20 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+            
+            <div class="flex items-center justify-between p-4 border-b border-black/10 dark:border-white/10">
+                <h2 class="text-xl font-bold">Configuración</h2>
+                <button id="closeSettingsBtn">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div class="flex-grow p-6 overflow-y-auto space-y-8">
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-primary mb-3">Modelo Whisper</h3>
+                    <fieldset class="space-y-4" disabled>
+                        <p class="text-xs text-gray-500 dark:text-text-secondary">La configuración del modelo solo está disponible en la página de la App.</p>
+                        <div class="flex items-center justify-between opacity-50">
+                            <label class="text-sm" for="model-select">Modelo:</label>
+                            <select id="model-select" class="form-select bg-gray-100 dark:bg-white/5 border-black/10 dark:border-white/10 rounded-md text-sm w-1/2 py-1.5 px-2 focus:ring-primary focus:border-primary">
+                                <option value="small" selected>small</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-primary mb-3">General</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <label class="text-sm" for="darkModeToggle">Modo Oscuro</label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input class="sr-only peer" id="darkModeToggle" type="checkbox" value="" />
+                                <div class="w-11 h-6 bg-gray-200 dark:bg-secondary rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/50 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <div class="flex-1 overflow-y-auto">
+
+            <section id="proposito" class="py-24 px-6 lg:px-8 text-center min-h-screen-minus-header flex items-center justify-center">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-5xl font-bold tracking-tighter text-gray-900 dark:text-white sm:text-7xl">
+                        <span class="text-gradient">Rompiendo las</span>
+                        <br class="hidden sm:block" />
+                        Barreras del Sonido.
+                    </h1>
+                    <p class="mt-8 text-lg leading-8 text-gray-600 dark:text-text-secondary">
+                        `CatchAI` ("Cachai") es un intérprete en tiempo real que captura la voz y la traduce instantáneamente a Lengua de Señas Chilena (LSCh) a través de un avatar digital. Nuestra misión es usar la IA para construir un puente de comunicación.
+                    </p>
+                    <a href="/" class="cta-button-big mt-10"> Ir a la App en Vivo
+                        <span class="material-symbols-outlined ml-2">arrow_forward</span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="features" class="py-24 px-6 lg:px-8 bg-white dark:bg-black/10">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center sm:text-4xl">
+                        Cómo Funciona
+                    </h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-text-secondary text-center max-w-2xl mx-auto">
+                        Usamos un pipeline de IA de 3 pasos para lograr una traducción precisa en tiempo real, desde la voz hasta el gesto.
+                    </p>
+                    
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="feature-card">
+                            <span class="feature-icon material-symbols-outlined">mic</span>
+                            <h3 class="feature-title">1. Voz a Texto</h3>
+                            <p class="feature-bio">
+                                El sistema captura el audio en vivo y utiliza `Whisper` (un modelo de IA) para transcribir el español hablado a texto con alta precisión.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon material-symbols-outlined">auto_awesome</span>
+                            <h3 class="feature-title">2. Traducción a Glosas</h3>
+                            <p class="feature-bio">
+                                Un modelo LLM analiza el texto, lo compara con nuestro diccionario de LSCh usando Búsqueda Vectorial (FAISS) y selecciona las glosas correctas.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon material-symbols-outlined">person</span>
+                            <h3 class="feature-title">3. Avatar 3D</h3>
+                            <p class="feature-bio">
+                                Las glosas seleccionadas se envían al motor gráfico `Godot`, que reproduce las animaciones 3D correspondientes en un avatar digital en tiempo real.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="equipo" class="py-24 px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center sm:text-4xl">
+                        El Equipo
+                    </h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-text-secondary text-center max-w-2xl mx-auto">
+                        Somos un equipo de estudiantes de Ingeniería en Informática de Duoc UC, Sede Puerto Montt, apasionados por la tecnología y la inclusión.
+                    </p>
+
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="profile-card">
+                            <img class="profile-avatar" src="/static/Image/LuisG.jpg" alt="Foto de Luis Gómez">
+                            <h3 class="profile-name">Luis Gómez</h3>
+                            <p class="profile-role">Ing. en Informática / Data Scientist</p>
+                            <p class="profile-bio">Encargado de la arquitectura y el pipeline de IA (Voz-Texto-Glosas) y la integración del sistema.</p>
+                            <div class="profile-links">
+                                <a href="#" class="profile-link">LinkedIn</a>
+                                <a href="#" class="profile-link">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="profile-card">
+                            <img class="profile-avatar" src="/static/Image/MarcosB.webp" alt="Foto de Marcos Bombalas">
+                            <h3 class="profile-name">Marcos Bombalas</h3>
+                            <p class="profile-role">Scrum Master / Desarrollador Godot</p>
+                            <p class="profile-bio">Responsable de la captura de movimiento (FreeMoCap) y la integración del avatar en el motor gráfico Godot.</p>
+                            <div class="profile-links">
+                                <a href="#" class="profile-link">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="profile-card">
+                            <img class="profile-avatar" src="/static/Image/Eyleen.webp" alt="Foto de Eyleen Collado">
+                            <h3 class="profile-name">Eyleen Collado</h3>
+                            <p class="profile-role">Product Owner / Project Manager</p>
+                            <p class="profile-bio">Encargada de la definición de requerimientos, documentación, planificación del proyecto y grabación de señas.</p>
+                            <div class="profile-links">
+                                <a href="#" class="profile-link">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="profile-card">
+                            <img class="profile-avatar" src="/static/Image/MarcosH.webp" alt="Foto de Marcos Hernández">
+                            <h3 class="profile-name">Marcos Hernández</h3>
+                            <p class="profile-role">Artista 3D / Diseñador de Avatar</p>
+                            <p class="profile-bio">Responsable del modelado 3D del avatar, texturizado, rigging y la fusión de animaciones en Blender.</p>
+                            <div class="profile-links">
+                                <a href="#" class="profile-link">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="colaboradores" class="py-24 px-6 lg:px-8 bg-white dark:bg-black/10 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                        ¿Quieres Colaborar?
+                    </h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-text-secondary">
+                        Este es un proyecto de código abierto y siempre estamos buscando ayuda. Si eres animador 3D, experto en Blender, o un intérprete de LSCh interesado en expandir nuestro diccionario, nos encantaría saber de ti.
+                    </p>
+                    <a href="mailto:tuemail@ejemplo.com" class="cta-button-big mt-10">
+                        Contáctanos
+                    </a>
+                </div>
+            </section>
+
+            <footer class="py-16 px-6 lg:px-8 bg-gray-100 dark:bg-background-dark border-t border-black/10 dark:border-white/10">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Construido en Puerto Montt, Chile 🇨🇱
+                    </h2>
+                    <p class="mt-4 text-gray-600 dark:text-text-secondary">
+                        Un proyecto de código abierto de Duoc UC.
+                    </p>
+                    <div class="mt-8 flex justify-center gap-6">
+                        <a href="#" class="text-secondary dark:text-text-secondary hover:text-primary">GitHub</a>
+                        <a href="mailto:tuemail@ejemplo.com" class="text-secondary dark:text-text-secondary hover:text-primary">Contacto</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div> </div>
+
+    <script src="/static/js/ui_handler.js"></script>
+</body>
+</html>
