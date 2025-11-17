@@ -2827,5 +2827,539 @@
             "FINAL",
             "PRUEBA"
         ]
+    },
+    {
+        "texto": "Hola buenas probando 123 viendo si funciona 123 probando audio 123",
+        "glosas": [
+            "HOLA",
+            "BUENAS-NOCHES",
+            "EXPERIMENTO",
+            "GRABAR-AUDIO",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "123",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Hola buenas, ¿qué tal?",
+        "glosas": [
+            "HOLA",
+            "BUENAS-NOCHES",
+            "QUÉ"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "¡Suscríbete!",
+        "glosas": [
+            "SUPLICAR"
+        ]
+    },
+    {
+        "texto": "En el sentido de el de ribelei,",
+        "glosas": [
+            "SIGNIFICADO",
+            "AL-REVÉS"
+        ]
+    },
+    {
+        "texto": "Hola buenas tardes haciendo la prueba, pero se funciona como antes.",
+        "glosas": [
+            "HOLA",
+            "BUENAS-TARDES",
+            "PRUEBA",
+            "COMO",
+            "ANTES"
+        ]
+    },
+    {
+        "texto": "La idea de esto es que no pierda la potencia de la...",
+        "glosas": [
+            "IDEA",
+            "PERDER",
+            "PODER"
+        ]
+    },
+    {
+        "texto": "pierda la potencia del fuente principal con esto es más que nada el tema del procesamiento",
+        "glosas": [
+            "PODER",
+            "FUENTE",
+            "PRINCIPAL",
+            "TEMA",
+            "NADA",
+            "MÁS"
+        ]
+    },
+    {
+        "texto": "precisamente o sea equivalente",
+        "glosas": [
+            "IGUAL",
+            "SINÓNIMO"
+        ]
+    },
+    {
+        "texto": "precisamente o sea equivalente",
+        "glosas": [
+            "IGUAL",
+            "SINÓNIMO"
+        ]
+    },
+    {
+        "texto": "Entregamos en una admisión para apuntarles una noticia de último momento.",
+        "glosas": [
+            "ANOTAR",
+            "NOTICIA"
+        ]
+    },
+    {
+        "texto": "Hola buenos días, esta es una prueba del sistema.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Hola buenos días, esta es una prueba del sistema.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Que... ya es...",
+        "glosas": [
+            "YA",
+            "QUÉ"
+        ]
+    },
+    {
+        "texto": "Ya, ahora vamos a hacer la prueba.",
+        "glosas": [
+            "YA",
+            "HACER",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Hola, buenos días.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "Esta es una prueba del sistema de transcripción.",
+        "glosas": [
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Nosotros estamos trabajando en una...",
+        "glosas": [
+            "NOSOTROS",
+            "TRABAJAR",
+            "PROYECTO"
+        ]
+    },
+    {
+        "texto": "Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de chile",
+        "glosas": [
+            "NOSOTROS",
+            "TRABAJAR",
+            "NUEVO/A",
+            "SORDO/A",
+            "CHILE"
+        ]
+    },
+    {
+        "texto": "sabemos que la educación es muy importante",
+        "glosas": [
+            "SABER",
+            "EDUCACIÓN",
+            "IMPORTANTE"
+        ]
+    },
+    {
+        "texto": "no si está reiniciado solamente",
+        "glosas": [
+            "SOLAMENTE"
+        ]
+    },
+    {
+        "texto": "Hola buenos días, esta es una prueba del sistema de transcripción",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "prueba del sistema de transcripción, nosotros estamos trabajando en una nueva",
+        "glosas": [
+            "NOSOTROS",
+            "PRUEBA",
+            "NUEVO/A",
+            "TRABAJAR"
+        ]
+    },
+    {
+        "texto": "herramienta para la comunidad sorda de chile. Sabemos que la educación es muy",
+        "glosas": [
+            "SORDO/A",
+            "CHILE",
+            "EDUCACIÓN"
+        ]
+    },
+    {
+        "texto": "importante. Actualmente",
+        "glosas": [
+            "IMPORTANTE"
+        ]
+    },
+    {
+        "texto": "no sé está ahora sí",
+        "glosas": [
+            "NO-SABER",
+            "SÍ"
+        ]
+    },
+    {
+        "texto": "hola buenos días esta es la prueba del sistema de transcripción",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "la prueba del sistema de transcripción. Nosotros estamos trabajando en una nueva herramienta",
+        "glosas": [
+            "NOSOTROS",
+            "PRUEBA",
+            "NUEVO/A",
+            "TRABAJAR"
+        ]
+    },
+    {
+        "texto": "para la comunidad sobre la de Chile. Sabemos que la educación es muy importante. Actualmente",
+        "glosas": [
+            "CHILE",
+            "EDUCACIÓN",
+            "IMPORTANTE"
+        ]
+    },
+    {
+        "texto": "es muy importante.",
+        "glosas": [
+            "IMPORTANTE"
+        ]
+    },
+    {
+        "texto": "es muy importante. Actualmente solo el 3% de la población oyente comprende la lengua",
+        "glosas": [
+            "IMPORTANTE",
+            "SOLAMENTE",
+            "COMPRENDER",
+            "OYENTE",
+            "3"
+        ]
+    },
+    {
+        "texto": "de señas chilenas. Este proyecto traduce la voz del español agloss...",
+        "glosas": [
+            "LENGUA-DE-SEÑAS",
+            "CHILENO/A",
+            "PROYECTO",
+            "TRADUCIR",
+            "VOZ"
+        ]
+    },
+    {
+        "texto": "abierto no ahora sí ahora sí conectó",
+        "glosas": [
+            "NO",
+            "SÍ"
+        ]
+    },
+    {
+        "texto": "hola buenos días es una prueba del",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Hola, buenos días, es una prueba del sistema de transcripción.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Nosotros estamos trabajando en una nueva herramienta para la comunidad sorda de Chile.",
+        "glosas": [
+            "NOSOTROS",
+            "TRABAJAR",
+            "NUEVO/A",
+            "SORDO/A",
+            "CHILE"
+        ]
+    },
+    {
+        "texto": "Sabemos que la educación...",
+        "glosas": [
+            "SABER",
+            "EDUCACIÓN"
+        ]
+    },
+    {
+        "texto": "chilena. Este proyecto traduce la voz del español a glosas en tiempo real. Es un",
+        "glosas": [
+            "CHILENO/A",
+            "PROYECTO",
+            "TRADUCIR",
+            "VOZ"
+        ]
+    },
+    {
+        "texto": "traductor automático que esperamos ayuda a muchas personas.",
+        "glosas": [
+            "TRADUCIR",
+            "AYUDAR",
+            "MUCHAS-VECES",
+            "PERSONA"
+        ]
+    },
+    {
+        "texto": "esperamos ayude a muchas personas, probando 1, 2, 3 probando el audio. ¿Cuántas personas",
+        "glosas": [
+            "AYUDAR",
+            "ESPERAR",
+            "MUCHAS-VECES",
+            "PERSONA",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "hay? 20 personas, fin de la prueba.",
+        "glosas": [
+            "PERSONA",
+            "FIN",
+            "PRUEBA",
+            "2",
+            "0"
+        ]
+    },
+    {
+        "texto": "fin de la prueba",
+        "glosas": [
+            "FINAL",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "no es que si marca como 2 y 0",
+        "glosas": [
+            "NO",
+            "SÍ",
+            "COMO",
+            "2",
+            "0"
+        ]
+    },
+    {
+        "texto": "si, buena señal, si lo se, no se lo limitan, probando audio",
+        "glosas": [
+            "SÍ",
+            "BUENO/A",
+            "NO",
+            "GRABAR-AUDIO"
+        ]
+    },
+    {
+        "texto": "probando el audio, osea probando uno, dos, tres, probando el audio y listo.",
+        "glosas": [
+            "GRABAR-AUDIO",
+            "COMPROBAR",
+            "YA",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "y ahora vamos a hacer un pequeño ejemplo hay una demora de 10 segundos al iniciar la primera",
+        "glosas": [
+            "DEMORA",
+            "EJEMPLO",
+            "HACER",
+            "INICIAR",
+            "PRIMERO/A",
+            "1",
+            "0"
+        ]
+    },
+    {
+        "texto": "interacción con el modelo y una vez haciendo",
+        "glosas": [
+            "CHATEAR",
+            "HACER"
+        ]
+    },
+    {
+        "texto": "y una vez haciendo esto se va a recitar un pequeño texto en el cual va a estar...",
+        "glosas": [
+            "HACER",
+            "TEXTO",
+            "REZAR"
+        ]
+    },
+    {
+        "texto": "en el cual va a estar señalándose como la rasabilidad de las palabras.",
+        "glosas": [
+            "PALABRA"
+        ]
+    },
+    {
+        "texto": "Hola, buenos días.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS"
+        ]
+    },
+    {
+        "texto": "Esta es la primera prueba del sistema de tren cripto...",
+        "glosas": [
+            "PRIMERO/A",
+            "PRUEBA",
+            "TREN"
+        ]
+    },
+    {
+        "texto": "la primera prueba del sistema de transcription. Nosotros estamos trabajando en una nueva herramienta",
+        "glosas": [
+            "NOSOTROS",
+            "PRUEBA",
+            "TRABAJAR"
+        ]
+    },
+    {
+        "texto": "para la comunidad solar de Chile. Sabemos que la educación es muy importante. Actualmente",
+        "glosas": [
+            "CHILE",
+            "EDUCACIÓN",
+            "IMPORTANTE",
+            "SABER",
+            "HOY"
+        ]
+    },
+    {
+        "texto": "es muy importante. Actualmente solo el 3% de la población oyente comprende la lengua",
+        "glosas": [
+            "IMPORTANTE",
+            "OYENTE",
+            "COMPRENDER",
+            "LENGUA-DE-SEÑAS",
+            "3"
+        ]
+    },
+    {
+        "texto": "de señas chilenas. Este proyecto traduce la voz del español Aglosa Sentiente.",
+        "glosas": [
+            "LENGUA-DE-SEÑAS",
+            "CHILENO/A",
+            "PROYECTO",
+            "TRADUCIR",
+            "VOZ",
+            "SENTIR"
+        ]
+    },
+    {
+        "texto": "la voz del español aglosa en tiempo real. Es un traductor automático que esperemos que",
+        "glosas": [
+            "VOZ",
+            "ESPAÑOL/A",
+            "TRADUCIR",
+            "TIEMPO",
+            "ESPERAR"
+        ]
+    },
+    {
+        "texto": "ayude a muchas personas. Probando 1, 2, 3 probando el audio.",
+        "glosas": [
+            "AYUDAR",
+            "MUCHAS-VECES",
+            "PERSONA",
+            "GRABAR-AUDIO",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "2, 3 probando el audio, fin de la prueba. Bueno, como se puede ver, capta el audio de",
+        "glosas": [
+            "AUDIOMETRÍA",
+            "FINAL",
+            "PRUEBA",
+            "BIEN",
+            "COMO",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "forma a través de...",
+        "glosas": [
+            "ATRAVESAR"
+        ]
+    },
+    {
+        "texto": "a través de streaming que capta el audio del micrófono en el cual yo estoy hablando interactuando",
+        "glosas": [
+            "YO",
+            "ATRAVESAR",
+            "GRABAR-AUDIO",
+            "HABLAR"
+        ]
+    },
+    {
+        "texto": "y también hay otras modalidades de conf-",
+        "glosas": [
+            "OTRO/A",
+            "TAMBIÉN"
+        ]
     }
 ]

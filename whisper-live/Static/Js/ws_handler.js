@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const configBtn = document.querySelector("button[onclick='configurarModelo()']");
     const statusIndicator = document.getElementById("status-indicator");
     // --- FIN AÑADIDO ---
+    
+    // --- ¡NUEVO! Elementos de subida de video ---
+    const uploadBtn = document.getElementById("upload-video-btn");
+    const uploadInput = document.getElementById("video-upload-input");
+    const uploadStatus = document.getElementById("upload-status");
+    const closeSettingsBtn = document.getElementById("closeSettingsBtn");
+    // --- FIN NUEVO ---
 
     const pInicial = resultadosDiv.querySelector("p");
 
@@ -32,21 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onopen = () => {
             console.log("✅ WebSocket conectado y esperando órdenes.");
-            // --- ¡LÓGICA CORREGIDA! ---
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-            modelSelect.disabled = false;
-            deviceSelect.disabled = false;
-            computeSelect.disabled = false;
-            if (configBtn) configBtn.disabled = false; // Asegurarse de que configBtn existe
-            if (statusIndicator) statusIndicator.style.display = 'none';
-            // --- FIN CORRECCIÓN ---
+            setUIState('stopped'); // Usar función helper
         };
 
         ws.onmessage = (event) => {
             try {
                 const data = JSON.parse(event.data);
                 const items = Array.isArray(data) ? data : [data];
+                
+                // --- ¡NUEVO! Manejar auto-stop ---
+                // El broadcast loop envía esto cuando el archivo termina
+                const stopMessage = items.find(item => item.status === 'stopped');
+                if (stopMessage) {
+                    console.log("Recibido comando 'stopped' (fin de archivo).");
+                    setUIState('stopped');
+                    if (uploadStatus) uploadStatus.textContent = "Procesamiento de archivo finalizado.";
+                    return; // No es una transcripción
+                }
+                // --- FIN NUEVO ---
+                
                 messageQueue.push(...items);
                 clearTimeout(debounceTimer);
                 debounceTimer = setTimeout(() => {
@@ -62,15 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ws.onclose = () => {
             console.warn("🔌 WebSocket desconectado.");
-            // --- ¡LÓGICA CORREGIDA! ---
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-            modelSelect.disabled = false;
-            deviceSelect.disabled = false;
-            computeSelect.disabled = false;
-            if (configBtn) configBtn.disabled = false;
-            if (statusIndicator) statusIndicator.style.display = 'none';
-            // --- FIN CORRECCIÓN ---
+            setUIState('stopped'); // Estado detenido
         };
 
         ws.onerror = (error) => {
@@ -108,20 +111,37 @@ document.addEventListener("DOMContentLoaded", () => {
         resultadosDiv.prepend(fragment);
     }
 
-    startBtn.addEventListener("click", () => {
-        if (ws && ws.readyState === WebSocket.OPEN) {
-            console.log("Enviando comando 'start'...");
-            ws.send(JSON.stringify({ command: "start" }));
-            
-            // --- ¡LÓGICA CORREGIDA! ---
+    // --- ¡NUEVO! Función para cambiar estado de UI ---
+    function setUIState(state) {
+        if (state === 'running') {
             startBtn.disabled = true;
             stopBtn.disabled = false;
             modelSelect.disabled = true;
             deviceSelect.disabled = true;
             computeSelect.disabled = true;
             if (configBtn) configBtn.disabled = true;
+            if (uploadBtn) uploadBtn.disabled = true; // Deshabilitar subida
             if (statusIndicator) statusIndicator.style.display = 'flex';
-            // --- FIN CORRECCIÓN ---
+        } else { // 'stopped'
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            modelSelect.disabled = false;
+            deviceSelect.disabled = false;
+            computeSelect.disabled = false;
+            if (configBtn) configBtn.disabled = false;
+            if (uploadBtn) uploadBtn.disabled = false; // Habilitar subida
+            if (uploadStatus) uploadStatus.textContent = ""; // Limpiar estado
+            if (statusIndicator) statusIndicator.style.display = 'none';
+        }
+    }
+    // --- FIN NUEVO ---
+
+
+    startBtn.addEventListener("click", () => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            console.log("Enviando comando 'start' (en vivo)...");
+            ws.send(JSON.stringify({ command: "start" }));
+            setUIState('running'); // Usar función helper
         }
     });
 
@@ -129,18 +149,51 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ws && ws.readyState === WebSocket.OPEN) {
             console.log("Enviando comando 'stop'...");
             ws.send(JSON.stringify({ command: "stop" }));
-
-            // --- ¡LÓGICA CORREGIDA! ---
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-            modelSelect.disabled = false;
-            deviceSelect.disabled = false;
-            computeSelect.disabled = false;
-            if (configBtn) configBtn.disabled = false;
-            if (statusIndicator) statusIndicator.style.display = 'none';
-            // --- FIN CORRECCIÓN ---
+            setUIState('stopped'); // Usar función helper
         }
     });
+    
+    // --- ¡NUEVO! Event listener para el botón de subida ---
+    if (uploadBtn) {
+        uploadBtn.addEventListener("click", async () => {
+            if (!uploadInput || !uploadInput.files[0]) {
+                if (uploadStatus) uploadStatus.textContent = "Por favor, selecciona un video.";
+                return;
+            }
+            
+            const file = uploadInput.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+
+            setUIState('running'); // Poner UI en modo "cargando"
+            if (uploadStatus) uploadStatus.textContent = "Subiendo y procesando...";
+            if (closeSettingsBtn) closeSettingsBtn.click(); // Cerrar panel
+
+            try {
+                const response = await fetch("/upload_video", {
+                    method: "POST",
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.status === "ok") {
+                    console.log("Subida exitosa. Procesamiento iniciado.");
+                    if (uploadStatus) uploadStatus.textContent = "Procesando, espera...";
+                    // La UI ya está en modo 'running'
+                } else {
+                    console.error("Error en la subida:", data.message);
+                    if (uploadStatus) uploadStatus.textContent = "Error: " + data.message;
+                    setUIState('stopped'); // Hubo un error, volver a 'stopped'
+                }
+            } catch (error) {
+                console.error("Error de red al subir:", error);
+                if (uploadStatus) uploadStatus.textContent = "Error de red.";
+                setUIState('stopped');
+            }
+        });
+    }
+    // --- FIN NUEVO ---
 
     exitBtn.addEventListener("click", async () => {
         if (ws) {

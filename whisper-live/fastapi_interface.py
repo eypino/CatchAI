@@ -1,5 +1,5 @@
 from pydantic import BaseModel 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, File, UploadFile
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -7,6 +7,8 @@ import uvicorn
 import os
 import signal
 import asyncio
+import shutil
+import logging # <-- Importado
 
 # ================== ¡CAMBIO CLAVE! ==================
 # Ya no importamos 'sistema_activo'.
@@ -20,6 +22,12 @@ app = FastAPI(title="CatchAI - Transcriptor en vivo")
 templates = Jinja2Templates(directory="Templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 sender_task = None 
+
+# --- Definir rutas de guardado ---
+BASE_DIR = Path(__file__).parent
+STORAGE_DIR = os.path.join(BASE_DIR, "Storage")
+os.makedirs(STORAGE_DIR, exist_ok=True)
+# --------------------------------
 
 # ===================== (MARCOS) NUEVO: soporte broadcast =====================
 active_clients: set[WebSocket] = set()
@@ -36,11 +44,24 @@ async def broadcast_loop():
     """Consume resultado_queue UNA VEZ y envía cada item a TODOS los clientes."""
     while True:
         data = await resultado_queue.get()
-        if active_clients:
+        
+        # --- ¡NUEVA LÓGICA DE AUTO-STOP! ---
+        if isinstance(data, dict) and data.get("system_command") == "auto_stop":
+            logging.info("Procesamiento de archivo finalizado, emitiendo 'stopped' a clientes.")
+            # Avisar a todos los clientes que el proceso terminó
+            await asyncio.gather(
+                *[_safe_send(ws, {"status": "stopped"}) for ws in list(active_clients)],
+                return_exceptions=True
+            )
+            # Ahora sí, detener el sistema de backend
+            detener_sistema()
+        # --- FIN LÓGICA NUEVA ---
+        elif active_clients:
             await asyncio.gather(
                 *[_safe_send(ws, data) for ws in list(active_clients)],
                 return_exceptions=True
             )
+            
         resultado_queue.task_done()
 # ============================================================================
 
@@ -76,7 +97,7 @@ async def websocket_endpoint(websocket: WebSocket):
             # ================== ¡LÓGICA SIMPLIFICADA V14! ==================
             if command == "start":
                 print("🚀 Recibido comando 'start'.")
-                iniciar_sistema() # El módulo V4 maneja su propio estado
+                iniciar_sistema(mode="live") # ¡MODIFICADO!
                 
                 # Iniciar el broadcaster de Marcos
                 if broadcaster_task is None or broadcaster_task.done():
@@ -118,6 +139,31 @@ async def websocket_endpoint(websocket: WebSocket):
         
         # ¡No llames a websocket.close() aquí!
         
+
+# --- ¡NUEVO ENDPOINT DE CARGA! ---
+@app.post("/upload_video")
+async def upload_video_and_process(file: UploadFile = File(...)):
+    global broadcaster_task
+    try:
+        # Guardar el archivo en el servidor
+        save_path = os.path.join(STORAGE_DIR, file.filename)
+        with open(save_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        print(f"Archivo guardado en: {save_path}")
+        
+        # Iniciar el sistema en modo "archivo"
+        iniciar_sistema(mode="file", video_path=save_path)
+
+        # Asegurarse de que el broadcaster esté corriendo
+        if broadcaster_task is None or broadcaster_task.done():
+            broadcaster_task = asyncio.create_task(broadcast_loop())
+
+        return {"status": "ok", "message": "Archivo recibido, iniciando procesamiento."}
+    
+    except Exception as e:
+        print(f"Error al subir o procesar el video: {e}")
+        return {"status": "error", "message": str(e)}
 
 # ================== ¡RUTAS CORREGIDAS (V14)! ==================
 @app.get("/", response_class=HTMLResponse)

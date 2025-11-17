@@ -125,7 +125,23 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-primary mb-3">Procesar Archivo</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1" for="video-upload-input">
+                                Subir archivo de video
+                            </label>
+                            <input class="block w-full text-sm text-gray-900 dark:text-text-secondary border border-gray-300 dark:border-secondary rounded-lg cursor-pointer bg-gray-50 dark:bg-white/5 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30" id="video-upload-input" type="file" accept="video/mp4,video/webm,video/quicktime">
+                        </div>
+                        <button id="upload-video-btn" class="w-full rounded-lg h-10 px-5 bg-primary/20 text-primary hover:bg-primary/30 transition-colors text-sm font-bold disabled:bg-secondary/20 disabled:text-secondary disabled:cursor-not-allowed">
+                            Subir y Procesar Video
+                        </button>
+                        <p id="upload-status" class="text-sm text-center text-secondary dark:text-text-secondary"></p>
+                    </div>
+                </div>
+                </div>
         </aside>
 
         <main class="flex h-full flex-1 flex-col md:flex-row p-6 lg:p-8 gap-6 lg:gap-8 overflow-hidden">

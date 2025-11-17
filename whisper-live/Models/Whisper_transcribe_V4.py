@@ -19,6 +19,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from moviepy.editor import VideoFileClip 
+# ¡Ya no se importa nada de moviepy.audio.fx!
 
 # =================================================================
 # BLOQUE 0: CONFIGURACIÓN Y LOGGING
@@ -187,9 +189,9 @@ else:
 logging.info(f"✅ Glosario y FAISS cargados ({len(glosario)} palabras).")
 
 # =================================================================
-# BLOQUE 2: BÚSQUEDA HÍBRIDA (V13 - Modificado)
+# BLOQUE 2: BÚSQUEDA HÍBRIDA (Sin cambios)
 # =================================================================
-
+# (Tu bloque 2 de búsqueda híbrida está perfecto, no se toca)
 def _calcular_similitud(distancias, indices):
     """Función helper para procesar resultados de FAISS."""
     resultados = []
@@ -223,7 +225,6 @@ def _calcular_similitud(distancias, indices):
 
 def buscar_contextual(texto):
     """(Paso 1) Busca glosas usando el embedding de la frase completa."""
-    # V13: El texto ya viene limpio (sin pronombres/números)
     if not texto: return []
     top_k = CONFIG['faiss']['context_top_k']
     
@@ -239,7 +240,6 @@ def buscar_contextual(texto):
 
 def buscar_por_palabras_clave(texto):
     """(Paso 2) Busca glosas usando embeddings de palabras clave individuales."""
-    # V13: El texto ya viene limpio
     palabras = texto.lower().split()
     
     palabras_clave = sorted(list(set([
@@ -280,7 +280,7 @@ def buscar_candidatas_hibrido(texto):
     return candidatas_fusionadas[:100]
 
 # =================================================================
-# BLOQUE 3: LÓGICA DE TRADUCCIÓN CON LANGCHAIN (V13)
+# BLOQUE 3: LÓGICA DE TRADUCCIÓN CON LANGCHAIN (Prompt Estricto)
 # =================================================================
 
 # 1. Definir el modelo de lenguaje (LLM) de LangChain (OpenAI)
@@ -292,7 +292,7 @@ llm = ChatOpenAI(
     model_kwargs={"response_format": {"type": "json_object"}}
 )
 
-# 2. Definir la plantilla del prompt (V13 - Más simple)
+# 2. Definir la plantilla del prompt (V13 - ¡MODIFICADO Y MÁS ESTRICTO!)
 prompt_template = """
 Eres un traductor experto de español a glosas de la Lengua de Señas Chilena (LSCh). Tu única tarea es analizar el texto de entrada y seleccionar el subconjunto MÁS apropiado de glosas candidatas, ordenándolas correctamente.
 
@@ -306,14 +306,17 @@ Eres un traductor experto de español a glosas de la Lengua de Señas Chilena (L
 {candidatas_contexto}
 
 **Reglas OBLIGATORIAS E INQUEBRANTABLES:**
-1.  **SELECCIONA DESDE LAS CANDIDATAS (¡SÉ ESTRICTO!):** Estás recibiendo una lista de candidatas fusionadas (contexto + palabras clave). Tu trabajo es RECHAZARLAS si no traducen el significado. Usa ÚNICAMENTE glosas que sean la traducción correcta.
-2.  **REGLA DE "FALSOS AMIGOS" (LA MÁS IMPORTANTE):** DEBES RECHAZAR glosas que sean semánticamente incorrectas, aunque suenen parecido. Si el texto dice "audio", RECHAZA "audífono". Si dice "personas", RECHAZA "muchas-veces". Es MEJOR omitir una glosa que mostrar una glosa INCORRECTA.
+1.  **SELECCIONA DESDE LAS CANDIDATAS (¡SÉ ESTRICTO!):** Usa ÚNICAMENTE glosas que sean la traducción **directa y literal** del significado.
+2.  **REGLA DE "FALSOS AMIGOS" (LA MÁS IMPORTANTE):** DEBES RECHAZAR glosas que sean semánticamente incorrectas, aunque suenen parecido o estén lejanamente relacionadas. Es MEJOR omitir una glosa que mostrar una glosa INCORRECTA.
+    * **Ejemplo 1:** Si el texto dice "audio", RECHAZA "audífono".
+    * **Ejemplo 2:** Si el texto es "suscríbete", RECHAZA la glosa "SUPLICAR", ya que no significan lo mismo.
 3.  **NO SUSTITUIR:** Si la glosa exacta no está en las candidatas (ej. el texto dice "probando") pero una parecida sí (ej. "EXPERIMENTO"), RECHAZA "EXPERIMENTO".
 4.  **NO REPITAS:** No uses la misma glosa más de una vez.
 5.  **NO INVENTES:** No modifiques ni combines glosas.
 6.  **ORDEN LÓGICO (¡MUY IMPORTANTE!):** Ordena las glosas finales para que sigan el orden lógico y gramatical del texto original en español.
     * **Ejemplo de Orden:** "voy casa roja" -> {{"glosas": ["CASA", "ROJO", "IR"]}}
-7.  **FORMATO JSON:** Devuelve la respuesta como un objeto JSON con una única clave "glosas" que contenga una lista de strings. Si ninguna glosa aplica, devuelve una lista vacía.
+7.  **FORMATO JSON:** Devuelve la respuesta como un objeto JSON con una única clave "glosas" que contenga una lista de strings.
+8.  **SI NINGUNA CANDIDATA ES CORRECTA:** Si ninguna de las candidatas es una traducción directa, **devuelve una lista vacía** (ej. {{"glosas": []}}).
 """
 
 prompt = ChatPromptTemplate.from_template(prompt_template)
@@ -336,7 +339,7 @@ chain = (
     | parser
 )
 
-# 5. Función 'process_text' (HILO 3 - Lógica V13)
+# 5. Función 'process_text' (Sin cambios)
 def process_text():
     """
     Hilo 3: Consume text_queue (frases de Whisper) y las traduce.
@@ -426,8 +429,71 @@ def process_text():
             logging.error(f"Error en el hilo de process_text: {e}")
 
 # =================================================================
-# BLOQUE 4: FLUJO DE AUDIO (V12 - 3 Hilos)
+# BLOQUE 4: FLUJO DE AUDIO (¡CORREGIDO!)
 # =================================================================
+
+# --- ¡NUEVA FUNCIÓN (HILO 1 - MODO ARCHIVO) CORREGIDA CON BUFFER MANUAL! ---
+def process_audio_file(video_path):
+    """
+    Hilo 1 (Alternativo): Lee audio de un archivo de video y lo pone en audio_queue.
+    """
+    global sistema_activo
+    # Buffer manual para acumular frames
+    temp_audio_buffer = np.array([], dtype=np.float32)
+    blocksize_frames = int(samplerate * block_duration_ms / 1000)
+
+    try:
+        logging.info(f"Iniciando procesamiento de archivo: {video_path}")
+        video = VideoFileClip(video_path)
+        audio = video.audio
+        
+        # Asegurar 16kHz
+        if audio.fps != samplerate:
+            audio = audio.set_fps(samplerate)
+        
+        logging.info("Comenzando a volcar frames de audio del archivo a la cola...")
+        
+        # Iterar sin 'buffersize' y acumular manualmente
+        for frame in audio.iter_frames(fps=samplerate, dtype='float32'):
+            if not sistema_activo:
+                logging.info("Procesamiento de archivo detenido por el usuario.")
+                break
+            
+            # 1. Convertir a mono (array 1D)
+            if frame.ndim == 2 and frame.shape[1] > 1:
+                frame = frame.mean(axis=1) # Promediar canales
+            frame_1d = frame.flatten()
+
+            # 2. Acumular en el buffer temporal
+            temp_audio_buffer = np.concatenate((temp_audio_buffer, frame_1d))
+
+            # 3. Enviar chunks completos a la cola
+            while len(temp_audio_buffer) >= blocksize_frames:
+                # Extraer el chunk
+                chunk_data = temp_audio_buffer[:blocksize_frames]
+                # Quitarlo del buffer
+                temp_audio_buffer = temp_audio_buffer[blocksize_frames:]
+                
+                # Ponerlo en la cola con la forma (n_samples, 1)
+                audio_queue.put(chunk_data.reshape(-1, 1))
+                time.sleep(block_duration_ms / 2000) # Simular "en vivo"
+        
+        # Enviar el resto que haya quedado en el buffer (si hay algo)
+        if sistema_activo and len(temp_audio_buffer) > 0:
+            logging.info(f"Enviando {len(temp_audio_buffer) / samplerate:.1f}s finales de audio.")
+            audio_queue.put(temp_audio_buffer.reshape(-1, 1))
+
+        logging.info("Archivo de video procesado. Enviando señal 'auto_stop'.")
+
+    except Exception as e:
+        logging.error(f"Error procesando archivo de video: {e}")
+    finally:
+        # Enviar señal al broadcast loop para que él detenga el sistema
+        resultado_queue.put_nowait({"system_command": "auto_stop"})
+        if 'video' in locals():
+            video.close()
+        logging.info("Hilo de process_audio_file finalizado.")
+
 
 # 1. Hilo 1: Grabación
 def audio_callback(indata, frames, time, status):
@@ -458,6 +524,7 @@ def record_audio():
         detener_sistema()
 
 # 2. Hilo 2: Transcripción (Ventana Deslizante)
+# ================== ¡FUNCIÓN MODIFICADA PARA EVITAR ALUCINACIONES! ==================
 def transcribe_sliding_window():
     """
     Hilo 2: Consume audio_queue, transcribe con VAD y ventana deslizante,
@@ -470,66 +537,92 @@ def transcribe_sliding_window():
         "min_silence_duration_ms": CONFIG['vad']['min_silence_duration_ms']
     }
     context_frames = int(samplerate * context_duration_ms / 1000)
-    previous_text = ""
+    # previous_text = "" # <--- ELIMINADO
 
     logging.info("Transcriptor VAD (Ventana Deslizante) iniciado. Esperando audio...")
 
-    while sistema_activo:
-        try:
-            # 1. Acumular audio
-            audio_chunk = audio_queue.get(timeout=0.1)
-            audio_buffer = np.vstack((audio_buffer, audio_chunk))
+    # --- Función helper interna para procesar ---
+    def _process_buffer(buffer_to_process, is_final_flush=False):
+        # nonlocal previous_text # <--- ELIMINADO
+        if len(buffer_to_process) == 0:
+            return
 
-            # 2. Si el búfer no es lo suficientemente grande, esperar
-            if len(audio_buffer) < frame_per_chunk:
+        audio_data_to_process = buffer_to_process.flatten().astype(np.float32)
+        logging.info(f"Procesando chunk de {len(audio_data_to_process)/samplerate:.1f}s... (Final: {is_final_flush})")
+        
+        segments, info = model.transcribe(
+            audio_data_to_process,
+            language="es",
+            beam_size=CONFIG['whisper']['beam_size'],
+            vad_filter=True,
+            vad_parameters=vad_parameters,
+            initial_prompt=None # <--- ¡CAMBIO CLAVE! No más retroalimentación
+        )
+
+        full_transcription_chunk = []
+        for segment in segments:
+            # Permitir procesar si es el flush final, incluso si sistema_activo es False
+            if not sistema_activo and not is_final_flush: 
+                break
+            texto_transcrito = segment.text.strip()
+            if (texto_transcrito and 
+                segment.no_speech_prob < CONFIG['whisper']['no_speech_prob']):
+                
+                logging.info(f"Frase detectada (VAD): '{texto_transcrito}'")
+                text_queue.put(texto_transcrito) # Pone el texto para el Hilo 3
+                full_transcription_chunk.append(texto_transcrito)
+        
+        if not full_transcription_chunk:
+             logging.info("Audio procesado (VAD), sin habla detectada.")
+        # La lógica de previous_text se eliminó por completo
+            
+    # --- Fin de la función helper ---
+
+    try:
+        while sistema_activo:
+            try:
+                # 1. Acumular audio
+                audio_chunk = audio_queue.get(timeout=0.1)
+                audio_buffer = np.vstack((audio_buffer, audio_chunk))
+
+                # 2. Si el búfer no es lo suficientemente grande, esperar
+                if len(audio_buffer) < frame_per_chunk:
+                    continue
+                
+                # 3. Tenemos 10 segundos, procesar
+                buffer_para_procesar = audio_buffer
+                audio_buffer = audio_buffer[-context_frames:] # Conservar contexto
+                
+                _process_buffer(buffer_para_procesar, is_final_flush=False)
+
+            except queue.Empty:
+                # Esto es normal, solo significa que no hay audio nuevo
                 continue
-            
-            # 3. Tenemos 10 segundos, procesar
-            audio_data_to_process = audio_buffer.flatten().astype(np.float32)
-            audio_buffer = audio_buffer[-context_frames:] # Conservar contexto
-            
-            logging.info(f"Procesando chunk de {len(audio_data_to_process)/samplerate:.1f}s...")
-            
-            segments, info = model.transcribe(
-                audio_data_to_process,
-                language="es",
-                beam_size=CONFIG['whisper']['beam_size'],
-                vad_filter=True,
-                vad_parameters=vad_parameters,
-                initial_prompt=previous_text
-            )
+        
+        # --- ¡INICIO DE LA LÓGICA DE FLUSH! ---
+        # El sistema se detuvo (sistema_activo=False).
+        # ¿Quedó algo en la cola? (Vaciamos por si acaso)
+        while not audio_queue.empty():
+             audio_buffer = np.vstack((audio_buffer, audio_queue.get_nowait()))
 
-            # 4. Poner los segmentos en la text_queue para el Hilo 3
-            full_transcription_chunk = []
-            for segment in segments:
-                if not sistema_activo:
-                    break
-                texto_transcrito = segment.text.strip()
-                if (texto_transcrito and 
-                    segment.no_speech_prob < CONFIG['whisper']['no_speech_prob']):
-                    
-                    logging.info(f"Frase detectada (VAD): '{texto_transcrito}'")
-                    text_queue.put(texto_transcrito) # Pone el texto para el Hilo 3
-                    full_transcription_chunk.append(texto_transcrito)
-            
-            # 5. Actualizar el prompt de Whisper
-            if full_transcription_chunk:
-                previous_text = " ".join(full_transcription_chunk)
-                logging.info(f"Contexto de prompt actualizado a: '...{previous_text[-50:]}'")
-            else:
-                logging.info("Audio procesado (VAD), sin habla detectada.")
+        # Procesar CUALQUIER COSA que haya quedado en el audio_buffer
+        # (solo si es audio significativo, ej > 0.5s)
+        if len(audio_buffer) > (samplerate / 2):
+            logging.info("Sistema detenido, procesando buffer de audio final...")
+            _process_buffer(audio_buffer, is_final_flush=True)
+        
+        logging.info("Hilo de transcripción finalizado, buffer limpiado.")
+        # --- FIN DE LA LÓGICA DE FLUSH ---
 
-        except queue.Empty:
-            continue
-        except Exception as e:
-            logging.error(f"Error en el hilo de transcripción: {e}")
-            time.sleep(1)
+    except Exception as e:
+        logging.error(f"Error en el hilo de transcripción: {e}")
+        time.sleep(1)
 
 
 # =================================================================
-# BLOQUE 5: CONTROL DEL SISTEMA (V14 - Lógica de Estado Corregida)
+# BLOQUE 5: CONTROL DEL SISTEMA (Sin cambios)
 # =================================================================
-def iniciar_sistema():
+def iniciar_sistema(mode="live", video_path=None): 
     global sistema_activo
     if sistema_activo:
         logging.warning("El sistema ya está iniciado.")
@@ -537,9 +630,26 @@ def iniciar_sistema():
         
     sistema_activo = True
     
+    # Hilo de entrada (Fuente de audio)
+    if mode == "file" and video_path:
+        logging.info(f"Iniciando en modo ARCHIVO: {video_path}")
+        input_thread = threading.Thread(
+            target=process_audio_file, 
+            args=(video_path,), 
+            name="AudioFileProcessor", 
+            daemon=True
+        )
+    else:
+        logging.info("Iniciando en modo EN VIVO (micrófono).")
+        input_thread = threading.Thread(
+            target=record_audio, 
+            name="AudioRecorder", 
+            daemon=True
+        )
+    
     threads = [
-        # HILO 1: Graba audio
-        threading.Thread(target=record_audio, name="AudioRecorder", daemon=True),
+        # HILO 1: Graba audio (en vivo o desde archivo)
+        input_thread,
         
         # HILO 2: Transcribe audio -> texto
         threading.Thread(target=transcribe_sliding_window, name="WhisperTranscriber", daemon=True),
