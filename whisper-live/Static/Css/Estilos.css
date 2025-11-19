@@ -11,6 +11,11 @@ body.bg-background-dark {
     animation: gradient-animation 20s ease infinite alternate;
 }
 
+/* Esta clase calcula el 100% de la altura menos 4.5rem (72px) del header */
+.min-h-screen-minus-header {
+    min-height: calc(100vh - 4.5rem);
+}
+
 /* --- Capa de Fondo para el Panel --- */
 #settingsOverlay {
     display: none; /* Oculto por defecto */
@@ -118,7 +123,7 @@ body.bg-background-dark {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
 }
 .dark .feature-card {
     background-color: #2a374a;
@@ -132,12 +137,17 @@ body.bg-background-dark {
     font-size: 3rem; /* 48px */
     color: #4A90E2; /* 'primary' */
     margin-bottom: 1rem; /* 16px */
+    transition: color 0.3s ease;
+}
+.dark .feature-icon {
+    color: #4A90E2; /* 'primary' */
 }
 .feature-title {
     font-size: 1.125rem; /* 18px */
     font-weight: 700;
     color: #111827; /* Color texto oscuro */
     margin-bottom: 0.5rem; /* 8px */
+    transition: color 0.3s ease;
 }
 .dark .feature-title { 
     color: #FFFFFF; /* Color texto claro */
@@ -146,6 +156,7 @@ body.bg-background-dark {
     font-size: 0.875rem; /* 14px */
     color: #6B7280; /* 'secondary' */
     line-height: 1.6;
+    transition: color 0.3s ease;
 }
 .dark .feature-bio { 
     color: #9CA3AF; /* 'text-secondary' */
@@ -160,6 +171,7 @@ body.bg-background-dark {
     padding: 2rem; /* 32px */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .dark .profile-card, .dark .profile-card-invite {
     background-color: #2a374a;
@@ -179,6 +191,7 @@ body.bg-background-dark {
     font-weight: 700;
     color: #111827;
     margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
 }
 .dark .profile-name { color: #FFFFFF; }
 .profile-role {
@@ -191,6 +204,7 @@ body.bg-background-dark {
     font-size: 0.875rem; /* 14px */
     color: #6B7280; /* 'secondary' */
     margin-bottom: 1rem;
+    transition: color 0.3s ease;
 }
 .dark .profile-bio { color: #9CA3AF; }
 .profile-links {
@@ -231,24 +245,16 @@ body.bg-background-dark {
 
 /* --- Degradado de Texto Animado --- */
 .text-gradient {
-    /* 1. Define un gradiente como fondo */
     /* Gradiente MODO CLARO (oscuro) */
     background-image: linear-gradient(90deg, #4A90E2, #3730A3, #4A90E2);
-    
-    /* 2. Haz el gradiente más grande que el texto */
     background-size: 200% auto;
-    
-    /* 3. Recorta el fondo a la forma del texto */
     background-clip: text;
     -webkit-background-clip: text;
-    
-    /* 4. Vuelve el color del texto transparente */
     color: transparent;
     -webkit-text-fill-color: transparent;
-    
-    /* 5. Anima la posición del fondo */
     animation: text-gradient-move 5s ease-in-out infinite;
 }
+
 /* Gradiente MODO OSCURO (brillante) */
 .dark .text-gradient {
     background-image: linear-gradient(90deg, #4A90E2, #F3F4F6, #4A90E2);
@@ -293,42 +299,67 @@ body.bg-background-dark {
     opacity: 0; /* Oculto en modo claro */
 }
 .dark .wavy-lines-container {
-    opacity: 0.2; /* Visible solo en modo oscuro */
+    opacity: 0.35; /* Aumentado para que resalten */
     mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
 }
 
+/* ================== ESTRUCTURA CORREGIDA PARA BUCLE SUAVE ================== */
+
+/* Este es el NUEVO contenedor <div> que tiene los 2 SVGs */
 .wavy-line {
     position: absolute;
     top: 20%; /* Posición vertical */
     left: 0;
-    width: 200%; /* 200% de la pantalla (para los 2 SVGs) */
+    width: 200%; /* ¡Importante! El contenedor es 200% de ancho */
     height: 300px;
-    display: flex;
-    animation: scroll-wave 30s linear infinite;
+    display: flex; /* Para poner los SVGs uno al lado del otro */
+    animation: scroll-wave linear infinite; /* Animación base */
 }
 
-/* ¡CAMBIO! El SVG ahora tiene 50% de ancho */
+/* Cada SVG dentro del <div> ahora ocupa 50% (formando el 200% total) */
 .wavy-line svg {
     width: 50%;
     flex-shrink: 0;
 }
 
-/* Estilo de las líneas SVG */
+/* --- Aquí creamos el efecto "OLEAJE" --- */
+
+/* Tira 1: Rápida, dirección normal */
+#wavy-line-1 {
+    animation-duration: 30s;
+    animation-direction: normal;
+}
+
+/* Tira 2: Lenta, dirección opuesta */
+#wavy-line-2 {
+    animation-duration: 45s;
+    animation-direction: reverse;
+    opacity: 0.7; /* La hacemos un poco más tenue para dar profundidad */
+}
+
+/* Estilo de las líneas SVG (grosor fijo) */
 .wavy-path-1 {
     stroke: #4A90E2; /* Color primario */
-    stroke-width: 1.5;
+    stroke-width: 2;
 }
+
 .wavy-path-2 {
     stroke: #4A90E2; /* Color primario */
-    stroke-width: 1;
+    stroke-width: 1.5;
     opacity: 0.5;
 }
 
-/* ¡CAMBIO! La animación ahora mueve -50% (un SVG completo) */
+/* La animación AHORA ES CORRECTA:
+   Mueve el contenedor 200% un -50% de su ancho
+   (que es -100% de la pantalla),
+   exactamente el ancho de un SVG.
+*/
 @keyframes scroll-wave {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); } 
 }
+/* ================== FIN CAMBIO ESTRUCTURAL ================== */
+
 
 .blob-container {
     position: fixed;
@@ -364,23 +395,111 @@ body.bg-background-dark {
 .blob-2 {
     width: 300px; height: 300px; left: 70%; top: 20%;
     background: radial-gradient(circle, #3730A3, transparent 60%);
-    animation-duration: 25s; animation-delay: -5s;
+    animation-duration: 25s;
+    animation-delay: -5s;
 }
 .blob-3 {
     width: 250px; height: 250px; left: 40%; top: 70%;
     background: radial-gradient(circle, #E57373, transparent 60%);
-    animation-duration: 35s; animation-delay: -10s;
+    animation-duration: 35s;
+    animation-delay: -10s;
 }
 @keyframes moveBlob {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    100% { transform: translate(100px, -200px) rotate(180deg); }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(100px, -200px) rotate(180deg);
+    }
 }
 
 /* --- Keyframes para el gradiente de texto --- */
 @keyframes text-gradient-move {
-    0%   { background-position: 0% center; }
-    50%  { background-position: 100% center; }
-    100% { background-position: 0% center; }
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
 }
 
-/* ¡¡¡EL ERROR DE SINTAXIS (la llave '}' extra) HA SIDO ELIMINADO DE AQUÍ!!! */
+/* ============================================= */
+/* ========= INICIO ESTILOS DE GALERÍA ========= */
+/* ============================================= */
+
+.gallery-card, .gallery-card-invite {
+    /* CORRECCIÓN: Fondo transparente, sin bordes ni sombras para inmersión total */
+    background-color: transparent; 
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative; 
+    padding: 0; /* Asegura que la tarjeta se ajuste al contenido */
+}
+.dark .gallery-card, .dark .gallery-card-invite {
+    background-color: transparent; 
+    border: none;
+    box-shadow: none;
+}
+
+
+/* --- ESTILO DE LA CAPA SUPERPUESTA (OVERLAY) --- */
+.gallery-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem; 
+    color: white;
+    text-align: center;
+    background: rgba(42, 55, 74, 0.9); /* Fondo semi-transparente */
+    backdrop-filter: blur(2px);
+    transition: background 0.3s ease;
+    border-bottom-left-radius: 0.75rem; /* Bordes redondeados inferiores */
+    border-bottom-right-radius: 0.75rem;
+}
+.dark .gallery-caption-overlay {
+    background: rgba(23, 33, 44, 0.85); /* Fondo aún más oscuro para contraste en Dark Mode */
+}
+/* Aseguramos que el texto del overlay siempre sea blanco y sin transición de color */
+.gallery-caption-overlay .gallery-title {
+    color: white !important;
+    font-weight: 700;
+    transition: none; 
+}
+.gallery-caption-overlay .gallery-bio {
+    color: #D1D5DB !important; /* Gris claro */
+    transition: none;
+}
+/* ----------------------------------------------- */
+
+
+/* --- Nuevo CSS para ocultar la barra de desplazamiento en el carrusel --- */
+
+/* Para navegadores basados en Webkit (Chrome, Safari, Edge) */
+#carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Para navegadores basados en Firefox y IE */
+#carousel-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* 1. Aplica un margen izquierdo al primer elemento del carrusel.
+      Esto compensa el padding lateral del contenedor visual (px-6 = 1.5rem). */
+#carousel-container > div:first-child {
+    margin-left: 1.5rem; /* Esto compensa el padding lateral (px-6) */
+}
+
+/* 2. Añade un espacio vacío al final para que el último item pueda deslizarse completamente. */
+#carousel-container::after {
+    content: "";
+    display: block;
+    width: 1.5rem; /* Mismo ancho que el padding */
+    flex-shrink: 0;
+}

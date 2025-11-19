@@ -3361,5 +3361,193 @@
             "OTRO/A",
             "TAMBIÉN"
         ]
+    },
+    {
+        "texto": "Hola buenos días, esta es una prueba del sistema de transcripción.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Nosotros estamos trabajando en una nueva herramienta para la comunidad SORA de Chile.",
+        "glosas": [
+            "NOSOTROS",
+            "TRABAJAR",
+            "NUEVO/A",
+            "CHILE"
+        ]
+    },
+    {
+        "texto": "inojiente comprende la lengua de señas chilenas. Este proyecto traduce del español a glosas",
+        "glosas": [
+            "COMPRENDER",
+            "LENGUA-DE-SEÑAS",
+            "CHILENO/A",
+            "PROYECTO",
+            "TRADUCIR"
+        ]
+    },
+    {
+        "texto": "en tiempo real. Es un traductor automático.",
+        "glosas": [
+            "TIEMPO",
+            "TRADUCIR"
+        ]
+    },
+    {
+        "texto": "es un traductor automático que esperemos ayude a muchas personas.",
+        "glosas": [
+            "TRADUCIR",
+            "ESPERAR",
+            "AYUDAR",
+            "MUCHAS-VECES",
+            "PERSONA"
+        ]
+    },
+    {
+        "texto": "Probando 123 probando el audio.",
+        "glosas": [
+            "GRABAR-AUDIO",
+            "COMPROBAR",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "probando el audio. Fin de la prueba.",
+        "glosas": [
+            "GRABAR-AUDIO",
+            "PRUEBA",
+            "FINAL"
+        ]
+    },
+    {
+        "texto": "Hola buenos días, esta es una prueba del sistema de transcripción.",
+        "glosas": [
+            "HOLA",
+            "BUENOS-DÍAS",
+            "PRUEBA"
+        ]
+    },
+    {
+        "texto": "Nosotros estamos trabajando en una nueva herramienta para la comunidad.",
+        "glosas": [
+            "NOSOTROS",
+            "TRABAJAR",
+            "NUEVO/A",
+            "HACER"
+        ]
+    },
+    {
+        "texto": "en una nueva herramienta para la comunidad sorda de chile. Sabemos que la educación es muy",
+        "glosas": [
+            "NUEVO/A",
+            "SORDO/A",
+            "EDUCACIÓN"
+        ]
+    },
+    {
+        "texto": "importante. Actualmente solo el 3% de la población oyente comprende la",
+        "glosas": [
+            "IMPORTANTE",
+            "SOLAMENTE",
+            "OYENTE",
+            "COMPRENDER",
+            "3"
+        ]
+    },
+    {
+        "texto": "de la población oyente comprende la lengua de señas chilena. Este proyecto traduce la voz del",
+        "glosas": [
+            "OYENTE",
+            "COMPRENDER",
+            "LENGUA-DE-SEÑAS",
+            "PROYECTO",
+            "TRADUCIR",
+            "VOZ"
+        ]
+    },
+    {
+        "texto": "español a glosas en tiempo real. Es un...",
+        "glosas": [
+            "ESPAÑOL/A",
+            "TIEMPO"
+        ]
+    },
+    {
+        "texto": "glosas en tiempo real. Es un traductor automático que esperemos",
+        "glosas": [
+            "TRADUCIR",
+            "ESPERAR"
+        ]
+    },
+    {
+        "texto": "a ayuda de muchas personas. Probando 123 probando el audio.",
+        "glosas": [
+            "AYUDAR",
+            "MUCHAS-VECES",
+            "GRABAR-AUDIO",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "probando el audio. Fin de la prueba.",
+        "glosas": [
+            "GRABAR-AUDIO",
+            "PRUEBA",
+            "FINAL"
+        ]
+    },
+    {
+        "texto": "iniciando normalmente con toda la captura de audio 1 2 3 probando viendo que todo funciona",
+        "glosas": [
+            "INICIAR",
+            "GRABAR-AUDIO",
+            "MIRAR",
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "correctamente",
+        "glosas": [
+            "CORRECTO/A"
+        ]
+    },
+    {
+        "texto": "viendo que todo funciona correctamente",
+        "glosas": [
+            "MIRAR",
+            "TODO/A",
+            "CORRECTO/A"
+        ]
+    },
+    {
+        "texto": "1, 2, 3",
+        "glosas": [
+            "1",
+            "2",
+            "3"
+        ]
+    },
+    {
+        "texto": "Hola buenas tardes viendo si funciona la configuración.",
+        "glosas": [
+            "HOLA",
+            "BUENAS-TARDES",
+            "MIRAR"
+        ]
+    },
+    {
+        "texto": "Buenas tardes.",
+        "glosas": [
+            "BUENAS-TARDES"
+        ]
     }
 ]

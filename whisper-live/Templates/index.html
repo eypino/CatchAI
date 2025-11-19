@@ -42,16 +42,28 @@
     </div>
     
     <div class="wavy-lines-container">
-        <svg class="wavy-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
-            <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
-            <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
-        </svg>
-        <svg class="wavy-line" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
-            <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
-            <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
-        </svg>
+        <div class="wavy-line" id="wavy-line-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+                <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+                <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+            </svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+                <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+                <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+            </svg>
+        </div>
+        
+        <div class="wavy-line" id="wavy-line-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+                <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+                <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+            </svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 320">
+                <path fill="none" class="wavy-path-1" d="M0,160 C240,100 480,220 720,160 S1200,100 1440,160 C1680,220 1920,100 2160,160 S2640,220 2880,160"></path>
+                <path fill="none" class="wavy-path-2" d="M0,180 C240,240 480,120 720,180 S1200,240 1440,180 C1680,120 1920,240 2160,180 S2640,120 2880,180"></path>
+            </svg>
+        </div>
     </div>
-
     <div id="settingsOverlay" class="fixed inset-0 bg-black/50 z-10 hidden transition-opacity duration-300" aria-hidden="true"></div>
 
     <div class="relative z-10 flex h-screen w-full flex-col">
@@ -59,7 +71,7 @@
         <header class="sticky top-0 z-10 flex items-center justify-between px-6 lg:px-8 py-4 border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
             
             <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary text-3xl">graphic_eq</span>
+                <img src="/static/Image/logo.png" alt="Logo de CatchAI" class="h-10 w-auto">
                 <h1 class="text-2xl font-bold tracking-tight">CatchAI</h1>
             </div>
             
